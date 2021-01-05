@@ -26,12 +26,14 @@ class UpdateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => ['required'],
-            'image' => ['nullable','image','mimes:jpeg,jpg,png']
+            'name_en'   => ['required'],
+            'type'      => ['required'],
+            'image'     => ['nullable','image','mimes:jpeg,jpg,png']
         ];
     }
 
-    public function handle(){
+    public function handle()
+    {
         $this->validated();
 
         $params = $this->all();
@@ -40,7 +42,8 @@ class UpdateCategoryRequest extends FormRequest
         // $image_path = null;
 
         $category                   = Category::find($id);
-        $category->name             = $params['name'];
+        $category->name_en          = $params['name_en'];
+        $category->name_ar          = $params['name_ar'] ?? $params['name_en'];
         $category->parent_id        = $params['parent_id'];
         $category->type             = $params['type'];
         $category->delivery_fees    = $params['delivery_fees'];

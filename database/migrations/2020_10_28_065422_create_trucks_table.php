@@ -15,7 +15,8 @@ class CreateTrucksTable extends Migration
     {
         Schema::create('trucks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 255)->nullable();
+            $table->string('name_en', 255)->nullable();
+            $table->string('name_ar', 255)->nullable();
             $table->integer('sort')->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -29,6 +30,7 @@ class CreateTrucksTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('image_truck');
         Schema::dropIfExists('trucks');
     }
 }

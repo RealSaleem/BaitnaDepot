@@ -1,21 +1,44 @@
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/dropify/css/dropify.min.css')}}">
+<style>
+    .h-100 {
+        height: 100px;
+    }
+</style>
 @endsection
 <div class="row">
-    @foreach(Config::get('app.locales') as $key => $value)
+    {{-- @foreach(Config::get('app.locales') as $key => $value)
 	    <div class="input-field col m6 s6">
 	        <label for="name-{{$key}}">{{ __('category.name_'.$key) }}</label>
 	        <input id="name-{{$key}}" type="text" name="name[{{$key}}]" value="{{ old('name.'.$key, isset($category) ? $category->getTranslation('name',$key) : null) }}">
 	    </div>
-    @endforeach
-    <div class="input-field col m4 s12">
+    @endforeach --}}
+    <div class="input-field col m6 s6 h-100">
+        <label for="name-en">{{ __('category.name_en') }}</label>
+        <input id="name-en" type="text" name="name_en" value="{{ old('name_en', isset($category) ? $category->name_en : null) }}">
+        @if($errors->has('name_en'))
+            <small class="errorTxt">
+                <div class="error mt-1">{{ $errors->first('name_en') }}</div>
+            </small>
+        @endif
+    </div>
+    <div class="input-field col m6 s6 h-100">
+        <label for="name-en">{{ __('category.name_ar') }}</label>
+        <input id="name-en" type="text" name="name_ar" value="{{ old('name_ar', isset($category) ? $category->name_ar : null) }}">
+        @if($errors->has('name_ar'))
+            <small class="errorTxt">
+                <div class="error mt-1">{{ $errors->first('name_ar') }}</div>
+            </small>
+        @endif
+    </div>
+    <div class="input-field col m4 s12 h-100">
         @if(isset($category))
         <select name="parent_id">
         	<option value="">{{ __('category.parent_category') }}</option>
         	@foreach($categories as $catRow)
         		@if((isset($category) && $catRow->parent_id == null) )
 	        		@if($catRow->id != $category->id)
-	        			<option value="{{$catRow->id}}" @if(isset($category)) {{ $category->parent_id == $catRow->id ? 'selected' : null}} @endif>{{$catRow->name}}</option>
+	        			<option value="{{$catRow->id}}" @if(isset($category)) {{ $category->parent_id == $catRow->id ? 'selected' : null}} @endif>{{$catRow->getLocaleName()}}</option>
         			@endif
         		@endif
         	@endforeach
@@ -25,13 +48,13 @@
             <option value="">{{ __('category.parent_category') }}</option>
             @foreach($categories as $catRow)
                 @if($catRow->parent_id == null)
-                    <option value="{{$catRow->id}}" @if(isset($category)) {{ $category->parent_id == $catRow->id ? 'selected' : null}} @endif>{{$catRow->name}}</option>
+                    <option value="{{$catRow->id}}" @if(isset($category)) {{ $category->parent_id == $catRow->id ? 'selected' : null}} @endif>{{$catRow->getLocaleName()}}</option>
                 @endif
             @endforeach
         </select>
         @endif
     </div>
-    <div class="input-field col m4 s12">
+    <div class="input-field col m4 s12 h-100">
         <select name="type" id="cat_type">
         	<option value="">{{ __('category.type') }}</option>
         	<option value="1" @if(isset($category)) {{ $category->getRawOriginal('type') == 1 ? 'selected' : null}} @endif>{{ __('site.ecommerce') }}</option>
@@ -45,11 +68,11 @@
             </small>
         @endif
     </div>
-    <div class="input-field col m4 s12 @if(isset($category)) {{ $category->getRawOriginal('type') != 1 ? 'hide' : null}} @endif" id="delivery_fees_div">
+    <div class="input-field col m4 s12 h-100 @if(isset($category)) {{ $category->getRawOriginal('type') != 1 ? 'hide' : null}} @endif" id="delivery_fees_div">
         <label for="delivery_fees">{{__('category.delivery_fees')}}</label>
         <input id="delivery_fees" type="number" name="delivery_fees" value="{{ old('delivery_fees', isset($category) ? $category->delivery_fees : null) }}">
     </div>
-    <div class="input-field col m4 s12">
+    <div class="input-field col m4 s12 h-100">
         <label for="sort">{{ __('category.sort_order') }}</label>
         <input id="sort" type="number" name="sort" value="{{ old('sort', isset($category) ? $category->sort : null) }}">
     </div>

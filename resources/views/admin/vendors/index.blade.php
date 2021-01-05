@@ -65,9 +65,8 @@
                                     <thead>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
-                                            @foreach(Config::get('app.locales') as $key => $value)
-                                                <th>{{__('site.name_'.$key)}}</th>
-                                            @endforeach
+                                            <th>{{__('vendor.name_en')}}</th>
+                                            <th>{{__('vendor.name_ar')}}</th>
                                             <th>{{__('vendor.phone_number')}}</th>
                                             <th>{{__('vendor.email')}}</th>
                                             <th>{{__('vendor.services')}}</th>
@@ -80,9 +79,11 @@
                                             @foreach($vendors as $vendor)
                                             <tr>
                                                 <td>{{$vendor->id}}</td>
-                                                @foreach(Config::get('app.locales') as $key => $value)
+                                                {{-- @foreach(Config::get('app.locales') as $key => $value)
                                                     <td>{{$vendor->getTranslation('name', $key)}}</td>
-                                                @endforeach 
+                                                @endforeach --}}
+                                                <td>{{$vendor->name_en}}</td>
+                                                <td>{{$vendor->name_ar}}</td>
                                                 <td>{{$vendor->user->mobile}}</td>
                                                 <td>{{$vendor->user->email}}</td>
                                                 <td>
@@ -115,9 +116,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
-                                            @foreach(Config::get('app.locales') as $key => $value)
-                                                <th>{{__('site.name_'.$key)}}</th>
-                                            @endforeach
+                                            <th>{{__('vendor.name_en')}}</th>
+                                            <th>{{__('vendor.name_ar')}}</th>
                                             <th>{{__('vendor.phone_number')}}</th>
                                             <th>{{__('vendor.email')}}</th>
                                             <th>{{__('vendor.services')}}</th>

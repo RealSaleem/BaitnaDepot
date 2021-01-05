@@ -18,24 +18,51 @@
                         @csrf
                         <input type="hidden" name="type" value="{{$page_type}}">
                         <div class="row">
-                            @foreach(Config::get('app.locales') as $key => $value)
-                                <div class="input-field col m6 s12">
-                                    <label for="title-{{$key}}">Title {{__('site.'.$key)}}</label>
-                                    <input id="title-{{$key}}" type="text" name="title[{{$key}}]" 
-                                    value="{{ $page->getTranslation('title', $key) }}">
-                                </div>
-                            @endforeach
-                        </div>
-                        @foreach(Config::get('app.locales') as $key => $key)
-                        <div class="row">
-                            <label class="col m12 s12" for="description-{{$key}}">Description {{__('site.'.$key)}}</label>
-                            <div class="input-field col m12 s12">
-                                <textarea class="materialize-textarea description" id="description-{{$key}}" name="description[{{$key}}]">
-                                    {!! $page->getTranslation('description', $key) !!}
-                                </textarea>
+                            <div class="input-field col m6 s12">
+                                <label for="title-en">{{__('site.title')}} {{__('site.en')}}</label>
+                                <input id="title-en" type="text" name="title_en" value="{{ old('title_en', $page->title_en) }}">
+                                @if($errors->has('title_en'))
+                                    <small class="errorTxt">
+                                        <div class="error mt-1">{{ $errors->first('title_en') }}</div>
+                                    </small>
+                                @endif
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <label for="title-ar">{{__('site.title')}} {{__('site.ar')}}</label>
+                                <input id="title-ar" type="text" name="title_ar" value="{{ old('title_ar', $page->title_ar) }}">
+                                @if($errors->has('title_ar'))
+                                    <small class="errorTxt">
+                                        <div class="error mt-1">{{ $errors->first('title_ar') }}</div>
+                                    </small>
+                                @endif
                             </div>
                         </div>
-                        @endforeach
+                        <div class="row">
+                            <label class="col m12 s12" for="description">{{__('site.description')}} {{__('site.en')}}</label>
+                            <div class="input-field col m12 s12">
+                                <textarea class="materialize-textarea description" id="description_en" name="description_en">
+                                    {!! $page->description_en !!}
+                                </textarea>
+                                @if($errors->has('description_en'))
+                                    <small class="errorTxt">
+                                        <div class="error mt-1">{{ $errors->first('description_en') }}</div>
+                                    </small>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col m12 s12" for="description-ar">{{__('site.description')}} {{__('site.ar')}}</label>
+                            <div class="input-field col m12 s12">
+                                <textarea class="materialize-textarea description" id="description-ar" name="description_ar">
+                                    {!! $page->description_ar !!}
+                                </textarea>
+                                @if($errors->has('description_ar'))
+                                    <small class="errorTxt">
+                                        <div class="error mt-1">{{ $errors->first('description_ar') }}</div>
+                                    </small>
+                                @endif
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="row">
                                 <div class="input-field col s12">

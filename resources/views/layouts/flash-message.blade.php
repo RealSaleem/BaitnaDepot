@@ -52,7 +52,10 @@
 			@if ($errors->any())
 			<div class="card-alert card red lighten-5">
                 <div class="card-content red-text">
-                    <p>Please check the form below for errors</p>
+                    <p>Something went wrong.</p>
+                    {{-- @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach --}}
                 </div>
                 <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>

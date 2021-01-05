@@ -23,7 +23,8 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->nullable();
-            $table->string('name',255)->nullable();
+            $table->string('name_en',255)->nullable();
+            $table->string('name_ar',255)->nullable();
             $table->string('image',255)->nullable();
             $table->string('type',50)->comment('1=ecommerce, 2=contractor 3=heavy trucks');
             $table->integer('delivery_fees')->nullable();

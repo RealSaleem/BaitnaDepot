@@ -31,9 +31,8 @@
                                     <thead>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
-                                            @foreach(Config::get('app.locales') as $key => $value)
-                                                <th>{{__('site.name_'.$key)}}</th>
-                                            @endforeach
+                                            <th>{{__('site.name_en')}}</th>
+                                            <th>{{__('site.name_ar')}}</th>
                                             <th>{{__('category.parent_category')}}</th>
                                             <th>{{__('category.type')}}</th>
                                             <th>{{__('site.actions')}}</th>
@@ -44,9 +43,8 @@
                                             @foreach($categories as $category)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
-                                                @foreach(Config::get('app.locales') as $key => $value)
-                                                    <td>{{$category->getTranslation('name', $key)}}</td>
-                                                @endforeach    
+                                                <td>{{$category->name_en}}</td>
+                                                <td>{{$category->name_ar}}</td>
                                                 <td>{{$category->parent['name']}}</td>
                                                 <td>{{$category->type}}</td>
                                                 <td>
@@ -63,15 +61,14 @@
                                             </tr>
                                             @endforeach
                                         @else
-                                            <td colspan="5">No category found</td>
+                                            <td colspan="5">{{ __('site.no_record_found') }}</td>
                                         @endif
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
-                                            @foreach(Config::get('app.locales') as $key => $value)
-                                                <th>{{__('site.name_'.$key)}}</th>
-                                            @endforeach
+                                            <th>{{__('site.name_en')}}</th>
+                                            <th>{{__('site.name_ar')}}</th>
                                             <th>{{__('category.parent_category')}}</th>
                                             <th>{{__('category.type')}}</th>
                                             <th>{{__('site.actions')}}</th>

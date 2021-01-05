@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Translatable\HasTranslations;
+// use Spatie\Translatable\HasTranslations;
 
 class Category extends Model
 {
-	use HasTranslations;
 	use SoftDeletes;
+	// use HasTranslations;
 
-    protected $fillable  	= ['name', 'type', 'parent_id', 'image', 'delivery_fees', 'sort'];
+    protected $fillable  	= ['name_en', 'name_ar', 'type', 'parent_id', 'image', 'delivery_fees', 'sort'];
     protected $hidden 	 	= ['created_at', 'modified_at' ];
-    public    $translatable = ['name'];
+        // public    $translatable = ['name'];
 
     public function children()
 	{
@@ -25,8 +25,9 @@ class Category extends Model
 	    return $this->belongsTo(Category::class,'parent_id');
 	}
 
-	public function getTypeAttribute(){
-		$type= $this->attributes['type']; 
+	public function getTypeAttribute()
+	{
+		$type = $this->attributes['type']; 
 
 		if($type == 1){
 			return trans('site.ecommerce');
@@ -35,5 +36,14 @@ class Category extends Model
 		} elseif($type == 3){
 			return trans('site.heavy_trucks');
 		}
+	}
+
+	public function getLocaleName()
+	{
+		$lang = \Lang::getLocale();
+		if($lang == 'ar'){
+			return $this->name_ar;
+		}
+		return $this->name_en;
 	}
 }

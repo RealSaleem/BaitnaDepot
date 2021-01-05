@@ -28,7 +28,7 @@ class CreateVendorRequest extends FormRequest
     {
         $params         = $this->all();
         return [
-            'name'      =>  ['required'],
+            'name_en'   =>  ['required'],
             // 'email'     => ['required','email','unique:users'],
             'password'  =>  ['required','confirmed'],
             'mobile'    =>  ['required'],
@@ -46,7 +46,7 @@ class CreateVendorRequest extends FormRequest
         $params         = $this->all();
         // $services       = json_encode($params['services']);
         $user = new User;
-        $user->name     = $params['name']['en'];
+        $user->name     = $params['name_en'];
         $user->email    = $params['email'];
         $user->mobile   = $params['mobile'];
         $user->password = bcrypt($params['password']);
@@ -55,7 +55,8 @@ class CreateVendorRequest extends FormRequest
         $user->save();
 
         $vendor = new Vendor;
-        $vendor->name       = $params['name'];
+        $vendor->name_en    = $params['name_en'];
+        $vendor->name_ar    = $params['name_ar'];
         $vendor->services   = json_encode($params['services']);
         $vendor->user()->associate($user);
 

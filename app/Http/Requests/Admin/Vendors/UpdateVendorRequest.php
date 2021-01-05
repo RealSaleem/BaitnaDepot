@@ -29,7 +29,7 @@ class UpdateVendorRequest extends FormRequest
         $params         = $this->all();
         return [
             // 'email'     => ['required','email','unique:users'],
-            'name'      =>  ['required'],
+            'name_en'   =>  ['required'],
             'mobile'    =>  ['required'],
             'services'  =>  ['required'],
             'logo'      =>  ['nullable', 'image', 'mimes:jpeg,jpg,png'],
@@ -45,14 +45,15 @@ class UpdateVendorRequest extends FormRequest
         $params         = $this->all();
 
         $user = User::find($params['user_id']);
-        $user->name     = $params['name']['en'];
+        $user->name     = $params['name_en'];
         $user->email    = $params['email'];
         $user->mobile   = $params['mobile'];
         $user->save();
 
         $vendor = Vendor::where('user_id', $user->id)->first();
-        $vendor->name       = $params['name'];
-        $vendor->services   = json_encode($params['services']);
+        $vendor->name_en        = $params['name_en'];
+        $vendor->name_ar        = $params['name_ar'];
+        $vendor->services       = json_encode($params['services']);
         if($this->hasFile('logo'))
         {
             // $logo = $this->file('logo');

@@ -32,9 +32,8 @@
                                     <thead>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
-                                            @foreach(Config::get('app.locales') as $key => $value)
-                                                <th>{{__('truck.name_'.$key)}}</th>
-                                            @endforeach
+                                            <th>{{__('truck.name_en')}}</th>
+                                            <th>{{__('truck.name_ar')}}</th>
                                             <th>{{__('truck.created_date')}}</th>
                                             <th>{{__('site.actions')}}</th>
                                         </tr>
@@ -44,9 +43,8 @@
                                             @foreach($trucks as $truck)
                                             <tr>
                                                 <td>{{$truck->id}}</td>
-                                                @foreach(Config::get('app.locales') as $key => $value)
-                                                    <td>{{$truck->getTranslation('name', $key)}}</td>
-                                                @endforeach  
+                                                <td>{{$truck->name_en}}</td>
+                                                <td>{{$truck->name_ar}}</td>
                                                 <td>{{Helper::getFormatedDateTime($truck->created_at)}}</td>
                                                 <td> 
                                                     <span style="display: flex;">

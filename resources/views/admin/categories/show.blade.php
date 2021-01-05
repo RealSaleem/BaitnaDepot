@@ -15,14 +15,26 @@
                             <div class="col s6">
                                 <table class="striped">
                                     <tbody>
-                                        @foreach(Config::get('app.locales') as $key => $value)
+                                        {{-- @foreach(Config::get('app.locales') as $key => $value)
                                         <tr>
                                             <td>{{__('site.name_'.$key)}}:</td>
                                             <td class="users-view-username">
                                                 {{$category->getTranslation('name',$key)}}
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        @endforeach --}}
+                                        <tr>
+                                            <td>{{__('site.name_en')}}:</td>
+                                            <td class="users-view-username">
+                                                {{$category->name}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{__('site.name_ar')}}:</td>
+                                            <td class="users-view-username">
+                                                {{$category->name_ar}}
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td>{{__('category.parent_category')}}:</td>
                                             <td class="users-view-name">{{$category->parent}}</td>

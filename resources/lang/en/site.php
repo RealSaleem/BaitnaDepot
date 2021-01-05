@@ -5,7 +5,7 @@ return [
     'id'                => 'Id',
     'profile'           => 'Profile',
     'store'             => 'Store',
-    'edit_store' 		    => 'Edit Store',
+    'edit_store' 		=> 'Edit Store',
     'en'			    => 'English',
     'ar'                => 'Arabic',
     'name'			    => 'Name',
@@ -30,6 +30,7 @@ return [
     'select'            => 'Select',
     'all'               => 'All',
     'notifications'     => 'Notifications',
+    'no_record_found'   => 'No record found',
     
     /* sidebar */
     'admin'			            => 'Admin',
@@ -43,4 +44,5 @@ return [
     'save'              => 'Save',
     'settings'          => 'Settings',
     'categories'		=> 'Categories',
+
 ];

@@ -26,8 +26,9 @@ class CreateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'type'   => ['required'],
-            'image'  => ['nullable','image','mimes:jpeg,jpg,png']
+            'name_en'   => ['required'],
+            'type'      => ['required'],
+            'image'     => ['nullable','image','mimes:jpeg,jpg,png']
         ];
     }
 
@@ -37,9 +38,9 @@ class CreateCategoryRequest extends FormRequest
 
         $params = $this->all();
         // $image_path = null;
-
         $category                   = new Category();
-        $category->name             = $params['name'];
+        $category->name_en          = $params['name_en'];
+        $category->name_ar          = $params['name_ar'] ?? $params['name_en'];
         $category->parent_id        = $params['parent_id'];
         $category->type             = $params['type'];
         $category->delivery_fees    = $params['delivery_fees'];

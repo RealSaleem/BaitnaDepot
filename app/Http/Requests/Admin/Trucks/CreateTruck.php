@@ -25,16 +25,17 @@ class CreateTruck extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_en' => 'required'
         ];
     }
 
-    public function handle(){
-
+    public function handle()
+    {
         $params = $this->all();
 
         $truck          = new Truck;
-        $truck->name    = $params['name'];
+        $truck->name_en = $params['name_en'];
+        $truck->name_ar = $params['name_ar'] ?? $params['name_en'];
         $truck->save();
 
         return $truck;

@@ -16,7 +16,7 @@ class CreateWebSocialLinksTable extends Migration
         Schema::create('web_social_links', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vendor_id')->unsigned()->nullable();
-            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
+            // $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
             $table->string('facebook', 100)->nullable();
             $table->string('twitter', 100)->nullable();
             $table->string('instagram', 100)->nullable();

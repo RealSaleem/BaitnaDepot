@@ -25,7 +25,7 @@ class UpdateTruck extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_en'  => ['required']
         ];
     }
 
@@ -34,8 +34,9 @@ class UpdateTruck extends FormRequest
         $id = $this->id;
         $params = $this->all();
 
-        $truck          = Truck::find($id);
-        $truck->name    = $params['name'];
+        $truck              = Truck::find($id);
+        $truck->name_en     = $params['name_en'];
+        $truck->name_ar     = $params['name_ar'];
         $truck->save();
 
         return $truck;
