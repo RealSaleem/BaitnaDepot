@@ -60,7 +60,7 @@
     <!-- END: Header-->
 
     <!-- BEGIN: SideNav-->
-    @include('layouts.navigation')
+    @include(Auth::guard('admin')->check() ? 'admin.layouts.navigation' : 'layouts.navigation')
     <!-- END: SideNav-->
 
     <!-- BEGIN: Page Main-->
@@ -73,6 +73,8 @@
     <!-- BEGIN: Footer-->
     @include('layouts.footer')
     @include('layouts.scripts')
+    {{-- @include('layouts.sweetalert') --}}
+
 </body>
 
 </html>

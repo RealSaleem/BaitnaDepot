@@ -5,6 +5,8 @@
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="accordion">
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('products.index')}}"><i class="material-icons">business</i><span class="menu-title" data-i18n="Support">{{__('product.main')}}</span></a>
         </li>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('contractor_working_hours')}}"><i class="material-icons">access_time</i><span class="menu-title" data-i18n="Support">{{__('working_hours.main')}}</span></a>
+        </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('social_links')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('setting.social_media') }}</span></a>
         </li>
     </ul>

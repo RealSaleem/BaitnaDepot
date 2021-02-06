@@ -10,7 +10,7 @@
     {{-- <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script> 
     <script src="{{ asset('app-assets/js/scripts/data-tables.js') }}"></script> --}}
     <script src="{{ asset('app-assets/js/scripts/ui-alerts.js') }}"></script>
-
+    <script src="{{asset('app-assets/vendors/sweetalert/sweetalert.min.js')}}"></script>
     <script>
 	    $(function () {
 	        $('#jqueryTable').DataTable({
@@ -26,14 +26,14 @@
 	        });
 
 
-			$('#page-length-option').DataTable({
-				// "responsive": true,
-				// "lengthMenu": [
-				//   [10, 25, 50, -1],
-				//   [10, 25, 50, "All"]
-				// ]
-				'scrollX':true
-			});
+			// $('#page-length-option').DataTable({
+			// 	// "responsive": true,
+			// 	// "lengthMenu": [
+			// 	//   [10, 25, 50, -1],
+			// 	//   [10, 25, 50, "All"]
+			// 	// ]
+			// 	'scrollX':true
+			// });
 	    });
 	</script> 
     @yield('scripts')

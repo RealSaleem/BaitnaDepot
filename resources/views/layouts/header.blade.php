@@ -25,9 +25,11 @@
                 </ul>
                 <!-- profile-dropdown-->
                 <ul class="dropdown-content" id="profile-dropdown">
+                    @if(!Auth::guard('admin')->check())
                     <li><a class="grey-text text-darken-1" href="{{route('store')}}"><i class="material-icons">person_outline</i> {{ __('site.store') }}</a></li>
                     <li class="divider"></li>
-                    <li><a class="grey-text text-darken-1" href="{{route('change_password')}}"><i class="material-icons">lock_outline</i> {{__('site.change_password')}}</a></li>
+                    @endif
+                    <li><a class="grey-text text-darken-1" href="{{route(Auth::guard('admin')->check() ? 'admin.change_password' : 'change_password')}}"><i class="material-icons">lock_outline</i> {{__('site.change_password')}}</a></li>
                     <li>
                         <a class="grey-text text-darken-1" 
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();
@@ -38,7 +40,7 @@
                 </ul>
             </div>
         </nav>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        <form id="logout-form" action="{{ route(Auth::guard('admin')->check() ? 'admin.logout' : 'logout') }}" method="POST" class="d-none">
             @csrf
         </form>
     </div>

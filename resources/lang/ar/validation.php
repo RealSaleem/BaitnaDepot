@@ -133,6 +133,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'mobile' => [
+            'digits_between' => 'Mobile number must be 8 digits ARABIC'
+        ],
+        'name_en'  => [
+            'required' => 'This field is required'
+        ],
     ],
 
     /*

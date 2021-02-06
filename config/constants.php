@@ -23,3 +23,11 @@ if(!defined('APPROVED')){
 if(!defined('DECLINED')){
 	define('DECLINED', 2);
 }
+
+if(!defined('OPEN')){
+	define('OPEN', 1);
+}
+
+if(!defined('CLOSE')){
+	define('CLOSE', 0);
+}

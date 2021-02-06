@@ -19,5 +19,7 @@ return [
     'vendor_has_been_added_successfully'    => 'Vendor has been added successfully',
     'vendor_declined'                       => 'Vendor has been declined successfully',
     'password_changed_successfully'         => 'Password has been changed successfully',
-
+    'login_failed'                          => 'Login failed, please try again',
+    'confirm_delete'                        => 'Are you sure you want to delete?',
+    'confirm_declined_vendor_request'       => 'Are you sure you want to declined\'s vendor request?'
 ];

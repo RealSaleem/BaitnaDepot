@@ -14,3 +14,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .mh-100 {
 	min-height: 100px !important;
 }
+
+.h-100 {
+    height: 100px;
+}
