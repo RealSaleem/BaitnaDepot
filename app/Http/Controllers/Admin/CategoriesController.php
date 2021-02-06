@@ -90,7 +90,7 @@ class CategoriesController extends Controller
         $request['id'] = $id;
         $category    = $request->handle();
         
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->withSuccess('Record has been updated successfully');
     }
 
     /**
@@ -102,7 +102,8 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category = $category->delete();
+        \App\Helpers\Helper::deleteAttachment($category->image);
+        $category->delete();
         
         return redirect()->route('admin.categories.index');
     }

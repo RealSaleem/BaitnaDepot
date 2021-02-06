@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -9,6 +9,7 @@
                     <form method="post" action="{{ route('admin.categories.update',$category->id) }}" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('PUT') }}
+                        <input type="hidden" name="hidden_image" id="hidden_image" value="{{ $category->image }}" />
                         @include('admin.categories.forms.form')
                     </form>
                 </div>

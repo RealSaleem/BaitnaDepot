@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
 @endsection
@@ -26,7 +26,7 @@
                                         <tr>
                                             <td>{{__('site.name_en')}}:</td>
                                             <td class="users-view-username">
-                                                {{$category->name}}
+                                                {{$category->name_en}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -51,7 +51,9 @@
                                 </table>
                             </div>
                             <div class="col s6">
-                                <img src="{{$category->image}}" alt="Category Image" class="responsive-img" style="width: 100%; height: auto">
+                                @if(isset($category) && $category->image != null)
+                                    <img src="{{asset('storage/'.$category->image)}}" alt="Category Image" class="responsive-img" style="width: 100%; height: auto">
+                                @endif
                             </div>
                         </div>
                         <!-- </div> -->

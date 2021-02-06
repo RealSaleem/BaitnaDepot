@@ -48,8 +48,8 @@ class CreateCategoryRequest extends FormRequest
 
         if($this->hasFile('image'))
         {
-            $image_path = $this->file('image')->store('category');
-            $image_path = env('IMAGE_BASE_URL').$image_path;
+            $image_path = $this->file('image')->store('uploads/images');
+            // $image_path = env('IMAGE_BASE_URL').$image_path;
             $category->image = $image_path;
         }
 

@@ -49,12 +49,14 @@ class UpdateCategoryRequest extends FormRequest
         $category->delivery_fees    = $params['delivery_fees'];
         $category->sort             = $params['sort'];
 
-        if($this->hasFile('image'))
+        if($this->hasFile('image') && isset($params['image']))
         {
             // $image = $this->file('image');
-            $image_path = $this->file('image')->store('images/category');
-            $image_path = env('IMAGE_BASE_URL').$image_path;
+            $image_path = $this->file('image')->store('uploads/images');
             $category->image = $image_path;
+        } elseif($params['hidden_image'] == null) {
+            \App\Helpers\Helper::deleteAttachment($category->image);
+            $category->image        = null;
         }
 
         $category->save();

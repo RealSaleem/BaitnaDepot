@@ -78,8 +78,8 @@
     </div>
     <!--Default version-->
     <div class="input-field col s12 m8 l12">
-        @if(isset($category))
-            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{$category->image}}" data-max-file-size="2M"/>
+        @if(isset($category) && $category->image != null)
+            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{asset('storage/'.$category->image)}}" data-max-file-size="2M"/>
         @else
             <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M"/>
         @endif
@@ -99,7 +99,6 @@
 </div>
 @section('scripts')
 <script src="{{asset('app-assets/vendors/dropify/js/dropify.min.js')}}"></script>
-<script src="{{asset('app-assets/js/scripts/form-file-uploads.js')}}"></script>
 <script>
     $('#cat_type').change(function(){
         var type = $(this).val();
@@ -108,6 +107,13 @@
         } else {
             $('#delivery_fees_div').addClass('hide');
         }
+    });
+</script>
+
+<script>
+    var drEvent = $('.dropify').dropify();
+    drEvent.on('dropify.beforeClear', function(event, element){
+        $('#hidden_image').val(null);
     });
 </script>
 @endsection

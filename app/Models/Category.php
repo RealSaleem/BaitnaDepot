@@ -12,7 +12,7 @@ class Category extends Model
 	// use HasTranslations;
 
     protected $fillable  	= ['name_en', 'name_ar', 'type', 'parent_id', 'image', 'delivery_fees', 'sort'];
-    protected $hidden 	 	= ['created_at', 'modified_at' ];
+    protected $hidden 	 	= ['created_at', 'updated_at', 'deleted_at'];
         // public    $translatable = ['name'];
 
     public function children()

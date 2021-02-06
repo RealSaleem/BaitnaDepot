@@ -32,6 +32,7 @@ class GetAllCategoryRequest extends FormRequest
 
         $params = $this->all();
 
+        // $categories = Category::with(['children','parent'])->paginate(\Config::get('app.pagination_per_page'));
         $categories = Category::with(['children','parent'])->get();
 
         return $categories;
