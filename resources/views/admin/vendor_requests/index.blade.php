@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('styles')
     
 @endsection
@@ -56,13 +56,11 @@
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
                                                 <td> 
-                                                    <span style="display: flex;">
-                                                        <a href="{{route('admin.vendor_requests.id', $vendor->id)}}" class="waves-effect waves-light btn btn-small">{{__('site.detail')}}</a>
-                                                        @if($vendor->status == 0)
-                                                            <a href="{{route('admin.approve_vendor', $vendor->id)}}" class="waves-effect waves-light btn btn-small ml-1">{{__('vendor.approve')}}</a>
-                                                            <a href="{{route('admin.declined_vendor_request',$vendor->id)}}" class="waves-effect waves-light red btn btn-small ml-1">{{__('vendor.decline')}}</a>
-                                                        @endif
-                                                    </span>
+                                                    <a href="{{route('admin.vendor_requests.id', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.detail')}}</a>
+                                                    @if($vendor->status == 0)
+                                                        <a href="{{route('admin.approve_vendor', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('vendor.approve')}}</a>
+                                                        <a href="{{route('admin.declined_vendor_request',$vendor->id)}}" class="waves-effect waves-light red accent-2 btn btn-small mb-2 declined-request">{{__('vendor.decline')}}</a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -90,4 +88,54 @@
         </div>
     </div> 
 </div>
+@endsection
+@section('scripts')
+<script>
+    $(function () {
+        $('#page-length-option').DataTable({
+            // "responsive": true,
+            // "lengthMenu": [
+            //   [10, 25, 50, -1],
+            //   [10, 25, 50, "All"]
+            // ]
+            'scrollX':true
+        });
+    });
+</script>
+<script>
+    $('.declined-request').on('click', function(e) {
+        e.preventDefault();
+        var url = this.href;
+        swal({
+            text: "{!! trans('toaster.confirm_declined_vendor_request') !!}",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            buttons: {
+                cancel: {
+                text: "{!! trans('site.cancel') !!}",
+                value: false,
+                visible: true,
+                className: ""
+              },
+              confirm: {
+                text: "{!! trans('site.ok') !!}",
+                value: true,
+                visible: true,
+                className: ""
+              }
+            },
+            closeOnClickOutside: false
+        })
+        .then((isConfirm) => {
+            console.log(isConfirm);
+          if (isConfirm) {
+            window.location.href= url;
+            return true;
+          } else {
+            return false;
+          }
+        });
+    });
+</script>
 @endsection

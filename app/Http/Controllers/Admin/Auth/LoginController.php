@@ -90,10 +90,8 @@ class LoginController extends Controller
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
-    private function loginFailed(){
-	    return redirect()
-	        ->back()
-	        ->withInput()
-	        ->with('error','Login failed, please try again!');
+    private function loginFailed()
+    {
+	   return redirect()->back()->withInput()->withError(\Lang('toaster.login_failed!'));
 	}
 }
