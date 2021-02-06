@@ -10,9 +10,14 @@
         </h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="accordion">
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.advertisements.index')}}"><i class="material-icons">aspect_ratio</i><span class="menu-title">{{ __('site.advertisements') }}</span></a>
+        </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.categories.index')}}"><i class="material-icons">pages</i><span class="menu-title">{{ __('site.categories') }}</span></a>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.heavy_trucks.index')}}"><i class="material-icons">local_shipping</i><span class="menu-title">{{ __('truck.main') }}</span></a>
+        {{--<li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.heavy_trucks.index')}}"><i class="material-icons">local_shipping</i><span class="menu-title">{{ __('truck.main') }}</span></a>
+        </li>--}}
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.products.index')}}"><i class="material-icons">business
+</i><span class="menu-title">{{ __('product.main') }}</span></a>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.vendors.index')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('vendor.main') }}</span></a>
         </li>

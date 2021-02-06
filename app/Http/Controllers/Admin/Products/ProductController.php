@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Products;
+namespace App\Http\Controllers\Admin\Products;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,6 @@ use App\Http\Requests\Vendor\Product\GetAllProductsRequest;
 use App\Http\Requests\Vendor\Product\GetProductRequest;
 use App\Http\Requests\Vendor\Product\CreateProductRequest;
 use App\Http\Requests\Vendor\Product\UpdateProductRequest;
-use App\Models\Product;
 use App\Models\Color;
 
 class ProductController extends Controller
@@ -48,6 +47,7 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
+        dd($request->all());
         $product = $request->handle();
         return redirect()->route('products.index')->withSuccess(\Lang::get('toaster.created_successfully'));
     }
@@ -109,9 +109,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::with('images')->find($id);
-        $product->delete();
-
-        return redirect()->back()->withSuccess(\Lang::get('toaster.deleted_successfully'));
+        //
     }
 }

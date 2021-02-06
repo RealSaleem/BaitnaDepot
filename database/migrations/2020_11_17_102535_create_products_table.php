@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->text('description_en')->nullable();
             $table->text('description_ar')->nullable();
             $table->decimal('price', 9, 3)->nullable();
+            $table->integer('quantity')->nullable();
+            $table->decimal('delivery_fees', 9, 3)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +36,7 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('product_images');
         Schema::dropIfExists('products');
     }
 }
