@@ -27,9 +27,17 @@ class UpdateVendorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      =>  ['required'],
-            'mobile'    =>  ['required'],
+            'name_en'   =>  ['required'],
+            'mobile'    =>  ['required', 'min:8', 'max:8'],
             'logo'      =>  ['nullable', 'image', 'mimes:jpeg,jpg,png']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'mobile.min' => trans('validation.custom.mobile.digits_between'),
+            'mobile.max' => trans('validation.custom.mobile.digits_between')
         ];
     }
 
@@ -40,19 +48,21 @@ class UpdateVendorRequest extends FormRequest
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
 
-        $user->name     = $params['name']['en'];
+        $user->name     = $params['name_en'];
         $user->mobile   = $params['mobile'];
         $user->save();
 
         $vendor         = Vendor::where('user_id', $user_id)->first();
-        $vendor->name   = $params['name'];
+        $vendor->name_en   = $params['name_en'];
+        $vendor->name_ar   = $params['name_ar'] != null ? $params['name_ar'] : $params['name_en'];
 
-        if($this->hasFile('logo'))
+        if($this->hasFile('logo') && isset($params['logo']))
         {
-            // $logo = $this->file('logo');
-            $logo_path      = $this->file('logo')->store('logo');
-            $logo_path      = env('IMAGE_BASE_URL').$logo_path;
+            $logo_path      = $this->file('logo')->store('uploads/images');
             $vendor->logo   = $logo_path;
+        } elseif($params['hidden_image'] == null) {
+            \App\Helpers\Helper::deleteAttachment($vendor->logo);
+            $vendor->logo   = null;
         }
 
         $vendor->save();

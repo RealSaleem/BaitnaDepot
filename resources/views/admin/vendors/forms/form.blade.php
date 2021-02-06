@@ -92,8 +92,8 @@
         </div>
         <div class="input-field col s12 m8 l12">
             <label for="categories" style="display: contents;">{{__('vendor.store_logo')}}</label>
-            @if(isset($vendor))
-                <input type="file" id="input-file-now" name="logo" class="dropify" data-default-file="{{$vendor->logo}}" data-max-file-size="2M"/>
+            @if(isset($vendor) && $vendor->logo != null)
+                <input type="file" id="input-file-now" name="logo" class="dropify" data-default-file="{{asset('storage/'. $vendor->logo)}}" data-max-file-size="2M"/>
             @else
                 <input type="file" id="input-file-now" name="logo" class="dropify" data-default-file="" data-max-file-size="2M"/>
             @endif
@@ -114,7 +114,6 @@
 @section('scripts')
 <script src="{{asset('app-assets/vendors/select2/select2.full.min.js')}}"></script>
 <script src="{{asset('app-assets/vendors/dropify/js/dropify.min.js')}}"></script>
-<script src="{{asset('app-assets/js/scripts/form-file-uploads.js')}}"></script>
 <script>
     $(function () {
         $(".select2").select2({
@@ -123,6 +122,13 @@
             dropdownAutoWidth: true,
             width: '100%'
         });
+    });
+</script>
+
+<script>
+    var drEvent = $('.dropify').dropify();
+    drEvent.on('dropify.beforeClear', function(event, element){
+        $('#hidden_logo').val(null);
     });
 </script>
 @endsection

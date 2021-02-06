@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -11,6 +11,7 @@
                         {{method_field('PUT')}}
                         <input type="hidden" name="user_id" value="{{$vendor->user->id}}">
                         <input type="hidden" name="vendor_id" value="{{$vendor->id}}">
+                        <input type="hidden" name="hidden_logo" id="hidden_logo" value="{{$vendor->logo}}">
                         @include('admin.vendors.forms.form')
                     </form>
                 </div>

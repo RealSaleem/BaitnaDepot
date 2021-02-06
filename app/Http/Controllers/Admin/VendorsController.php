@@ -98,9 +98,10 @@ class VendorsController extends Controller
      */
     public function destroy($id)
     {
-        $user   = User::find($id);
-        $vendor = vendor::where('user_id', $id)->first();
-        $user->delete();
+        // $user   = User::find($id);
+        // $user->delete();
+        $vendor = Vendor::where('user_id', $id)->first();
+        \App\Helpers\Helper::deleteAttachment($vendor->logo);
         $vendor->delete();
 
         return redirect()->route('admin.vendors.index')->withSuccess(trans('toaster.deleted_successfully'));

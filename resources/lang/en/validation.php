@@ -133,6 +133,13 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
+        'mobile' => [
+            'digits_between' => 'Mobile number must be 8 digits'
+        ],
+        'name_en'  => [
+            'required' => 'The name field is required'
+        ],
     ],
 
     /*

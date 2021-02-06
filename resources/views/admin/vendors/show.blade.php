@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
 @endsection
@@ -15,14 +15,26 @@
                             <div class="col s6">
                                 <table class="striped">
                                     <tbody>
-                                        @foreach(Config::get('app.locales') as $key => $value)
+                                        {{-- @foreach(Config::get('app.locales') as $key => $value)
                                         <tr>
                                             <td>{{__('site.name_'.$key)}}:</td>
                                             <td class="users-view-username">
                                                 {{$vendor->getTranslation('name',$key)}}
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        @endforeach --}}
+                                        <tr>
+                                            <td>{{__('site.name_en')}}:</td>
+                                            <td class="users-view-username">
+                                                {{$vendor->name_en}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{__('site.name_ar')}}:</td>
+                                            <td class="users-view-username">
+                                                {{$vendor->name_ar}}
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td>{{__('vendor.email')}}:</td>
                                             <td class="users-view-name">{{$vendor->user->email}}</td>
@@ -47,7 +59,9 @@
                                 </table>
                             </div>
                             <div class="col s6">
-                                <img src="{{$vendor->logo}}" class="responsive-img" style="width: 100%; height: auto">
+                                @if(isset($vendor) && $vendor->logo != null)
+                                    <img src="{{asset('storage/'.$vendor->logo)}}" class="responsive-img" style="width: 100%; height: auto">
+                                @endif
                             </div>
                         </div>
                         <!-- </div> -->

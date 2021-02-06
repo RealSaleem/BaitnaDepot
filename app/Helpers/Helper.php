@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Support\Facades\File;
 
 Class Helper {
 
@@ -44,5 +45,21 @@ Class Helper {
 		}
 
 		return $serviceName;
+	}
+
+	/* delete/remove image or attachment from directory */
+	public static function deleteAttachment($attachment)
+	{
+		$attachment_path = public_path().'/storage/'.$attachment;
+        $attachment_path = str_replace('/', "\\", $attachment_path);
+        // dd($attachment_path);
+        // dd(File::exists($attachment_path));
+        if(File::exists($attachment_path)) {
+        	File::delete($attachment_path);
+
+        	return true;
+        } else {
+        	return false;
+        }
 	}
 } 

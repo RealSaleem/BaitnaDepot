@@ -62,9 +62,8 @@ class CreateVendorRequest extends FormRequest
 
         if($this->hasFile('logo'))
         {
-            // $logo = $this->file('logo');
-            $logo_path      = $this->file('logo')->store('logo');
-            $logo_path      = env('IMAGE_BASE_URL').$logo_path;
+            $logo_path      = $this->file('logo')->store('uploads/images');
+            // $logo_path      = env('IMAGE_BASE_URL').$logo_path;
             $vendor->logo   = $logo_path;
         }
 

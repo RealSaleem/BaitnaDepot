@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('styles')
     
 @endsection
@@ -79,13 +79,10 @@
                                             @foreach($vendors as $vendor)
                                             <tr>
                                                 <td>{{$vendor->id}}</td>
-                                                {{-- @foreach(Config::get('app.locales') as $key => $value)
-                                                    <td>{{$vendor->getTranslation('name', $key)}}</td>
-                                                @endforeach --}}
                                                 <td>{{$vendor->name_en}}</td>
                                                 <td>{{$vendor->name_ar}}</td>
-                                                <td>{{$vendor->user->mobile}}</td>
-                                                <td>{{$vendor->user->email}}</td>
+                                                <td>{{$vendor->user != null ? $vendor->user->mobile : null}}</td>
+                                                <td>{{$vendor->user != null ? $vendor->user->email : null}}</td>
                                                 <td>
                                                     @php
                                                         $services = json_decode($vendor->services);
@@ -97,14 +94,14 @@
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
                                                 <td> 
                                                     <span>
-                                                        <a href="{{route('admin.vendors.show', $vendor->id)}}" class="waves-effect waves-light btn btn-small">{{__('site.view')}}</a>
-                                                        <a href="{{route('admin.vendors.edit', $vendor->id)}}" class="waves-effect waves-light btn btn-small">{{__('site.edit')}}</a>
-                                                        <form action="{{route('admin.vendors.destroy', $vendor->id)}}" method="POST">
+                                                        <a href="{{route('admin.vendors.show', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>
+                                                        <a href="{{route('admin.vendors.edit', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
+                                                        <form action="{{route('admin.vendors.destroy', $vendor->id)}}" method="POST" class="delete-record">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="waves-effect waves-light red btn btn-small">{{__('site.delete')}}</button>
+                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
                                                         </form>
-                                                        <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" class="waves-effect waves-light red btn btn-small">{{__('site.reset_password')}}</a>
+                                                        <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" class="waves-effect waves-light red accent-2 btn btn-small">{{__('site.reset_password')}}</a>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -176,6 +173,49 @@
         //   [10, 25, 50, "All"]
         // ]
         'scrollX':true
+    });
+</script>
+<script>
+    // function confirm_delete(){
+    $('.delete-record').submit(function(e) {
+        e.preventDefault();
+
+        swal({
+            // title: "{!! trans('toaster.confirm_delete') !!}",
+            text: "{!! trans('toaster.confirm_delete') !!}",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            buttons: {
+                cancel: {
+                text: "{!! trans('site.cancel') !!}",
+                value: false,
+                visible: true,
+                className: ""
+              },
+              confirm: {
+                text: "{!! trans('site.ok') !!}",
+                value: true,
+                visible: true,
+                className: ""
+              }
+            },
+            closeOnClickOutside: false
+        })
+        .then((isConfirm) => {
+            console.log(isConfirm);
+          if (isConfirm) {
+            this.submit();
+            return true;
+            // swal("Poof! Your imaginary file has been deleted!", {
+            //   icon: "success",
+            // });
+          } else {
+            return false;
+            // swal("Your imaginary file is safe!");
+          }
+        });
+    // }
     });
 </script>
 @endsection

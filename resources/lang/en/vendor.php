@@ -5,6 +5,7 @@ return [
 
     'main'                     => 'Vendors',
     'vendor_name'              => 'Vendor Name',
+    'vendor'                   => 'Vendor',
     'email'                    => 'Email',
     'password'                 => 'Password',
     'confirm_password'         => 'Confirm password',

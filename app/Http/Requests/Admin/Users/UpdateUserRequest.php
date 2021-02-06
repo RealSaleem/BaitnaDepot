@@ -40,6 +40,18 @@ class UpdateUserRequest extends FormRequest
         ];
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'mobile.digits_between' => trans('validation.custom.mobile.digits_between'),
+        ];
+    }
+
     public function handle($id){
         $params = $this->all();
 

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
@@ -132,14 +132,14 @@
                                                 <td>{{$user->last_login != null ? Helper::getFormatedDateTime($user->last_login) : null}}</td>
                                                 <td> 
                                                     <span>
-                                                        <a href="{{route('admin.users.show', $user->id)}}" class="waves-effect waves-light btn btn-small">{{__('site.view')}}</a>
-                                                        <a href="{{route('admin.users.edit', $user->id)}}" class="waves-effect waves-light btn btn-small">{{__('site.edit')}}</a>
-                                                        <form action="{{route('admin.users.destroy', $user->id)}}" method="POST">
+                                                        <a href="{{route('admin.users.show', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>
+                                                        <a href="{{route('admin.users.edit', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
+                                                        <form action="{{route('admin.users.destroy', $user->id)}}" method="POST" class="delete-record">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="waves-effect waves-light red btn btn-small">{{__('site.delete')}}</button>
+                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
                                                         </form>
-                                                        <a href="javascript:;" onclick="return reset_password({{$user->id}})" class="waves-effect waves-light red btn btn-small">{{__('site.reset_password')}}</a>
+                                                        <a href="javascript:;" onclick="return reset_password({{$user->id}})" class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.reset_password')}}</a>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -239,6 +239,41 @@
                 } 
             }
         ]
+    });
+</script>
+<script>
+    $('.delete-record').submit(function(e) {
+        e.preventDefault();
+        swal({
+            text: "{!! trans('toaster.confirm_delete') !!}",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            buttons: {
+                cancel: {
+                text: "{!! trans('site.cancel') !!}",
+                value: false,
+                visible: true,
+                className: ""
+              },
+              confirm: {
+                text: "{!! trans('site.ok') !!}",
+                value: true,
+                visible: true,
+                className: ""
+              }
+            },
+            closeOnClickOutside: false
+        })
+        .then((isConfirm) => {
+            console.log(isConfirm);
+          if (isConfirm) {
+            this.submit();
+            return true;
+          } else {
+            return false;
+          }
+        });
     });
 </script>
 @endsection

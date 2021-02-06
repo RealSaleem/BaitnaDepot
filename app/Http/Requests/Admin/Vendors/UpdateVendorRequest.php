@@ -56,11 +56,14 @@ class UpdateVendorRequest extends FormRequest
         $vendor->services       = json_encode($params['services']);
         if($this->hasFile('logo'))
         {
-            // $logo = $this->file('logo');
-            $logo_path      = $this->file('logo')->store('logo');
-            $logo_path      = env('IMAGE_BASE_URL').$logo_path;
+            \App\Helpers\Helper::deleteAttachment($vendor->logo);
+            $logo_path      = $this->file('logo')->store('uploads/images');
             $vendor->logo   = $logo_path;
+        } else if($params['hidden_logo'] == null){
+            \App\Helpers\Helper::deleteAttachment($vendor->logo);
+            $vendor->logo = null;
         }
+
         $vendor->save();
 
         return $user;
