@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'pagination_per_page' => env('PAGINATION_PER_PAGE', 10),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -67,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Karachi',//'UTC',
 
     /*
     |--------------------------------------------------------------------------

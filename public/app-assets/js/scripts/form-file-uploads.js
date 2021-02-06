@@ -13,7 +13,7 @@ $(document).ready(function(){
     });*/
 
     // Used events
-    var drEvent = $('.dropify-event').dropify();
+    /*var drEvent = $('.dropify-event').dropify();
 
     drEvent.on('dropify.beforeClear', function(event, element){
         return confirm("Do you really want to delete \"" + element.filename + "\" ?");
@@ -21,5 +21,5 @@ $(document).ready(function(){
 
     drEvent.on('dropify.afterClear', function(event, element){
         alert('File deleted');
-    });
+    });*/
 });
