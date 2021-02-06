@@ -13,17 +13,6 @@ class TruckSeeder extends Seeder
      */
     public function run()
     {
-        // Truck::factory()
-	       //  ->times(20)
-	       //  ->create();
-
-	    // factory(\App\Models\Truck::class, 10)->create();
-
-	    DB::table('trucks')->insert([
-            'name_en'       => Str::random(10),
-            'name_ar'       => Str::random(10),
-            'created_at'    => \Carbon\Carbon::now(),
-            'updated_at'    => \Carbon\Carbon::now()
-        ]);
+	    $trucks = factory(Truck::class, 25)->create();
     }
 }

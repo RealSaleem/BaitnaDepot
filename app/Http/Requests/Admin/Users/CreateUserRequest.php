@@ -41,6 +41,19 @@ class CreateUserRequest extends FormRequest
         ];
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'mobile.min' => trans('validation.custom.mobile.digits_between'),
+            'mobile.max' => trans('validation.custom.mobile.digits_between')
+        ];
+    }
+
     public function handle(){
         $params = $this->all();
 
