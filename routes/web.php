@@ -16,20 +16,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('colors', 'TestController@getColors');
 
 Route::get('lang/{locale}', 'LocalizationController@lang');
-Auth::routes();
-Route::get('/home', 'VendorController@dashboard')->name('home');
-Route::get('dashboard', 'VendorController@dashboard')->name('dashboard');
-Route::get('store','VendorController@index')->name('store');
-Route::get('edit_store','VendorController@edit_store')->name('edit_store');
-Route::post('edit_store','VendorController@update_store')->name('edit_store');
-Route::get('social_links', 'VendorController@getSocial')->name('social_links');
-Route::post('social_links', 'VendorController@saveSocial')->name('social_links');
-Route::resource('products','ProductController')->name('*','products');
+Route::post('/image_upload', 'ImageController@imageUplaod');
 
 Route::get('change_password','Auth\ChangePasswordController@ShowChangePasswordForm')->name('change_password');
 Route::post('change_password','Auth\ChangePasswordController@changePassword')->name('change_password');
+
+Auth::routes();
+Route::group(['middleware' => 'auth'],function(){
+	Route::get('/home', 'VendorController@dashboard')->name('home');
+	Route::get('dashboard', 'VendorController@dashboard')->name('dashboard');
+	Route::get('store','VendorController@index')->name('store');
+	Route::get('edit_store','VendorController@edit_store')->name('edit_store');
+	Route::post('edit_store','VendorController@update_store')->name('edit_store');
+	Route::get('social_links', 'VendorController@getSocial')->name('social_links');
+	Route::post('social_links', 'VendorController@saveSocial')->name('social_links');
+	Route::resource('products','Products\ProductController')->name('*','products');
+	Route::get('contractor_working_hours','WorkingHourController@index')->name('contractor_working_hours');
+	Route::post('update_contractor_working_hours','WorkingHourController@update')->name('update_contractor_working_hours');
+});
+
+/*Route::group(['middleware' => ['auth','admin']], function(){
+	Route::resource('products','Products\ProductController')->name('*','products');
+});*/
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 	Route::namespace('Auth')->group(function(){
@@ -70,5 +81,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::post('reset_password', 'UsersController@resetPassword')->name('reset_password');//Reset password of any user
 		Route::get('change_password', 'Auth\ChangePasswordController@ShowChangePasswordForm')->name('change_password');//Change password of any user
 		Route::post('change_password', 'Auth\ChangePasswordController@changePassword')->name('change_password');//Change password of any user
+		Route::resource('products','Products\ProductController')->name('*','products');
+		Route::resource('advertisements','Advertisements\AdvertisementController')->name('*','advertisements');
 	});
 });
