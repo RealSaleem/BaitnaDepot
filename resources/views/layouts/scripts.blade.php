@@ -10,6 +10,7 @@
     {{-- <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script> 
     <script src="{{ asset('app-assets/js/scripts/data-tables.js') }}"></script> --}}
     <script src="{{ asset('app-assets/js/scripts/ui-alerts.js') }}"></script>
+	<script src="{{ asset('app-assets/js/toastr/toastr.min.js') }}"></script>
     <script src="{{asset('app-assets/vendors/sweetalert/sweetalert.min.js')}}"></script>
     <script>
 	    $(function () {
