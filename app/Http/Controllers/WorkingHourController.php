@@ -22,7 +22,7 @@ class WorkingHourController extends Controller
 
     	$data = [
     		'working_times'	=> $working_times,
-    		'vendor_id'		=> Auth::user()->vendor->id
+    		'vendor_id'		=> $vendor_id
     	];
 
     	return view('vendor.working_hours', $data);

@@ -33,20 +33,20 @@ class InitContractorWorkingHours extends FormRequest
     public function handle($vendor_id)
     {
         $params = $this->all();
-
         $days = Day::all();
 
-        foreach($days as $day){
-            
+        foreach($days as $day)
+        {
             $working_hours = new ContractorWorkingHour();
             $working_hours->vendor_id   = $vendor_id;
             $working_hours->day_id      = $day->id;
             $working_hours->status      = CLOSE;
-            $working_hours->start_time  = \Carbon\Carbon::now();
-            $working_hours->end_time    = \Carbon\Carbon::now();
+            $working_hours->start_time  = null;//\Carbon\Carbon::now();
+            $working_hours->end_time    = null;//\Carbon\Carbon::now();
             $working_hours->save();
-
-            return $working_hours;
         }
+
+        $working_times = ContractorWorkingHour::with('day')->where('vendor_id', $vendor_id)->get();
+        return $working_times;
     }
 }
