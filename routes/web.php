@@ -24,7 +24,7 @@ Route::post('/image_upload', 'ImageController@imageUplaod');
 Route::get('change_password','Auth\ChangePasswordController@ShowChangePasswordForm')->name('change_password');
 Route::post('change_password','Auth\ChangePasswordController@changePassword')->name('change_password');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::group(['middleware' => 'auth'],function(){
 	Route::get('/home', 'VendorController@dashboard')->name('home');
 	Route::get('dashboard', 'VendorController@dashboard')->name('dashboard');

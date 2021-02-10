@@ -41,5 +41,4 @@
     <script src="{{ asset('app-assets/js/search.js') }}"></script>
     <script src="{{ asset('app-assets/js/custom/custom-script.js') }}"></script>
 </body>
-
 </html>

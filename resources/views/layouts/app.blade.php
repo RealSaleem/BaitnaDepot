@@ -29,9 +29,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/vertical-dark-menu-template/materialize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/vertical-dark-menu-template/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/data-tables.css')}}">
-
     <!-- toaster -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/toastr/toastr.min..css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/toastr/toastr.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/toastr/toastr.css') }}">
 
     @yield('styles')
@@ -79,23 +78,21 @@
     @include('layouts.footer')
     @include('layouts.scripts')
     {{-- @include('layouts.sweetalert') --}}
+    
     @if(Session::has('success'))
-
-<script>
-   toastr.success("{{session('success')}}")
-</script>
-@endif
-@if(Session::has('error'))
-<script>
-    toastr.error("{{session('error')}}")
-</script>
-@endif
-@if(Session::has('warning'))
-<script>
-    toastr.warning("{{session('warning')}}")
-</script>
-@endif
-
+    <script>
+       toastr.success("{{session('success')}}")
+    </script>
+    @endif
+    @if(Session::has('error'))
+    <script>
+        toastr.error("{{session('error')}}")
+    </script>
+    @endif
+    @if(Session::has('warning'))
+    <script>
+        toastr.warning("{{session('warning')}}")
+    </script>
+    @endif
 </body>
-
 </html>
