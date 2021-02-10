@@ -18,7 +18,7 @@ class CreateAdvertisementsTable extends Migration
             $table->string('title_en', 100);
             $table->string('title_ar', 100);
             $table->string('image', 255)->nullable();
-            $table->integer('sort', 11)->default('0');
+            $table->integer('sort')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
