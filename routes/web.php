@@ -36,6 +36,11 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::resource('products','Products\ProductController')->name('*','products');
 	Route::get('contractor_working_hours','WorkingHourController@index')->name('contractor_working_hours');
 	Route::post('update_contractor_working_hours','WorkingHourController@update')->name('update_contractor_working_hours');
+
+	Route::get('promotevendor_V', 'VendorController@promotevendor_V')->name('promotevendor_V');
+	Route::post('promotevendor','VendorController@promotevendor')->name('promotevendor');
+	Route::post('check','VendorController@Check');
+
 });
 
 /*Route::group(['middleware' => ['auth','admin']], function(){
@@ -83,5 +88,9 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::post('change_password', 'Auth\ChangePasswordController@changePassword')->name('change_password');//Change password of any user
 		Route::resource('products','Products\ProductController')->name('*','products');
 		Route::resource('advertisements','Advertisements\AdvertisementController')->name('*','advertisements');
+
+		Route::get('PromoteVendorAdmin','VendorRequestsController@PromoteVendor')->name('PromoteVendorAdmin');
+		Route::resource('promo_code','Promo_Code\PromoCodeController')->name('*','promo_code');
+		Route::resource('notification','Notifications\NotificationController')->name('*','notification');
 	});
 });

@@ -9,6 +9,8 @@
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('social_links')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('setting.social_media') }}</span></a>
         </li>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('promotevendor_V')}}"><i class="material-icons">Promote</i><span class="menu-title">{{ __('Promote Me') }}</span></a>
+        </li>
     </ul>
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
 </aside>

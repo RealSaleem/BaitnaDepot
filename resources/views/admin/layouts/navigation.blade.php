@@ -41,6 +41,12 @@
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.web_social_links')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('setting.social_media') }}</span></a>
         </li>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.PromoteVendorAdmin')}}"><i class="Large material-icons ">show_chart</i><span class="menu-title">{{ __('vendor.PromoteReq') }}</span></a>
+        </li>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.promo_code.index')}}"><i class="material-icons">publish</i><span class="menu-title">{{ __('vendor.Promo_code') }}</span></a>
+        </li>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.notification.index')}}"><i class="material-icons">notifications_none</i><span class="menu-title">{{ __('notification.notification') }}</span></a>
+        </li>
 
     </ul>
     <div class="navigation-background"></div>

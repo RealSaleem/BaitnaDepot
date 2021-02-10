@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\VendorRequest\Get;
 use App\Http\Requests\Admin\VendorRequest\ApprovedVendor;
 use App\Http\Requests\Admin\VendorRequest\DeclinedVendor;
 use App\Http\Requests\Admin\Categories\GetAllCategoryRequest;
+use App\Models\promote_vendor;
+use App\Models\Vendor;
 
 class VendorRequestsController extends Controller
 {
@@ -46,5 +48,13 @@ class VendorRequestsController extends Controller
         $vendor = $request->handle($id);
 
         return redirect()->route('admin.vendor_requests')->withSuccess(trans('toaster.vendor_declined'));
+    }
+
+    public function PromoteVendor()
+    {
+         $Promote = promote_vendor::with('User')->where('Promote_Status','Not Approve')->get();
+
+  
+        return view('admin.Promote_Vendor.promote_vendor_A')->with(compact('Promote'));
     }
 }

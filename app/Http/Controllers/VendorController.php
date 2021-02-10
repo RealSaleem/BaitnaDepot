@@ -7,6 +7,7 @@ use App\Http\Requests\Vendor\Vendor\GetVendorRequest;
 use App\Http\Requests\Vendor\Vendor\UpdateVendorRequest;
 use App\Models\WebSocialLink;
 use App\Http\Requests\Admin\UpdateSocialLinksRequest;
+use App\Models\promote_vendor;
 use Auth;
 
 class VendorController extends Controller
@@ -60,5 +61,43 @@ class VendorController extends Controller
     {
         $request->handle();
         return redirect()->route('social_links')->withSuccess(trans('toaster.updated_successfully'));
+    }
+
+    public function promotevendor_V()
+    {
+        return view('vendor.PromoteVendor.promote_vendor_v');
+    }
+
+    public function promotevendor(Request $PromoteReq)
+    {
+        $PromoteReq->validate([
+                   'PromoteOn'  => 'required',
+                   'DateFrom'   => 'required',
+                   'DateTo'     => 'required',
+        ]);
+
+    
+        $Promote = new promote_vendor();
+        $Promote->vendor_id     =  Auth::user()->id;
+        $Promote->Promote_On    =  $PromoteReq->PromoteOn;
+        $Promote->Date_From     =  $PromoteReq->DateFrom;
+        $Promote->Date_To       =  $PromoteReq->DateTo;
+        $result =  $Promote->save();
+
+        if($result)
+        {
+            Session()->flash('Success','Promote Request has been submited, You will be informed when Super Admin Approve Your request');
+            return redirect()->route('promotevendor_V');
+        }
+    }
+
+    public function Image(request $ImgReq){
+        return $ImgReq;
+    }
+
+
+    public function Check(Request $Req)
+    {
+        return $Req;
     }
 }
