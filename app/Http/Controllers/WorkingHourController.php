@@ -31,5 +31,7 @@ class WorkingHourController extends Controller
     public function update(SaveContractorWorkingHours $request)
     {
     	$request->handle();
+
+    	return redirect()->route('contractor_working_hours')->withSuccess(trans('toaster.updated_successfully'));
     }
 }

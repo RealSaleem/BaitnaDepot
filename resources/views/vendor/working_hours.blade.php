@@ -23,22 +23,22 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
                             <th>Start Time</th>
                             <th>End Time</th>
                         @foreach($working_times as $working_time)
-                            <input type="hidden" name="working_hours[hour_row_ids][]" value="{{$working_time->id}}">
+                            <input type="hidden" name="hour_row_ids[]" value="{{$working_time->id}}">
                             <tr>
                                 <td style="width:25%;">
                                     <input type="text" value="{{ $working_time->day->getLocaleName() }}" readonly>
                                 </td>
                                 <td style="width:25%;">
-                                    <select name="working_hours[status][]">
-                                        <option value="0">{{ __('working_hours.closed') }}</option>
-                                        <option value="1">{{ __('working_hours.open') }}</option>
+                                    <select name="status[]">
+                                        <option value="{{CLOSE}}" {{$working_time->status == 0 ? 'selected' : ''}}>{{ __('working_hours.closed') }}</option>
+                                        <option value="{{OPEN}}" {{$working_time->status == 1 ? 'selected' : ''}}>{{ __('working_hours.open') }}</option>
                                     </select>
                                 </td>
                                 <td style="width:25%;">
-                                    <input type="time" name="working_hours[start_times][]">
+                                    <input type="time" name="start_times[]" value="{{$working_time->start_time}}">
                                 </td>
                                 <td style="width:25%;">
-                                    <input type="time" name="working_hours[end_times][]">
+                                    <input type="time" name="end_times[]" value="{{$working_time->end_time}}">
                                 </td>
                             </tr>
                         @endforeach

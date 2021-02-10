@@ -39,9 +39,9 @@
                     <div class="card-content">
                         <div class="row">
                             <div class="col s12">
-                        <h4 class="card-title">{{ __('contact.contact_us_messages') }}</h4>
-                    </div>
-                </div>
+                                <h4 class="card-title">{{ __('contact.contact_us_messages') }}</h4>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col s12">
                                 <table id="contact-table" class="display">

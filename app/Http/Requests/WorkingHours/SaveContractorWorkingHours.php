@@ -32,14 +32,16 @@ class SaveContractorWorkingHours extends FormRequest
     public function handle()
     {
         $params = $this->all();
+// dd($params);
+        $working_hour_ids = $params['hour_row_ids'];
 
-        $working_hour_ids = $params['working_hours']['hour_row_ids'];
-
-        for($a=0; $a<=sizeof($working_hour_ids)-1; $a++)
+        foreach($working_hour_ids as $key => $value)
         {
-           
+            $working_hour = ContractorWorkingHour::find($params['hour_row_ids'][$key]);
+            $working_hour->status       = $params['status'][$key];
+            $working_hour->start_time   = $params['start_times'][$key];
+            $working_hour->end_time     = $params['end_times'][$key];
+            $working_hour->save();
         }
-        exit;
-        // dd($params);
     }
 }
