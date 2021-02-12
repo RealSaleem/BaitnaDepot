@@ -41,9 +41,11 @@
                                                     @php
                                                         $services = json_decode($vendor->services);
                                                     @endphp
-                                                    @foreach($services as $service)
-                                                        <p>{{Helper::getServiceName($service)}}</p>
-                                                    @endforeach
+                                                    @if($services != null)
+                                                        @foreach($services as $service)
+                                                            <p>{{Helper::getServiceName($service)}}</p>
+                                                        @endforeach
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     @if($vendor->status == 0)

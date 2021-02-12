@@ -1,8 +1,5 @@
 <?php
 
-/* contact us messages status */
-// define('NEW',  'new');
-
 if(!defined('NEW')){
 	define('NEW',  'new');
 }
@@ -30,4 +27,20 @@ if(!defined('OPEN')){
 
 if(!defined('CLOSE')){
 	define('CLOSE', 0);
+}
+
+if(!defined('INACTIVE')){
+	define('INACTIVE', 0);
+}
+
+if(!defined('ACTIVE')){
+	define('ACTIVE', 1);
+}
+
+if(!defined('VENDOR_USER')){
+	define('VENDOR_USER', 1);
+}
+
+if(!defined('APP_USER')){
+	define('APP_USER', 2);
 }
