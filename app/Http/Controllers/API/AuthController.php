@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VendorRequest;
+use App\Http\Requests\Auth\ChangePassword;
 
 class AuthController extends ApiBaseController
 {
@@ -28,7 +29,7 @@ class AuthController extends ApiBaseController
         $email = $request['email'];
         $password = $request['password'];
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'type' => APP_USER])) {
             $user = Auth::user();
             $data = [
                 'id'            => $user->id,
@@ -86,7 +87,7 @@ class AuthController extends ApiBaseController
         $validator = Validator::make($request->all(), $rules);
         
         if ($validator->fails()) {
-            return $this->FailResponse("Validations error", $validator->errors());
+            return $this->FailResponse("Validation error", $validator->errors());
         }
 
         $input = $request->all();
@@ -96,6 +97,16 @@ class AuthController extends ApiBaseController
         } else {
             return $this->FailResponse("Failed");
         }
+    }
 
+    public function updatePassword(ChangePassword $request)
+    {
+    	$changed_password = $request->handle();
+
+        if($changed_password){
+            return $this->SuccessResponse('Password has been chnaged successfully', []);
+        } else {
+            return $this->FailResponse(null, 'Something went wrong');
+        }
     }
 }
