@@ -32,11 +32,11 @@ class CreateUserRequest extends FormRequest
             'mobile'    =>  ['required', 'numeric', 'min:8', 'max:8'],
             'username'  =>  ['required', 'string',
                                 Rule::unique('users', 'username')->where(function ($query) use ($params) {
-                                    return $query->where('type', 2);
+                                    return $query->where('type', APP_USER);
                             })],
             'email'     =>  ['required', 'string', 'email', 'max:191', 
                                 Rule::unique('users', 'email')->where(function ($query) use ($params) {
-                                    return $query->where('type', 2);
+                                    return $query->where('type', APP_USER);
                             })]                    
         ];
     }
@@ -64,7 +64,7 @@ class CreateUserRequest extends FormRequest
         $user->email         = $params['email'];
         $user->date_of_birth = $params['date_of_birth'];
         $user->password      = bcrypt($params['password']);
-        $user->type          = 2;
+        $user->type          = APP_USER;
         $user->save();
     }
 }

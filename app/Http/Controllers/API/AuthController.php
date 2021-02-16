@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VendorRequest;
 use App\Http\Requests\Auth\ChangePassword;
+use Illuminate\Validation\Rule;
 
 class AuthController extends ApiBaseController
 {
@@ -50,10 +51,14 @@ class AuthController extends ApiBaseController
     {
         $rules = [
             'name'              => 'required',
-            'email'             => 'required|email|unique:users',
+            // 'email'             => 'required|email|unique:users',
             'mobile'            => 'required|min:8|max:8',
             'password'          => 'required',
-            'confirm_password'  => 'required|same:password'
+            'confirm_password'  => 'required|same:password',
+            'email'             =>  ['required', 'string', 'email', 
+                                    Rule::unique('users', 'email')->where(function ($query) {
+                                    return $query->where('type', APP_USER);
+                                })]     
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -62,10 +67,10 @@ class AuthController extends ApiBaseController
         }
 
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-        $input['username'] = trim(strtolower($request->name));
-        $input['type']  = APP_USER;
-        $input['status']  = INACTIVE;
+        $input['password']  = bcrypt($input['password']);
+        $input['username']  = trim(strtolower($request->name));
+        $input['type']      = APP_USER;
+        $input['status']    = INACTIVE;
         $user = User::create($input);
         $token = $user->createToken('baitna-depot')->accessToken;
 
