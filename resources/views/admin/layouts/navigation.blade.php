@@ -37,10 +37,19 @@
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.vendor_requests')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('vendor.vendor_requests') }}</span></a>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.contact_us_messages')}}"><i class="material-icons">contact_phone</i><span class="menu-title">{{ __('contact.main') }}</span></a>
+        
+        <li class="{{ str_contains(Request::url(), 'edit_page') ? 'active' : null }} bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">pages</i><span class="menu-title">{{ __('contact.main') }}</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.contact_us_messages')}}"><i class="material-icons">radio_button_unchecked</i><span class="menu-title">{{ __('contact.msg') }}</span></a>
+                    </li>
+                    <li class="active"><a href="{{ route('admin.ContactUsDetails.index') }}"><i class="material-icons">radio_button_unchecked</i>{{ __('contact.update') }}</a>
+                    </li>
+                </ul>
+            </div>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.web_social_links')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('setting.social_media') }}</span></a>
-        </li>
+
+
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.PromoteVendorAdmin')}}"><i class="Large material-icons ">show_chart</i><span class="menu-title">{{ __('vendor.PromoteReq') }}</span></a>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.promo_code.index')}}"><i class="material-icons">publish</i><span class="menu-title">{{ __('vendor.Promo_code') }}</span></a>

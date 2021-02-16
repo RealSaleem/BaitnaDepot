@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin\ContactUs;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\ContactUs;
+use App\Models\ContactUsMsg;
 
 class GetAll extends FormRequest
 {
@@ -33,7 +33,7 @@ class GetAll extends FormRequest
 
         $params = $this->all();
 
-        $baseQuery = ContactUs::query();
+        $baseQuery = ContactUsMsg::query();
 
         if($params != null && $params['status'] != null){
             $messages = $baseQuery->where('status', $params['status']);

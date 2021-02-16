@@ -40,10 +40,26 @@
                                     </small>
                                 @endif
                             </div>
+
                             <div class="input-field col m4 s12">
                                 <label for="email">{{__('vendor.email')}}</label>
                                 <input id="email" type="text" name="email" value="{{old('email', isset($user) ? $user->email : null)}}" disabled="">
                             </div>
+                            <div class="input-field col m4 s12">
+
+                            <label>
+                            <input type="checkbox" id="AutoCheck" name="available"  />
+                                <span>24x7 Avaibility</span>
+                                </label>
+
+
+                            </div>
+
+
+
+
+
+
                             <div class="input-field col s12 m8 l12">
                                 <label for="categories" style="display: contents;">{{__('vendor.store_logo')}}</label>
                                 @if($user->vendor->logo != null)
@@ -59,6 +75,27 @@
                                 @endif
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="row">
                             <div class="input-field col s12">
                                 <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('site.save') }}
@@ -71,7 +108,7 @@
         </div>
     </div>
 </div>
-@endsection    
+@endsection
 @section('scripts')
 <script src="{{asset('app-assets/vendors/dropify/js/dropify.min.js')}}"></script>
 <script>

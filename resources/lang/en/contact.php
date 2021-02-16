@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'main'                                      =>  'Contact Us',
+    'main'                                      =>  'Contact Us ',
+    'msg'                                       =>  'Messages',
+    'update'                                    =>  'Update Details',
     'name'                                      =>  'Name',
     'email'                                     =>  'Email',
     'phone'                                     =>  'Phone',
@@ -25,4 +27,8 @@ return [
     'message'                                   =>  'Message',
     'viewed'                                    =>  'Viewed',
     'new'                                       =>  'New',
+    'reply'                                     =>  'Reply',
+    'subject'                                   =>  'Subject',
+    'message'                                   =>  'Message',
+    'title'                                     =>  'Message Title',
 ];

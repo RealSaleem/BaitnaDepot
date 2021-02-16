@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'],function(){
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 	Route::namespace('Auth')->group(function(){
-        
+
 	    //Login Routes
 	    Route::get('/login','LoginController@showLoginForm')->name('login');
 	    Route::post('/login','LoginController@login');
@@ -69,12 +69,15 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 		Route::get('edit_page/{type}', 'PagesController@getPage')->name('edit_page');
 		Route::post('save_page', 'PagesController@savePage')->name('save_page');
-		Route::get('web_social_links', 'PagesController@getWebSocial')->name('web_social_links');
-		Route::post('web_social_links', 'PagesController@saveWebSocial')->name('web_social_links.save');
+
+
+
 		Route::resource('categories', 'CategoriesController')->name('*', 'categories');
 		Route::get('contact_us_messages', 'ContactUsController@index')->name('contact_us_messages');
 		Route::get('contact_us_messages/{id}', 'ContactUsController@get')->name('contact_us_messages.show');
 		Route::get('viewed_contact_message/{id}', 'ContactUsController@viwedMessage')->name('viewed_contact_message');
+		Route::get('/replyform/{id}',       'ContactUsController@replyform')->name('replyform_contact_us_messages');
+        Route::POST('reply',                 'ContactUsController@reply')->name('reply_contact_us_messages');
 		Route::resource('heavy_trucks', 'TrucksController')->name('*', 'heavy_trucks');
 		Route::get('vendor_requests', 'VendorRequestsController@index')->name('vendor_requests');
 		Route::get('vendor_requests/{id}', 'VendorRequestsController@get')->name('vendor_requests.id');
@@ -92,5 +95,6 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::get('PromoteVendorAdmin','VendorRequestsController@PromoteVendor')->name('PromoteVendorAdmin');
 		Route::resource('promo_code','Promo_Code\PromoCodeController')->name('*','promo_code');
 		Route::resource('notification','Notifications\NotificationController')->name('*','notification');
+        Route::resource('ContactUsDetails','ContactUsDetails\ContactUsDetailsController')->name('*','ContactUsDetails');
 	});
 });

@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin\ContactUs;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\ContactUs;
+use App\Models\ContactUsMsg;
 
 class ViewedMessage extends FormRequest
 {
@@ -30,10 +30,10 @@ class ViewedMessage extends FormRequest
     }
 
     public function handle($id){
-        $contactus = ContactUs::find($id);
+        $contactus = ContactUsMsg::find($id);
         $contactus->status = VIEWED;
-        $contactus->save(); 
-        
+        $contactus->save();
+
         return $contactus;
     }
 }

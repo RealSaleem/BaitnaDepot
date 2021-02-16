@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col s6">
                                 <table class="striped">
-                                    <tbody>
+                         <tbody>
                                         {{-- @foreach(Config::get('app.locales') as $key => $value)
                                         <tr>
                                             <td>{{__('site.name_'.$key)}}:</td>
@@ -42,6 +42,14 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td>Avaibility:</td>
+                                            <td class="users-view-username">
+
+                                                {{$user->vendor->avaibility}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td>{{__('vendor.phone_number')}}:</td>
                                             <td class="users-view-name">{{$user->mobile}}</td>
                                         </tr>
@@ -64,11 +72,7 @@
                                 </table>
                             </div>
                             <div class="col s6">
-                                @if($user->vendor->logo == null)
-                                    <img src="{{asset('app-assets/images/no-image.png')}}" class="responsive-img">
-                                @else
-                                    <img src="{{ asset('storage/'.$user->vendor->logo) }}" class="responsive-img" style="height: auto">
-                                @endif
+
                             </div>
                         </div>
                         <!-- </div> -->

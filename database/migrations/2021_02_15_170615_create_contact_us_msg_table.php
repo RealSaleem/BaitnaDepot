@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactUsTable extends Migration
+class CreateContactUsMsgTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateContactUsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact_us_details', function (Blueprint $table) {
+        Schema::create('contact_us_msges', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 255)->nullable();
             $table->string('email', 255)->nullable();
             $table->string('mobile', 50)->nullable();
-            $table->text('address')->nullable();
-            $table->string('facebook', 100)->nullable();
-            $table->string('twitter', 100)->nullable();
-            $table->string('instagram', 100)->nullable();
-            $table->string('snapchat', 100)->nullable();
+            $table->text('message')->nullable();
+            $table->string('status', 50)->nullable()->comment('new,viewed');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateContactUsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_us');
+        Schema::dropIfExists('contact_us_msg');
     }
 }

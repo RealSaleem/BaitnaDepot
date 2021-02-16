@@ -45,6 +45,16 @@ class UpdateVendorRequest extends FormRequest
     {
         $params = $this->all();
 
+//if($params['available']==true)
+//{
+//    $Available = "Available";
+//}
+
+
+
+
+
+
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
 
@@ -52,9 +62,13 @@ class UpdateVendorRequest extends FormRequest
         $user->mobile   = $params['mobile'];
         $user->save();
 
-        $vendor         = Vendor::where('user_id', $user_id)->first();
-        $vendor->name_en   = $params['name_en'];
-        $vendor->name_ar   = $params['name_ar'] != null ? $params['name_ar'] : $params['name_en'];
+
+
+
+        $vendor                 = Vendor::where('user_id', $user_id)->first();
+        $vendor->name_en        = $params['name_en'];
+        $vendor->avaibility     = isset($params['available']) ? YES : NO;
+        $vendor->name_ar        = $params['name_ar'] != null ? $params['name_ar'] : $params['name_en'];
 
         if($this->hasFile('logo') && isset($params['logo']))
         {
