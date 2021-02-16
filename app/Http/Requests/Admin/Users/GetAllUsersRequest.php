@@ -33,7 +33,7 @@ class GetAllUsersRequest extends FormRequest
     {
         $params = $this->all();
 
-        $baseQuery = User::where('type', 2);
+        $baseQuery = User::where('type', APP_USER);
         
         if(isset($params) && $params != null){
 

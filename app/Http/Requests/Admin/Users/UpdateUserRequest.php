@@ -31,11 +31,11 @@ class UpdateUserRequest extends FormRequest
             'mobile'    =>  ['required', 'numeric', 'digits_between:8,8'],
             'username'  =>  ['required', 'string',
                                 Rule::unique('users', 'username')->ignore($params['id'])->where(function ($query) use ($params) {
-                                    return $query->where('type', 2);
+                                    return $query->where('type', APP_USER);
                             })],
             'email'     =>  ['required', 'string', 'email', 'max:191', 
                                 Rule::unique('users', 'email')->ignore($params['id'])->where(function ($query) use ($params) {
-                                    return $query->where('type', 2);
+                                    return $query->where('type', APP_USER);
                             })]                    
         ];
     }

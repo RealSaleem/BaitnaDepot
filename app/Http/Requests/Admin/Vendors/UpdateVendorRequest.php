@@ -35,7 +35,7 @@ class UpdateVendorRequest extends FormRequest
             'logo'      =>  ['nullable', 'image', 'mimes:jpeg,jpg,png'],
             'email'     =>  ['required', 'string', 'email', 'max:191', 
                                 Rule::unique('users', 'email')->ignore($params['user_id'])->where(function ($query) use ($params) {
-                                    return $query->where('type', 1);
+                                    return $query->where('type', VENDOR_USER);
                             })]
         ];
     }
