@@ -30,21 +30,21 @@ class ApiBaseController extends Controller
      * return error response.
      *
      * @param $error
-     * @param  array  $errorMessages
+     * @param  array  $errorResponseData
      * @param  int  $code
      *
      * @return JsonResponse
      */
-    public function FailResponse($error, $errorMessages = [], $code = 500)
+    public function FailResponse($errorMessage, $errorData = [], $code = 500)
     {
         $response = [
             'success' => false,
-            'message' => $error,
+            'message' => $errorMessage,
             'payload' => null  
         ];
 
-        if (!empty($errorMessages)) {
-            $response['payload'] = $errorMessages;
+        if (!empty($errorData)) {
+            $response['payload'] = $errorData;
         }
 
         return response()->json($response, $code);
