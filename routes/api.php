@@ -17,8 +17,7 @@ Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
 /* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); */
-Route::GET('contact_us_details','API\AddressController@index');
-
+Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');

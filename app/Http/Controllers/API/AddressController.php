@@ -29,19 +29,7 @@ class AddressController extends ApiBaseController
 
         // // }
 
-            $contactUs = ContactUs::first();
-
-            $data = [
-                'id'            => $contactUs->id,
-                'email'         => $contactUs->email,
-                'mobile'        => $contactUs->mobile,
-                'address'       => $contactUs->address,
-                'facebook'      => $contactUs->facebook,
-                'twitter'       => $contactUs->twitter,
-                'instagram'     => $contactUs->instagram,
-                'snapchat'      => $contactUs->snapchat
-            ];
-            return $this->SuccessResponse('Profile loaded successfully', $data);
+           
 
     }
 
