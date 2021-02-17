@@ -15,32 +15,20 @@ class AddressController extends ApiBaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $addresses = Address::where('user_id', Auth::user()->id)->get();
-        
-        // if($addresses->IsEmpty())
-        // {
-        //     return $this->FailResponse('No record found', []);
-        // }
+        $user_id = $request->user_id;
+        $addresses = Address::where('user_id', $user_id)->get();
 
-        // // foreach($addresses as $address)
-        // // {
+        if($addresses->IsEmpty())
+        {
+            return $this->FailResponse('No record found', [], 200);
+        } 
 
-        // // }
-
-           
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $data = [];
+        $addresses->each(function($address){
+            $address;
+        });
     }
 
     /**
@@ -61,17 +49,6 @@ class AddressController extends ApiBaseController
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

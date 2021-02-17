@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
+
 /* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); */
+
+Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
 Route::get('contact_us_details','API\PageController@GetContactUsDetails');
+Route::get('contact_us_details','API\PageController@GetContactUsDetails');
+
+Route::apiResource('address', 'API\AddressController');
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');
@@ -27,5 +32,6 @@ Route::group(['prefix' => 'auth'], function(){
         Route::post('profile', 'API\UserController@profile');
         Route::post('update_profile', 'API\UserController@updateProfile');
         Route::post('update_password', 'API\AuthController@updatePassword');
+        Route::apiResource('address', 'API\AddressController');
     });
 });
