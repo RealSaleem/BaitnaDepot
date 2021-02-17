@@ -17,7 +17,15 @@ Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
 /* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); */
+
+//------------------>Get Contact Details------------------->
 Route::get('contact_us_details','API\PageController@GetContactUsDetails');
+//------------------>ContactUs Messages------------------->
+Route::post('contact_us_message','API\PageController@contact_us_message');
+//------------------>Privacy Policy----------------------->
+Route::get('term_policy_aboutUs/{type}','API\PageController@term_policy_aboutUs');
+
+
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');

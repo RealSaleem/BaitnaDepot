@@ -4,8 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\API\ApiBaseController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
+use App\Models\Page;
+use App\Models\ContactUsMsg;
 
 class PageController extends ApiBaseController
 {
@@ -25,5 +28,46 @@ class PageController extends ApiBaseController
         ];
         return $this->SuccessResponse('Profile loaded successfully', $data);
     }
+    public function contact_us_message(Request $Req)
+    {
+        $rules = [
+            'name'      => 'required',
+            'email'     => 'required|email',
+            'phone'     => 'required|min:7|max:11',
+            'message'   => 'required'
+        ];
 
+        $validator = Validator::make($Req->all(), $rules);
+        if ($validator->fails()) {
+            return $this->FailResponse("Validations error", $validator->getMessageBag(), 200);
+        }
+        else{
+                    $contact = new ContactUsMsg();
+                    $contact->name      = $Req->name;
+                    $contact->email     = $Req->email;
+                    $contact->mobile    = $Req->phone;
+                    $contact->message   = $Req->message;
+                    $contact->status    = NEWED;
+        $result =   $contact->save();
+            if($result)
+            {
+                return $this->SuccessResponse('Message has been sent to the Baitna Depot Team', $result);
+            }
+                  
+                    
+        }
+    }
+    public function term_policy_aboutUs($type)
+    {
+        $page = Page::where('type',$type)->first();
+        if($page)
+        {
+            return $this->SuccessResponse('Success', $page);
+            
+        }else{
+            return $this->FailResponse("error");
+        }
+      
+
+    }
 }
