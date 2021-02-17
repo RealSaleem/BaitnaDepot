@@ -14,8 +14,10 @@ class ContactUsDetailsController extends Controller
      */
     public function index()
     {
-        $ContactUsDetails = ContactUs::all();
+        $ContactUsDetails = ContactUs::first();
+
         return  view('admin.contact_us.index')->with(compact('ContactUsDetails'));
+
     }
 
     /**
@@ -36,19 +38,6 @@ class ContactUsDetailsController extends Controller
      */
     public function store(Request $request)
     {
-                    $ContactUsDetails =new ContactUs();
-                    $ContactUsDetails->email        = $request->email;
-                    $ContactUsDetails->mobile       = $request->phone;
-                    $ContactUsDetails->address      = $request->address;
-                    $ContactUsDetails->facebook     = $request->facebook;
-                    $ContactUsDetails->twitter      = $request->twitter;
-                    $ContactUsDetails->instagram    = $request->instagram;
-                    $ContactUsDetails->snapchat     = $request->snapchat;
-        $result =   $ContactUsDetails->save();
-        if($result)
-        {
-            return  redirect()->route('admin.ContactUsDetails.index')->withSuccess('Contact Us Details saved');
-        }
 
     }
 
@@ -97,7 +86,7 @@ class ContactUsDetailsController extends Controller
         $result =   $UpdateDetails->save();
         if($result)
         {
-            return  redirect()->route('admin.ContactUsDetails.index')->withSuccess('Contact Us Details Updated');
+            return  redirect()->route('admin.ContactUsDetails')->withSuccess('Contact Us Details Updated');
         }
     }
 

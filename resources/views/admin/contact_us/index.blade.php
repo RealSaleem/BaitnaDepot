@@ -7,33 +7,29 @@
 
 
 
-    <div class="container">
-        <div class="section section-data-tables">
-            <div class="row">
-                <div class="col s12">
-                    <!-- New kanban board add button -->
-                    <a href="{{ route('admin.ContactUsDetails.create') }}" class="btn waves-effect waves-light green right">
-                        {{__('contactus.add')}}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="row">
         <div class="col s12">
-            <div class="container">
-                <div>
-                    <h5>Contact Us details :</h5>
-                </div>
+            <div class="container mt-3">
+            
+               
                 <!-- users view start -->
                 <div class="section users-view">
                     <!-- users view card details start -->
                     <div class="card">
-                        @foreach($ContactUsDetails as $CUD)
+                     
                         <div class="card-content">
                             <div class="row">
+                            <div class="row">
+                            <div class="col  mb-2" style="float:left;">
+                               <h5>Contact Us Details : </h5>
+                            </div>
+                            <div class="col  mb-2" style="float:right;">
+                                <a href="{{ route('admin.ContactUsDetails_edit',$ContactUsDetails->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
+                                </a>
+                            </div>
+                            </div>
                                 <div class="col s12">
                                     <table class="striped">
                                         <tbody>
@@ -42,58 +38,37 @@
 
                                         <tr>
                                             <th>ID</th>
-                                            <td class="users-view-username">{{$CUD->id}}</td>
+                                            <td class="users-view-username"> {{$ContactUsDetails->id}}</td>
                                         </tr>
                                         <tr>
                                             <th>Email</th>
-                                            <td class="users-view-name">{{$CUD->email}}</td>
+                                            <td class="users-view-name">{{$ContactUsDetails->email}}</td>
                                         </tr>
                                         <tr>
                                             <th>Mobile </th>
-                                            <td class="users-view-email">{{$CUD->mobile}}</td>
+                                            <td class="users-view-email">{{$ContactUsDetails->mobile}}</td>
                                         </tr>
                                         <tr>
                                             <th>Address</th>
-                                            <td>{{$CUD->address}}</td>
+                                            <td>{{$ContactUsDetails->address}}</td>
                                         </tr>
                                         <tr>
                                             <th>Facebook</th>
-                                            <td>{{ucwords($CUD->facebook)}}</td>
+                                            <td>{{ucwords($ContactUsDetails->facebook)}}</td>
                                         </tr>
                                         <tr>
                                             <th>Instagram</th>
-                                            <td>{{ucwords($CUD->instagram)}}</td>
+                                            <td>{{ucwords($ContactUsDetails->instagram)}}</td>
                                         </tr>
                                         <tr>
                                             <th>Twitter</th>
-                                            <td>{{ucwords($CUD->twitter)}}</td>
+                                            <td>{{ucwords($ContactUsDetails->twitter)}}</td>
                                         </tr>
                                         <tr>
                                             <th>Snapchat</th>
-                                            <td>{{ucwords($CUD->snapchat)}}</td>
+                                            <td>{{ucwords($ContactUsDetails->snapchat)}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="{{ route('admin.ContactUsDetails.edit',$CUD->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
-                                            </td>
-                                            <td style="float: right;">
-                                                <form action="{{ route('admin.ContactUsDetails.destroy',$CUD->id) }}" method="POST" class="delete-record">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button class="waves-effect waves-light red accent-2 btn "> <i class="Medium material-icons" style="font-size: 30px;">delete_forever</i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-
-
-
-
-
-
-
-
-
-
+                                        
                                         </tbody>
                                     </table>
 
@@ -102,7 +77,6 @@
                             <!-- </div> -->
                         </div>
                     </div>
-                @endforeach
                     <!-- users view card details ends -->
                 </div>
                 <!-- users view ends -->

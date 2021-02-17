@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 	<div class="col s12">
     	<div class="container">
 			@if($message = Session::get('success'))
@@ -64,4 +64,4 @@
 			@endif
 		</div>
 	</div>
-</div>
+</div> -->

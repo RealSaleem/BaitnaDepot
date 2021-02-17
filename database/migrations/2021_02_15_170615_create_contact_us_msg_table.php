@@ -13,7 +13,7 @@ class CreateContactUsMsgTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact_us_msges', function (Blueprint $table) {
+        Schema::create('contact_us_messages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255)->nullable();
             $table->string('email', 255)->nullable();

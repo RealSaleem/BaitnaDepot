@@ -43,7 +43,7 @@
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                     <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.contact_us_messages')}}"><i class="material-icons">radio_button_unchecked</i><span class="menu-title">{{ __('contact.msg') }}</span></a>
                     </li>
-                    <li class="active"><a href="{{ route('admin.ContactUsDetails.index') }}"><i class="material-icons">radio_button_unchecked</i>{{ __('contact.update') }}</a>
+                    <li class="active"><a href="{{ route('admin.ContactUsDetails') }}"><i class="material-icons">radio_button_unchecked</i>{{ __('contact.update') }}</a>
                     </li>
                 </ul>
             </div>

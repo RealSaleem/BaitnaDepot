@@ -95,6 +95,13 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::get('PromoteVendorAdmin','VendorRequestsController@PromoteVendor')->name('PromoteVendorAdmin');
 		Route::resource('promo_code','Promo_Code\PromoCodeController')->name('*','promo_code');
 		Route::resource('notification','Notifications\NotificationController')->name('*','notification');
-        Route::resource('ContactUsDetails','ContactUsDetails\ContactUsDetailsController')->name('*','ContactUsDetails');
+
+//---------------------------->Baitna Contact Us Details Routee------------------->
+        // Route::resource('ContactUsDetails','ContactUsDetails\ContactUsDetailsController')->name('*','ContactUsDetails');
+		Route::get('ContactUsDetails','ContactUsDetails\ContactUsDetailsController@index')->name('ContactUsDetails');
+		Route::get('ContactUsDetails_edit/{id}','ContactUsDetails\ContactUsDetailsController@edit')->name('ContactUsDetails_edit');
+		Route::PUT('ContactUsDetails_update/{id}','ContactUsDetails\ContactUsDetailsController@update')->name('ContactUsDetails_update');
+
+
 	});
 });
