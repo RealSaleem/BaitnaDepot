@@ -23,10 +23,10 @@ class AddressController extends ApiBaseController
             return $this->FailResponse('No record found', []);
         }
 
-        foreach($addresses as $address)
-        {
-            
-        }
+        // foreach($addresses as $address)
+        // {
+
+        // }
     }
 
     /**

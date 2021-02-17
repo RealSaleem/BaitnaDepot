@@ -43,7 +43,7 @@ class AuthController extends ApiBaseController
 
             return $this->SuccessResponse('Logged in sucessfully', $data);
         } else {
-            return $this->FailResponse('Invalid credentials');
+            return $this->FailResponse('Invalid credentials', null, 200);
         }
     }
 

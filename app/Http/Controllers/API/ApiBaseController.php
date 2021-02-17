@@ -40,6 +40,7 @@ class ApiBaseController extends Controller
         $response = [
             'success' => false,
             'message' => $error,
+            'payload' => null  
         ];
 
         if (!empty($errorMessages)) {
