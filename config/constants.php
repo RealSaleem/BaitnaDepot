@@ -1,7 +1,7 @@
 <?php
 
-if(!defined('NEW')){
-	define('NEW',  'new');
+if(!defined('NEWED')){
+	define('NEWED',  'new');
 }
 
 if(!defined('VIEWED')){

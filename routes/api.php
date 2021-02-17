@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
 Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 Route::get('contact_us_details','API\PageController@GetContactUsDetails');
+//------------------>ContactUs Messages------------------->
+Route::post('contact_us_message','API\PageController@contact_us_message');
+//------------------>Privacy Policy----------------------->
+Route::get('term_policy_aboutUs/{type}','API\PageController@term_policy_aboutUs');
+
+
 
 Route::apiResource('address', 'API\AddressController');
 
