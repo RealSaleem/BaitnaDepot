@@ -8,6 +8,8 @@
         <div class="container">
             <!-- users view start -->
             <div class="section users-view">
+
+
                 <!-- users view card details start -->
                 <div class="card">
                     <div class="card-content">
@@ -39,17 +41,19 @@
                                             <td>{{__('contact.submission_date')}}:</td>
                                             <td>{{Helper::getFormatedDateTime($contact->created_at)}}</td>
                                         </tr>
-                                        @if($contact->status != 'viewed')
-                                        <tr>
-                                            <td colspan="2">
-                                                <center>
-                                                    <a href="{{route('admin.viewed_contact_message', $contact->id)}}" class="waves-effect waves-light btn btn-small">{{__('contact.viewed')}}</a>
-                                                </center>
-                                            </td>
-                                        </tr>
-                                        @endif
+
                                     </tbody>
                                 </table>
+                                <tr>
+
+
+                                    @if($contact->status != 'viewed')
+                                        <a href="{{route('admin.viewed_contact_message', $contact->id)}}" class="waves-effect waves-light btn btn-small mr-2 mb-2">{{'Viewed'}}<i class="material-icons">visibility</i></a>
+                                    @endif
+                                    <a href="{{route('admin.replyform_contact_us_messages', $contact->id)}}" class="waves-effect waves-light btn btn-small mr-2 mb-2">{{'reply'}}  <i class="material-icons">reply</i></a>
+
+
+                                </tr>
                             </div>
                         </div>
                         <!-- </div> -->

@@ -44,3 +44,11 @@ if(!defined('VENDOR_USER')){
 if(!defined('APP_USER')){
 	define('APP_USER', 2);
 }
+
+if(!defined('YES')){
+    define('YES', 1);
+}
+if(!defined('NO')){
+    define('NO', 0);
+}
+

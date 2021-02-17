@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin\ContactUs;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\ContactUs;
+use App\Models\ContactUsMsg;
 
 class Get extends FormRequest
 {
@@ -30,7 +30,7 @@ class Get extends FormRequest
     }
 
     public function handle($id){
-        $contactus = ContactUs::find($id);
+        $contactus = ContactUsMsg::find($id);
         
         return $contactus;
     }
