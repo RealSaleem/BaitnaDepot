@@ -25,7 +25,7 @@ class AuthController extends ApiBaseController
         if ($validator->fails()) {
             // dd($validator->getMessageBag());
             // dd($validator->errors());
-            return $this->FailResponse("Validations error", $validator->getMessageBag());
+            return $this->FailResponse("Validations error", $validator->getMessageBag(), 200);
         }
         $email = $request['email'];
         $password = $request['password'];
@@ -63,7 +63,7 @@ class AuthController extends ApiBaseController
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            return $this->FailResponse("Validations error", $validator->errors());
+            return $this->FailResponse("Validations error", $validator->errors(), 200);
         }
 
         $input = $request->all();
@@ -92,15 +92,15 @@ class AuthController extends ApiBaseController
         $validator = Validator::make($request->all(), $rules);
         
         if ($validator->fails()) {
-            return $this->FailResponse("Validation error", $validator->errors());
+            return $this->FailResponse("Validation error", $validator->errors(), 200);
         }
 
         $input = $request->all();
         $input['status'] = UNAPPROVE;
         if(VendorRequest::create($input)){
-            return $this->SuccessResponse('Your request has been submitted successfully.', []);
+            return $this->SuccessResponse('Your request has been submitted successfully.', null);
         } else {
-            return $this->FailResponse("Failed");
+            return $this->FailResponse("Failed", null, 200);
         }
     }
 
@@ -111,7 +111,7 @@ class AuthController extends ApiBaseController
         if($changed_password){
             return $this->SuccessResponse('Password has been chnaged successfully', []);
         } else {
-            return $this->FailResponse(null, 'Something went wrong');
+            return $this->FailResponse('Something went wrong', null, 200);
         }
     }
 }

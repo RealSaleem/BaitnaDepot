@@ -36,7 +36,7 @@ class UserController extends ApiBaseController
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            return $this->FailResponse("Validation error", $validator->getMessageBag());
+            return $this->FailResponse("Validation error", $validator->getMessageBag(), 200);
         }
 
         $input = $request->all();
@@ -45,6 +45,6 @@ class UserController extends ApiBaseController
         // $user->email    = $input['email'];
         $user->save();
 
-        return $this->SuccessResponse('Profile has been updated suucessfully', []);
+        return $this->SuccessResponse('Profile has been updated suucessfully', null);
     }
 }
