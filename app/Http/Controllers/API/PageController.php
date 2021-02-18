@@ -57,17 +57,15 @@ class PageController extends ApiBaseController
                     
         }
     }
-    public function term_policy_aboutUs($type)
+    public function getPageByType($type)
     {
         $page = Page::where('type',$type)->first();
         if($page)
         {
             return $this->SuccessResponse('Success', $page);
-            
-        }else{
-            return $this->FailResponse("error");
+        } else {
+            return $this->FailResponse('Page not found', null, 200);
         }
-      
-
+    
     }
 }

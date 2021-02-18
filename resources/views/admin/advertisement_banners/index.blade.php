@@ -41,7 +41,7 @@
                                                 <td>{{$advertisement->title_ar}}</td>
                                                 <td>
                                                     @if($advertisement->image != null)
-                                                        <img src="{{asset('storage/'.$advertisement->image)}}" style="width:100px;">
+                                                        <img src="{{Helper::getImage($advertisement->image)}}" style="width:100px;">
                                                     @else
                                                         <img src="{{asset('app-assets/images/no-image.png')}}" style="width:100px">
                                                     @endif

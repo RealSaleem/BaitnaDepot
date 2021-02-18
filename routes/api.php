@@ -24,7 +24,7 @@ Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 //------------------>ContactUs Messages------------------->
 Route::post('contact_us_message','API\PageController@contact_us_message');
 //------------------>Privacy Policy----------------------->
-Route::get('term_policy_aboutUs/{type}','API\PageController@term_policy_aboutUs');
+Route::get('get_page/{type}','API\PageController@getPageByType');
 
 
 

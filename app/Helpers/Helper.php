@@ -62,4 +62,10 @@ Class Helper {
         	return false;
         }
 	}
+
+	public static function getImage($image)
+	{
+		$image_path = Config('app.image_base_url').$image;
+		return $image_path;
+	}
 } 
