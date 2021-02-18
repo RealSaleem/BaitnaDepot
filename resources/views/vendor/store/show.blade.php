@@ -47,6 +47,7 @@
 
                                                 {{$user->vendor->avaibility}}
 
+
                                             </td>
                                         </tr>
                                         <tr>

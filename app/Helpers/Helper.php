@@ -20,12 +20,13 @@ Class Helper {
 			'1' => 'Ecommerce',
 			'2' => 'Contractor',
 			'3' => 'Heavy Trucks'
-		];	
+		];
 	}
-	
+
+
 	/*
 		@param = Service ID
-		@return Service Name 
+		@return Service Name
 	*/
 	public static function getServiceName($service){
         $serviceName = null;
@@ -62,4 +63,4 @@ Class Helper {
         	return false;
         }
 	}
-} 
+}
