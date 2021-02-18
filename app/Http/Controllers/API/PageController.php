@@ -68,11 +68,11 @@ class PageController extends ApiBaseController
 
     public function getAdvertisementBanner()
     {
-        $Advertisement = Advertisement::orderBy('sort', 'asc')->get();
+        $advertisement = Advertisement::orderBy('sort', 'asc')->get();
 
-        if(!$Advertisement->IsEmpty()) 
+        if(!$advertisement->IsEmpty()) 
         {
-            return $this->SuccessResponse('Success', $Advertisement);
+            return $this->SuccessResponse('Success', $advertisement);
         } else {
             return $this->FailResponse(trans('response.page_not_found'), null, 200);
         }
