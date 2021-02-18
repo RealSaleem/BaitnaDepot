@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\Users;
 
+use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\User;
 
@@ -33,8 +34,8 @@ class GetAllUsersRequest extends FormRequest
     {
         $params = $this->all();
 
-        $baseQuery = User::where('type', APP_USER);
-        
+        $baseQuery = User::where('type', AppConstant::APP_USER);
+
         if(isset($params) && $params != null){
 
             if(isset($params['username'])){

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\ContactUs;
 use App\Models\Page;
 use App\Models\ContactUsMsg;
+use App\Models\Advertisement;
 
 class PageController extends ApiBaseController
 {
@@ -53,21 +54,36 @@ class PageController extends ApiBaseController
             {
                 return $this->SuccessResponse('Message has been sent to the Baitna Depot Team', $result);
             }
-                  
-                    
+
+
         }
     }
-    public function term_policy_aboutUs($type)
+    public function getPageByType($type)
     {
         $page = Page::where('type',$type)->first();
+
+
+
+
         if($page)
         {
             return $this->SuccessResponse('Success', $page);
-            
-        }else{
-            return $this->FailResponse("error");
+        } else {
+            return $this->FailResponse('Page not found', null, 200);
         }
-      
+
+    }
+
+    public function getAdvertisementBanner()
+    {
+        $Advertisement = Advertisement::all();
+
+        if($Advertisement)
+        {
+            return $this->SuccessResponse('Success',['Addvertise' => $Advertisement]);
+        } else {
+            return $this->FailResponse('Page not found', null, 200);
+        }
 
     }
 }

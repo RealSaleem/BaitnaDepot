@@ -13,19 +13,23 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
+
 /* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); */
 
-//------------------>Get Contact Details------------------->
+Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
+Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 //------------------>ContactUs Messages------------------->
 Route::post('contact_us_message','API\PageController@contact_us_message');
 //------------------>Privacy Policy----------------------->
-Route::get('term_policy_aboutUs/{type}','API\PageController@term_policy_aboutUs');
+Route::get('get_page/{type}','API\PageController@getPageByType');
+//------------------>Advertisment----------------------->
+Route::get('get_Advertisement','API\PageController@getAdvertisementBanner');
 
 
+Route::apiResource('address', 'API\AddressController');
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');
@@ -35,5 +39,6 @@ Route::group(['prefix' => 'auth'], function(){
         Route::post('profile', 'API\UserController@profile');
         Route::post('update_profile', 'API\UserController@updateProfile');
         Route::post('update_password', 'API\AuthController@updatePassword');
+        Route::apiResource('address', 'API\AddressController');
     });
 });

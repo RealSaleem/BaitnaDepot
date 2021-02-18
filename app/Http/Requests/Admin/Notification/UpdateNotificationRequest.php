@@ -44,12 +44,12 @@ class UpdateNotificationRequest extends FormRequest
         $Notification->body     = $NotificationReq['body'];
         $Notification->url      = $NotificationReq['url'];
 
-        // if($this->hasFile('image'))
-        // {
-        //     $image_path = $this->file('image')->store('Notification/images');
-        //     // $image_path = env('IMAGE_BASE_URL').$image_path;
-        //     $Notification->image = $image_path;
-        // }
+         if($this->hasFile('image'))
+         {
+             $image_path = $this->file('image')->store('uploads/images/notification');
+             // $image_path = env('IMAGE_BASE_URL').$image_path;
+             $Notification->image = $image_path;
+         }
 
         $Notification->save();
         return $Notification;

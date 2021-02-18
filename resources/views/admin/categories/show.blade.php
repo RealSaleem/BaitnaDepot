@@ -52,7 +52,7 @@
                             </div>
                             <div class="col s6">
                                 @if(isset($category) && $category->image != null)
-                                    <img src="{{asset('storage/'.$category->image)}}" alt="Category Image" class="responsive-img" style="width: 100%; height: auto">
+                                    <img src="{{Helper::getImage($category->image)}}" alt="Category Image" class="responsive-img" style="width: 100%; height: auto">
                                 @endif
                             </div>
                         </div>

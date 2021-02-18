@@ -46,9 +46,16 @@
                                             <td>{{$Noti->title}}</td>
                                             <td>{{$Noti->body}}</td>
                                             <td>{{$Noti->url}}</td>
-                                            
-                                          
-                                            <td> <img src=" {{ asset('/storage/'.$Noti->image) }}" style="height: 70px; width:auto; text-align:center;" ></td>
+
+
+                                            <td>
+                                                @if($Noti->image != null)
+                                                    <img src="{{Helper::getImage($Noti->image)}}" style="width:100px;">
+                                                @else
+                                                    <img src="{{asset('app-assets/images/no-image.png')}}" style="width:100px">
+                                                @endif
+
+                                            </td>
                                             <td>
                                              <a href="{{ route('admin.notification.edit',$Noti->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
                                             <form action="{{ route('admin.notification.destroy',$Noti->id) }}" method="POST" class="delete-record">
@@ -58,7 +65,7 @@
                                             </form>
                                             </td>
                                         </tr>
-                                    @endforeach                                       
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
@@ -77,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 
 

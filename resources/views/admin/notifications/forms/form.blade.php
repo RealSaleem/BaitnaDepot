@@ -24,7 +24,7 @@
             </small>
         @endif
     </div>
-    
+
     <div class="input-field col m12 s12 ">
         <input id="url" type="text" name="url" value="{{ old('url', isset($Notification) ? $Notification->url : null) }}">
         <label for="url">{{__('notification.url')}}</label>
@@ -35,11 +35,11 @@
         @endif
     </div>
 
-    
+
     <div class="input-field col s12 m8 l12">
     <label for="url">{{__('notification.image')}}</label><br><br><br>
-        @if(isset($notification) && $advertisement->image != null)
-            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M"/>
+        @if(isset($Notification) && $Notification->image != null)
+            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{Helper::getImage($Notification->image)}}" data-max-file-size="2M"/>
         @else
             <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M"/>
         @endif
@@ -50,8 +50,8 @@
             </small>
         @endif
     </div>
-  
-  
+
+
 
 
 
@@ -89,19 +89,19 @@ $('#promo_type').on('change',function(){
         {
             $('#promo_value').show();
             $('#promo_value').attr("placeholder", "Percentage");
-          
+
         }
         if(promo_type==2)
         {
             $('#promo_value').show();
             $('#promo_value').attr("placeholder", "Price");
-            
+
         }
          if(promo_type==0)
         {
             $('#promo_value').hide();
             $('#promo_value').attr("placeholder", "");
-            
+
         }
 
 });

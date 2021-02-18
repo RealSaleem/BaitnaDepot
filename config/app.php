@@ -58,6 +58,8 @@ return [
 
     'pagination_per_page' => env('PAGINATION_PER_PAGE', 10),
 
+    'image_base_url' => env('IMAGE_BASE_URL', 'http://127.0.0.1:8000/storage/'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -83,7 +85,7 @@ return [
     */
 
     'locale'    => 'en',
-    
+
     'locales'   => ['en' => 'english', 'ar' => 'arabic'],
 
     /*
@@ -98,6 +100,12 @@ return [
     */
 
     'fallback_locale' => 'en',
+
+
+
+
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -231,6 +239,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Helper'  => \App\Helpers\Helper::class,
+        'AppConstant'  => \App\Helpers\AppConstant::class,
 
     ],
 

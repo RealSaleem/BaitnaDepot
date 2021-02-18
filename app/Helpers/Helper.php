@@ -23,7 +23,6 @@ Class Helper {
 		];
 	}
 
-
 	/*
 		@param = Service ID
 		@return Service Name
@@ -62,5 +61,11 @@ Class Helper {
         } else {
         	return false;
         }
+	}
+
+	public static function getImage($image)
+	{
+		$image_path = Config('app.image_base_url').$image;
+		return $image_path;
 	}
 }
