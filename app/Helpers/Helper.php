@@ -65,6 +65,10 @@ Class Helper {
 
 	public static function getImage($image)
 	{
+		if($image == null){
+			return null;
+		}
+		
 		$image_path = Config('app.image_base_url').$image;
 		return $image_path;
 	}

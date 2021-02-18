@@ -20,13 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
 Route::get('contact_us_details','API\PageController@GetContactUsDetails');
-Route::get('contact_us_details','API\PageController@GetContactUsDetails');
+// Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 //------------------>ContactUs Messages------------------->
 Route::post('contact_us_message','API\PageController@contact_us_message');
 //------------------>Privacy Policy----------------------->
 Route::get('get_page/{type}','API\PageController@getPageByType');
 //------------------>Advertisment----------------------->
-Route::get('get_Advertisement','API\PageController@getAdvertisementBanner');
+Route::get('get_advertisement','API\PageController@getAdvertisementBanner');
 
 Route::apiResource('address', 'API\AddressController');
 
