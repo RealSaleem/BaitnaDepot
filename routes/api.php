@@ -28,7 +28,6 @@ Route::get('get_page/{type}','API\PageController@getPageByType');
 //------------------>Advertisment----------------------->
 Route::get('get_Advertisement','API\PageController@getAdvertisementBanner');
 
-
 Route::apiResource('address', 'API\AddressController');
 
 Route::group(['prefix' => 'auth'], function(){
@@ -39,6 +38,6 @@ Route::group(['prefix' => 'auth'], function(){
         Route::post('profile', 'API\UserController@profile');
         Route::post('update_profile', 'API\UserController@updateProfile');
         Route::post('update_password', 'API\AuthController@updatePassword');
-        Route::apiResource('address', 'API\AddressController');
+        // Route::apiResource('address', 'API\AddressController');
     });
 });
