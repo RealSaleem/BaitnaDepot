@@ -52,7 +52,9 @@
                             </div>
                             <div class="col s6">
                                 @if(isset($category) && $category->image != null)
-                                    <img src="{{Helper::getImage($category->image)}}" alt="Category Image" class="responsive-img" style="width: 100%; height: auto">
+                                    <img src="{{$category->image}}" alt="Category Image" class="responsive-img" style="width: 100%; height: auto">
+                                @else
+                                    <img src="{{asset('app-assets/images/no-image.png')}}" alt="Category Image" class="responsive-img" style="text-align: center;width: 50%; height: auto">
                                 @endif
                             </div>
                         </div>

@@ -50,7 +50,7 @@
 
                                             <td>
                                                 @if($Noti->image != null)
-                                                    <img src="{{Helper::getImage($Noti->image)}}" style="width:100px;">
+                                                    <img src="{{$Noti->image}}" style="width:100px;">
                                                 @else
                                                     <img src="{{asset('app-assets/images/no-image.png')}}" style="width:100px">
                                                 @endif

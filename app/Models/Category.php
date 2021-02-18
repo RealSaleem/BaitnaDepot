@@ -14,6 +14,11 @@ class Category extends Model
     protected $fillable  	= ['name_en', 'name_ar', 'type', 'parent_id', 'image', 'delivery_fees', 'sort'];
     protected $hidden 	 	= ['created_at', 'updated_at', 'deleted_at'];
         // public    $translatable = ['name'];
+    public function getImageAttribute()
+    {
+        $image = \App\Helpers\Helper::getImage($this->attributes['image']);
+        return $image;
+    }
 
     public function children()
 	{
@@ -27,7 +32,7 @@ class Category extends Model
 
 	public function getTypeAttribute()
 	{
-		$type = $this->attributes['type']; 
+		$type = $this->attributes['type'];
 
 		if($type == 1){
 			return trans('site.ecommerce');

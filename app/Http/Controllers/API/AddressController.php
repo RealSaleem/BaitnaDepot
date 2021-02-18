@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Address;
 use App\Models\ContactUs;
+use Illuminate\Support\Facades\Validator;
+
+use App\Http\Requests\API\UserAddress\AddAddress;
 
 class AddressController extends ApiBaseController
 {
@@ -49,8 +52,39 @@ class AddressController extends ApiBaseController
      */
     public function store(Request $request)
     {
-        //
-    }
+        $rules =[
+            'user_id'       => 'required',
+            'name_en'       => 'required',
+            'name_ar'       => 'required',
+            'area'          => 'required',
+            'block'         => 'required',
+            'street'        => 'required',
+            'building'      => 'required',
+            'floor'         => 'required',
+            'civil_id'      => 'required',
+            'other'         => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->FailResponse("Validation error", $validator->getMessageBag(), 200);
+        }else{
+                $address = new Address();
+                $address->user_id   = $request->user_id;
+                $address->name_en   = $request->name_en;
+                $address->name_ar   = $request->name_ar;
+                $address->area      = $request->area;
+                $address->block     = $request->block;
+                $address->street    = $request->street;
+                $address->building  = $request->building;
+                $address->floor     = $request->floor;
+                $address->civil_id  = $request->civil_id;
+                $address->other     = $request->other;
+      $result = $address->save();
+      if($result){
+          return $this->SuccessResponse(trans('Address added successfully'), $result);
+      }
+        }}
+
 
     /**
      * Display the specified resource.
@@ -58,9 +92,14 @@ class AddressController extends ApiBaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $getaddress = Address::where('user_id',$request->user_id )->first();
+        if($getaddress){
+            return $this->SuccessResponse(trans('Successfully Get'), $getaddress);
+        }
+
+
     }
 
     /**
@@ -72,7 +111,40 @@ class AddressController extends ApiBaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules =[
+            'user_id'       => 'required',
+            'name_en'       => 'required',
+            'name_ar'       => 'required',
+            'area'          => 'required',
+            'block'         => 'required',
+            'street'        => 'required',
+            'building'      => 'required',
+            'floor'         => 'required',
+            'civil_id'      => 'required',
+            'other'         => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return $this->FailResponse("Validation error", $validator->getMessageBag(), 200);
+        }else {
+
+
+            $updateAddress = Address::find($request->user_id);
+            $updateAddress->name_ar = $request->name_ar;
+            $updateAddress->name_en = $request->name_en;
+            $updateAddress->area = $request->area;
+            $updateAddress->block = $request->block;
+            $updateAddress->street = $request->street;
+            $updateAddress->building = $request->building;
+            $updateAddress->floor = $request->floor;
+            $updateAddress->civil_id = $request->civil_id;
+            $updateAddress->other = $request->other;
+            $result = $updateAddress->save();
+
+            if ($result) {
+                return $this->SuccessResponse(trans('Address Successfully Updated'), $result);
+            }
+        }
     }
 
     /**

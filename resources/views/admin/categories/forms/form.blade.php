@@ -79,7 +79,7 @@
     <!--Default version-->
     <div class="input-field col s12 m8 l12">
         @if(isset($category) && $category->image != null)
-            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{Helper::getImage($category->image)}}" data-max-file-size="2M"/>
+            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{$category->image}}" data-max-file-size="2M"/>
         @else
             <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M"/>
         @endif

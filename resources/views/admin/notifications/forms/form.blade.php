@@ -39,7 +39,7 @@
     <div class="input-field col s12 m8 l12">
     <label for="url">{{__('notification.image')}}</label><br><br><br>
         @if(isset($Notification) && $Notification->image != null)
-            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{Helper::getImage($Notification->image)}}" data-max-file-size="2M"/>
+            <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="{{$Notification->image}}" data-max-file-size="2M"/>
         @else
             <input type="file" id="input-file-now" name="image" class="dropify" data-default-file="" data-max-file-size="2M"/>
         @endif
