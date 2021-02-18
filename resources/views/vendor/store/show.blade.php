@@ -44,10 +44,12 @@
                                         <tr>
                                             <td>Avaibility:</td>
                                             <td class="users-view-username">
-
-                                                {{$user->vendor->avaibility}}
-
-
+                                                @if($user->vendor->avaibility ==0)
+                                                    {{\App\Helpers\AppConstant::NOT_AVAILABLE}}
+                                                @endif
+                                                @if($user->vendor->avaibility ==1)
+                                                    {{\App\Helpers\AppConstant::AVAILABLE}}
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>

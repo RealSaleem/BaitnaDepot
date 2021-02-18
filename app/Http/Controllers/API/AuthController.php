@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Helpers\AppConstant;
 use App\Http\Controllers\API\ApiBaseController;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -30,7 +31,7 @@ class AuthController extends ApiBaseController
         $email = $request['email'];
         $password = $request['password'];
 
-        if (Auth::attempt(['email' => $email, 'password' => $password, 'type' => APP_USER])) {
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'type' => AppConstant::APP_USER])) {
             $user = Auth::user();
             $data = [
                 'id'            => $user->id,
@@ -55,10 +56,10 @@ class AuthController extends ApiBaseController
             'mobile'            => 'required|min:8|max:8',
             'password'          => 'required',
             'confirm_password'  => 'required|same:password',
-            'email'             =>  ['required', 'string', 'email', 
+            'email'             =>  ['required', 'string', 'email',
                                     Rule::unique('users', 'email')->where(function ($query) {
-                                    return $query->where('type', APP_USER);
-                                })]     
+                                    return $query->where('type', AppConstant::APP_USER);
+                                })]
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -69,8 +70,8 @@ class AuthController extends ApiBaseController
         $input = $request->all();
         $input['password']  = bcrypt($input['password']);
         $input['username']  = trim(strtolower($request->name));
-        $input['type']      = APP_USER;
-        $input['status']    = INACTIVE;
+        $input['type']      = AppConstant::APP_USER;
+        $input['status']    = AppConstant::INACTIVE;
         $user = User::create($input);
         $token = $user->createToken('baitna-depot')->accessToken;
 
@@ -78,7 +79,7 @@ class AuthController extends ApiBaseController
             'name'   => $user->name,
             'mobile' => $user->mobile,
             'email'  => $user->email,
-            'token'  => $token 
+            'token'  => $token
         ];
         return $this->SuccessResponse('Account has been created successfully', $data);
     }
@@ -90,13 +91,13 @@ class AuthController extends ApiBaseController
             'mobile'            => 'required|min:8|max:8'
         ];
         $validator = Validator::make($request->all(), $rules);
-        
+
         if ($validator->fails()) {
             return $this->FailResponse("Validation error", $validator->errors(), 200);
         }
 
         $input = $request->all();
-        $input['status'] = UNAPPROVE;
+        $input['status'] = AppConstant::UNAPPROVE;
         if(VendorRequest::create($input)){
             return $this->SuccessResponse('Your request has been submitted successfully.', null);
         } else {

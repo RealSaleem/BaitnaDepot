@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\Vendors;
 
+use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\User;
@@ -34,9 +35,9 @@ class CreateVendorRequest extends FormRequest
             'mobile'    =>  ['required'],
             'services'  =>  ['required'],
             'logo'      =>  ['nullable','image','mimes:jpeg,jpg,png'],
-            'email'     =>  ['required', 'string', 'email', 'max:191', 
+            'email'     =>  ['required', 'string', 'email', 'max:191',
                                 Rule::unique('users', 'email')->where(function ($query) use ($params) {
-                                    return $query->where('type', VENDOR_USER);
+                                    return $query->where('type', AppConstant::VENDOR_USER);
                             })]
         ];
     }
@@ -50,8 +51,8 @@ class CreateVendorRequest extends FormRequest
         $user->email    = $params['email'];
         $user->mobile   = $params['mobile'];
         $user->password = bcrypt($params['password']);
-        $user->type     = VENDOR_USER; 
-        $user->status   = ACTIVE; 
+        $user->type     = AppConstant::VENDOR_USER;
+        $user->status   = ACTIVE;
         $user->save();
 
         $vendor = new Vendor;

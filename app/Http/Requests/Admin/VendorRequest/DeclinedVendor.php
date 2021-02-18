@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\VendorRequest;
 
+use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\VendorRequest;
 
@@ -31,7 +32,7 @@ class DeclinedVendor extends FormRequest
     public function handle($id)
     {
         $vendor = VendorRequest::find($id);
-        $vendor->status = DECLINED;
+        $vendor->status = AppConstant::DECLINED;
         $vendor->save();
 
         return $vendor;

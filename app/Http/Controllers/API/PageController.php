@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Helpers\AppConstant;
 use App\Http\Controllers\API\ApiBaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -48,7 +49,7 @@ class PageController extends ApiBaseController
                     $contact->email     = $Req->email;
                     $contact->mobile    = $Req->phone;
                     $contact->message   = $Req->message;
-                    $contact->status    = NEWED;
+                    $contact->status    = AppConstant::NEWED;
         $result =   $contact->save();
             if($result)
             {

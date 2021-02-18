@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\Users;
 
+use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\User;
@@ -31,12 +32,12 @@ class UpdateUserRequest extends FormRequest
             'mobile'    =>  ['required', 'numeric', 'digits_between:8,8'],
             'username'  =>  ['required', 'string',
                                 Rule::unique('users', 'username')->ignore($params['id'])->where(function ($query) use ($params) {
-                                    return $query->where('type', APP_USER);
+                                    return $query->where('type',AppConstant::APP_USER);
                             })],
-            'email'     =>  ['required', 'string', 'email', 'max:191', 
+            'email'     =>  ['required', 'string', 'email', 'max:191',
                                 Rule::unique('users', 'email')->ignore($params['id'])->where(function ($query) use ($params) {
-                                    return $query->where('type', APP_USER);
-                            })]                    
+                                    return $query->where('type', AppConstant::APP_USER);
+                            })]
         ];
     }
 
