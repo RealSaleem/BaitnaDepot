@@ -36,7 +36,7 @@
         <button form="reset_password_form" type="submit" class="modal-action waves-effect waves-light btn btn-small">{{__('site.save')}}</button>
         <a href="javascript:;" class="modal-action modal-close waves-effect waves-light btn btn-small">{{__('site.cancel')}}</a>
     </div>
-</div> 
+</div>
 
 <div class="container">
     <section class="users-list-wrapper section">
@@ -130,18 +130,34 @@
                                                 <td>{{$user->email}}</td>
                                                 <td>{{Helper::getFormatedDate($user->created_at)}}</td>
                                                 <td>{{$user->last_login != null ? Helper::getFormatedDateTime($user->last_login) : null}}</td>
-                                                <td> 
-                                                    <span>
-                                                        <a href="{{route('admin.users.show', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>
-                                                        <a href="{{route('admin.users.edit', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
-                                                        <form action="{{route('admin.users.destroy', $user->id)}}" method="POST" class="delete-record">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
-                                                        </form>
-                                                        <a href="javascript:;" onclick="return reset_password({{$user->id}})" class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.reset_password')}}</a>
-                                                    </span>
+{{--                                                <td>--}}
+{{--                                                    <span>--}}
+{{--                                                        <a href="{{route('admin.users.show', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
+{{--                                                        <a href="{{route('admin.users.edit', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
+{{--                                                        <form action="{{route('admin.users.destroy', $user->id)}}" method="POST" class="delete-record">--}}
+{{--                                                            @method('DELETE')--}}
+{{--                                                            @csrf--}}
+{{--                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
+{{--                                                        </form>--}}
+{{--                                                        <a href="javascript:;" onclick="return reset_password({{$user->id}})" class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.reset_password')}}</a>--}}
+{{--                                                    </span>--}}
+{{--                                                </td>--}}
+
+                                                <td style="text-align: center;" >
+                                                    <!-- Dropdown Trigger -->
+                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+
                                                 </td>
+                                                <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+                                                    <li><a href="{{route('admin.users.show', $user->id)}}"><i class="Medium material-icons" style="font-size: 30px;">visibility</i> View</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li> <a href="{{route('admin.users.edit', $user->id)}}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li> <a href="{{route('admin.users.destroy', $user->id)}}" class="delete-record "><i class="Medium material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li> <a href="javascript:;" onclick="return reset_password({{$user->id}})">{{__('site.reset_password')}}</a></li>
+                                                </ul>
+
                                             </tr>
                                             @endforeach
                                         @else
@@ -165,7 +181,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection
 @section('scripts')
@@ -194,18 +210,18 @@
                 url:  action,
                 type: "POST",
                 data: $('#reset_password_form').serialize(),
-                success: function(response) 
+                success: function(response)
                 {
                     $('#reset_password_form')[0].reset();
                     $('#reset_password').modal('close');
-                }, 
+                },
                 error: function(data)
                 {
                     $('.error').text(data.responseJSON.errors.password[0]);
                 }
             });
             return false;
-        }); 
+        });
     });
 </script>
 
@@ -220,7 +236,7 @@
                 className: 'btn waves-effect waves-light invoice-export border-round',
                 exportOptions: {
                 columns: 'th:not(:last-child)'
-                } 
+                }
             },
             {
                 extend: 'csv',
@@ -228,7 +244,7 @@
                 className: 'btn waves-effect waves-light invoice-export border-round',
                 exportOptions: {
                 columns: 'th:not(:last-child)'
-                } 
+                }
             },
             {
                 extend: 'pdf',
@@ -236,7 +252,7 @@
                 className: 'btn waves-effect waves-light invoice-export border-round',
                 exportOptions: {
                 columns: 'th:not(:last-child)'
-                } 
+                }
             }
         ]
     });

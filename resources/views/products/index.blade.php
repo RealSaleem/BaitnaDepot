@@ -56,11 +56,21 @@
 {{--                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
 {{--                                                    </form>--}}
 {{--                                                </td>--}}
+
                                                 <td style="text-align: center;" >
-                                                    <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}"><i class=" material-icons" style="font-size: 30px;">visibility</i></a> &nbsp;&nbsp;
-                                                    <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.edit' : 'products.edit',$product->id) }}"><i class=" material-icons" style="font-size: 30px;">edit</i></a> &nbsp;&nbsp;
-                                                    <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.destroy' : 'products.destroy', $product->id)}}" class="delete-record"><i class=" material-icons" style="font-size: 30px;">delete_forever</i></a>
+                                                    <!-- Dropdown Trigger -->
+                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+
                                                 </td>
+                                                <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+                                                    <li><a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}"><i class="Medium material-icons" style="font-size: 30px;">visibility</i> View</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li> <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.edit' : 'products.edit',$product->id) }}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li> <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.destroy' : 'products.destroy', $product->id)}}" class="delete-record "><i class="Medium material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
+                                                </ul>
+
+
                                             </tr>
                                             @endforeach
                                         @else

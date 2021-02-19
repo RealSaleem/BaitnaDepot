@@ -110,9 +110,12 @@
                                                     <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
                                                     <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
                                                         <li><a href="{{route('admin.vendors.show', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">visibility</i> View </a></li>
+                                                        <li class="divider" tabindex="-1"></li>
                                                         <li><a href="{{route('admin.vendors.edit', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                        <li class="divider" tabindex="-1"></li>
                                                         <li> <a href="{{route('admin.vendors.destroy', $vendor->id)}}" type="submit" class="delete-record"><i class=" material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
-                                                        <li> <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})">Reset Password</a></li>
+                                                        <li class="divider" tabindex="-1"></li>
+                                                        <li style="text-align: center; font-weight: bold; " > <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})">Reset Password</a></li>
                                                     </ul>
                                                 </td>
 
@@ -196,7 +199,7 @@
 </script>
 <script>
     // function confirm_delete(){
-    $('.delete-record').submit(function(e) {
+    $('.delete-record').click(function(e) {
         e.preventDefault();
 
         swal({
@@ -224,7 +227,7 @@
         .then((isConfirm) => {
             console.log(isConfirm);
           if (isConfirm) {
-            this.submit();
+            this.is_click();
             return true;
             // swal("Poof! Your imaginary file has been deleted!", {
             //   icon: "success",

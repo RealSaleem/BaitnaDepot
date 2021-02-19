@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="section section-data-tables">
-       
+
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="card">
@@ -31,7 +31,7 @@
                                     <tbody>
                                           @if($Promote)
                                         @foreach($Promote as $P)
-                                            
+
                                         <tr>
                                             <td>{{$P->id}}</td>
                                             <td>{{$P->User->name}}</td>
@@ -39,19 +39,23 @@
                                             <td>{{$P->Date_From}}</td>
                                             <td>{{$P->Date_To}}</td>
 
-                                            <td style="text-align: center;">
-                                                <a href="#" class="waves-effect waves-light btn btn-small">Approve</a>
-                                                <a href="#" class="waves-effect waves-light red accent-2 btn btn-small">Decline</a>
+                                            <td style="text-align: center;" >
+                                                <!-- Dropdown Trigger -->
+                                                <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
 
                                             </td>
+                                            <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+                                                <li><a href="#"><i class="Medium material-icons" style="font-size: 30px;">visibility</i> View</a></li>
+                                                <li> <a href="#"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                            </ul>
 
 
                                         </tr>
-                                       
+
                                         @endforeach
                                         @endif
 <!--  -->
-                                       
+
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -71,7 +75,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 
 

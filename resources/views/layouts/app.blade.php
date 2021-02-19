@@ -96,7 +96,17 @@
     @endif
     <style>
         #dropdown1{
-            width: 200px !important;
+            width: 180px !important;
+        }
+        #dropdown1  li a{
+           color: dimgray !important;
+        }
+        #dropdown1 i{
+            font-size: 20px !important;
+            color: dimgray !important;
+        }
+        .dropdown-trigger i{
+            color: dimgray !important;
         }
 
 

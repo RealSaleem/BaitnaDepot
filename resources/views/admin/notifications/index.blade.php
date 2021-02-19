@@ -56,14 +56,27 @@
                                                 @endif
 
                                             </td>
-                                            <td>
-                                             <a href="{{ route('admin.notification.edit',$Noti->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
-                                            <form action="{{ route('admin.notification.destroy',$Noti->id) }}" method="POST" class="delete-record">
-                                               @method('DELETE')
-                                               @csrf
-                                               <button class="waves-effect waves-light red accent-2 btn "> <i class="Medium material-icons" style="font-size: 30px;">delete_forever</i></button>
-                                            </form>
+{{--                                            <td>--}}
+{{--                                             <a href="{{ route('admin.notification.edit',$Noti->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>--}}
+{{--                                            <form action="{{ route('admin.notification.destroy',$Noti->id) }}" method="POST" class="delete-record">--}}
+{{--                                               @method('DELETE')--}}
+{{--                                               @csrf--}}
+{{--                                               <button class="waves-effect waves-light red accent-2 btn "> <i class="Medium material-icons" style="font-size: 30px;">delete_forever</i></button>--}}
+{{--                                            </form>--}}
+{{--                                            </td>--}}
+                                            <td style="text-align: center;" >
+                                                <!-- Dropdown Trigger -->
+                                                <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+                                                <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+
+                                                    <li> <a href="{{ route('admin.notification.edit',$Noti->id) }}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li> <a href="{{ route('admin.notification.destroy',$Noti->id) }}" class="delete-record "><i class="Medium material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
+
+                                                </ul>
+
                                             </td>
+
                                         </tr>
                                     @endforeach
                                     </tbody>
