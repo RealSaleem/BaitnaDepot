@@ -66,8 +66,15 @@
     @include(Auth::guard('admin')->check() ? 'admin.layouts.navigation' : 'layouts.navigation')
     <!-- END: SideNav-->
 
+
+
+
+
+
+
     <!-- BEGIN: Page Main-->
     <div id="main">
+        @include('layouts.heading')
         @include('layouts.flash-message')
         @include('layouts.toast')
         @yield('content')
@@ -82,6 +89,7 @@
     @if(Session::has('success'))
     <script>
        toastr.success("{{session('success')}}")
+
     </script>
     @endif
     @if(Session::has('error'))

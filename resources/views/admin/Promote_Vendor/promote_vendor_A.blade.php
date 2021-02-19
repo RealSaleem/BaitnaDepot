@@ -4,17 +4,15 @@
 @endsection
 @section('content')
 <div class="container">
+    @section('heading')
+        Vendor Romote Request
+    @endsection
     <div class="section section-data-tables">
 
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col s12">
-                                <h4 class="card-title">Vendor Promote Requests</h4>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col s12">
                                 <table id="page-length-option" class="display">

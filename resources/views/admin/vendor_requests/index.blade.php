@@ -1,21 +1,17 @@
 @extends('layouts.app')
 @section('styles')
-    
+
 @endsection
 @section('content')
 <div class="container">
+    @section('heading')
+        {{__('vendor.vendor_requests')}}
+    @endsection
     <div class="section section-data-tables">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col s6">
-                                <div class="card-title">
-                                    {{__('vendor.vendor_requests')}}
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col s12">
                                 <table id="page-length-option" class="display">
@@ -53,11 +49,11 @@
                                                     @elseif($vendor->status == 1)
                                                         <p>{{__('vendor.approved')}}</p>
                                                     @elseif($vendor->status == 2)
-                                                        <p>{{__('vendor.declined')}}</p>    
+                                                        <p>{{__('vendor.declined')}}</p>
                                                     @endif
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
-                                                <td> 
+                                                <td>
                                                     <a href="{{route('admin.vendor_requests.id', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.detail')}}</a>
                                                     @if($vendor->status == 0)
                                                         <a href="{{route('admin.approve_vendor', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('vendor.approve')}}</a>
@@ -88,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection
 @section('scripts')

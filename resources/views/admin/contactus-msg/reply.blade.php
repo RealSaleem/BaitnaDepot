@@ -4,11 +4,13 @@
 @endsection
 @section('content')
     <div class="container">
+        @section('heading')
+            {{__('contact.reply')}}
+        @endsection
         <div class="row">
             <div class="col s12 m12 l12">
                 <div id="Form-advance" class="card card card-default scrollspy">
                     <div class="card-content">
-                        <h4 class="card-title">{{__('contact.reply')}}</h4>
                         <br><br>
                         <form method="post" action="{{route('admin.reply_contact_us_messages')}}" enctype="multipart/form-data">
                             @csrf

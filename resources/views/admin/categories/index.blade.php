@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    @section('heading')
+        {{ __('category.categories') }}
+    @endsection
     <div class="section section-data-tables">
         <div class="row">
             <div class="col s12">
@@ -14,11 +17,7 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col s12">
-                                <h4 class="card-title">{{ __('category.categories') }}</h4>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col s12">
                                 <table id="page-length-option" class="display">
@@ -41,20 +40,6 @@
                                                 <td>{{$category->name_ar}}</td>
                                                 <td>{{$category->parent != null ? $category->parent->getLocaleName() : null}}</td>
                                                 <td>{{$category->type}}</td>
-{{--                                                <td>--}}
-{{--                                                    <a href="{{route('admin.categories.show', $category->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
-{{--                                                    <a href="{{ route('admin.categories.edit',$category->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
-{{--                                                    <form action="{{route('admin.categories.destroy', $category->id)}}" method="POST" class="delete-record">--}}
-{{--                                                        @method('DELETE')--}}
-{{--                                                        @csrf--}}
-{{--                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
-{{--                                                    </form>--}}
-{{--                                                </td>--}}
-
-
-
-
-
 
                                                 <td style="text-align: center;">
                                                     <!-- Dropdown Trigger -->
@@ -67,7 +52,7 @@
                                                         @csrf
                                                         <button class="waves-effect waves-light red accent-2 btn btn-small mb-2  hide">{{__('site.delete')}}</button>
                                                     </form>
-                                                    <li><a href="{{ route('admin.categories.show', $category->id) }}"><i class="Small material-icons">visibility</i> {{__('site.edit')}}</a></li>
+                                                    <li><a href="{{ route('admin.categories.show', $category->id) }}"><i class="Small material-icons">visibility</i> View</a></li>
                                                     <li class="divider" tabindex="-1"></li>
                                                     <li><a href="{{ route('admin.categories.edit',$category->id) }}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
                                                     <li class="divider" tabindex="-1"></li>

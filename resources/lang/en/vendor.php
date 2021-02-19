@@ -5,6 +5,8 @@ return [
 
     'main'                     => 'Vendors',
     'vendor_name'              => 'Vendor Name',
+    'show'                     => 'View Vendor',
+    'edit'                     => 'Edit Vendor',
     'vendor'                   => 'Vendor',
     'email'                    => 'Email',
     'password'                 => 'Password',
@@ -17,7 +19,7 @@ return [
     'status'         		   => 'Status',
     'message'         		   => 'Message',
     'date'		   		       => 'Date',
-    'approved'				   => 'Approved',			
+    'approved'				   => 'Approved',
     'unapprove'				   => 'Unapprove',
     'declined'				   => 'Declined',
     'vendor_requests'		   => 'Vendor Requests',

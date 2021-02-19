@@ -3,6 +3,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
 @endsection
 @section('content')
+@section('heading')
+    Contact Us Details
+@endsection
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
@@ -12,19 +15,16 @@
     <div class="row">
         <div class="col s12">
             <div class="container mt-3">
-            
-               
+
+
                 <!-- users view start -->
                 <div class="section users-view">
                     <!-- users view card details start -->
                     <div class="card">
-                     
+
                         <div class="card-content">
                             <div class="row">
                             <div class="row">
-                            <div class="col  mb-2" style="float:left;">
-                               <h5>Contact Us Details : </h5>
-                            </div>
                             <div class="col  mb-2" style="float:right;">
                                 <a href="{{ route('admin.ContactUsDetails_edit',$ContactUsDetails->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
                                 </a>
@@ -68,7 +68,7 @@
                                             <th>Snapchat</th>
                                             <td>{{ucwords($ContactUsDetails->snapchat)}}</td>
                                         </tr>
-                                        
+
                                         </tbody>
                                     </table>
 

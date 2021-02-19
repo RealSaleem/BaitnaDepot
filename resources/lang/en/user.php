@@ -29,4 +29,5 @@ return [
     'confirm_password'      => 'Confirm Password',
     'post_list'             => 'Post List',
     'favourite_list'        => 'Favourite List',
+    'view'                  => 'View User',
 ];

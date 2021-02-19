@@ -4,13 +4,10 @@
 @endsection
 @section('content')
 
-
-
-
-</style>
-
-
 <div class="container">
+    @section('heading')
+        {{__('vendor.generate_promo')}}
+    @endsection
     <div class="section section-data-tables">
         <div class="row">
             <div class="col s12">
@@ -24,11 +21,6 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col s12">
-                                <h4 class="card-title"> {{__('vendor.generate_promo')}}</h4>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col s12">
                                 <table id="page-length-option" class="display">

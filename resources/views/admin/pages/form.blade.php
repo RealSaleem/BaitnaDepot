@@ -7,11 +7,17 @@
                 <div class="card-content">
                     <h4 class="card-title">
                         @if($page_type == 'about')
-                            About
+                            @section('heading')
+                               About
+                            @endsection
                         @elseif($page_type == 'privacy_policy')
-                            Privacy Policy
+                            @section('heading')
+                                Privacy Policy
+                            @endsection
                         @elseif($page_type == 'terms_and_conditions')
-                            Terms & Conditions
+                            @section('heading')
+                                Terms & Conditions
+                            @endsection
                         @endif
                     </h4>
                     <form method="post" action="{{ route('admin.save_page') }}">

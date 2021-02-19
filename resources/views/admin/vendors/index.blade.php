@@ -3,6 +3,7 @@
 
 @endsection
 @section('content')
+
 <!-- Modal Structure -->
 <div id="reset_password" class="modal">
     <div class="modal-content card-panel">
@@ -36,7 +37,13 @@
         <a href="javascript:;" class="modal-action modal-close waves-effect waves-light btn btn-small">{{__('site.cancel')}}</a>
     </div>
 </div>
+
+
 <div class="container">
+@section('heading')
+    {{__('site.vendor')}}
+@endsection
+
     <div class="section section-data-tables">
         <div class="row">
             <div class="col s12">
@@ -52,13 +59,7 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col s6">
-                                <div class="card-title">
-                                    {{__('vendor.main')}}
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col s12">
                                 <table id="vendors-table" class="display">
@@ -92,7 +93,7 @@
                                                     @endforeach
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
-                                              
+
 
                                                 <td style="text-align: center;">
                                                     <!-- Dropdown Trigger -->
@@ -110,6 +111,7 @@
                                                     <li><a href="{{route('admin.vendors.edit', $vendor->id)}}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
                                                     <li class="divider" tabindex="-1"></li>
                                                     <li><a href="javascript:;" data-value="{{$vendor->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
                                                     <li style="text-align: center;" ><a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" >Reset Password</a> </li>
                                                 </ul>
 

@@ -1,14 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @section('heading')
+            {{ __('contactus.contactus') }}
+        @endsection
         <div class="row">
             <div class="col s12 m12 l12">
                 <div id="Form-advance" class="card card card-default scrollspy">
                     <div class="card-content">
-                        <h4 class="card-title">{{ __('contactus.contactus') }}</h4>
                         <form method="post" action="{{ route('admin.ContactUsDetails_update',$GetContactUsDetail->id) }}">
                             @csrf
-                            {{ method_field('PUT') }}     
+                            {{ method_field('PUT') }}
                             <div class="row">
                                 <div class="input-field col m6 s6">
                                     <label for="phone">{{ __('contactus.phone') }}</label>

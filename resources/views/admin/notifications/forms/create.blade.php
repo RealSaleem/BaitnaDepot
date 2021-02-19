@@ -1,7 +1,7 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 @section('content')
 <style type="text/css">
-    
+
 #radiobutton{
     opacity: 1 !important;
     pointer-events: auto !important;
@@ -12,11 +12,13 @@
 
 
 <div class="container">
+    @section('heading')
+        {{__('notification.create')}}
+    @endsection
     <div class="row">
         <div class="col s12 m12 l12">
             <div id="Form-advance" class="card card card-default scrollspy">
                 <div class="card-content">
-                    <h4 class="card-title">{{__('notification.create')}}</h4>
                     <form method="post" action="{{route('admin.notification.store')}}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    @section('heading')
+        {{ __('product.main') }}
+    @endsection
     <div class="section section-data-tables">
         <div class="row">
             <div class="col s12">
@@ -14,11 +17,6 @@
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="col s12">
-                                <h4 class="card-title">{{ __('product.main') }}</h4>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col s12">
                                 <table id="page-length-option" class="display">
@@ -62,7 +60,7 @@
                                                         @csrf
                                                         <button class="waves-effect waves-light red accent-2 btn btn-small mb-2 hide">{{__('site.delete')}}</button>
                                                     </form>
-                                                    <li><a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}"><i class="Small material-icons">visibility</i> {{__('site.edit')}}</a></li>
+                                                    <li><a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}"><i class="Small material-icons">visibility</i> View</a></li>
                                                     <li class="divider" tabindex="-1"></li>
                                                     <li><a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.edit' : 'products.edit',$product->id) }}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
                                                     <li class="divider" tabindex="-1"></li>

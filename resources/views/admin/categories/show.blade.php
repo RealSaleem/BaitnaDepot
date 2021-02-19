@@ -6,6 +6,9 @@
 <div class="row">
     <div class="col s12">
         <div class="container">
+        @section('heading')
+            {{ __('category.view') }}
+        @endsection
             <!-- users view start -->
             <div class="section users-view">
                 <!-- users view card details start -->

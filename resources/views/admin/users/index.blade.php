@@ -39,6 +39,9 @@
 </div>
 
 <div class="container">
+    @section('heading')
+        {{__('user.main')}}
+    @endsection
     <section class="users-list-wrapper section">
         <div class="users-list-filter">
             <div class="row">

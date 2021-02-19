@@ -3,9 +3,13 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
 @endsection
 @section('content')
+
 <div class="row">
     <div class="col s12">
         <div class="container">
+        @section('heading')
+            Show Product
+        @endsection
             <!-- users view start -->
             <div class="section users-view">
                 <!-- users view card details start -->
