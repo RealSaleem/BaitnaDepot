@@ -36,7 +36,7 @@
     @yield('styles')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/custom/custom.css') }}">
-@else 
+@else
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/vendors-rtl.min.css') }}">
     <!-- data tables starts -->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css') }}">
@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/data-tables.css')}}">
 
     @yield('styles')
-    
+
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css-rtl/custom/custom.css') }}">
 @endif
 </head>
@@ -78,7 +78,7 @@
     @include('layouts.footer')
     @include('layouts.scripts')
     {{-- @include('layouts.sweetalert') --}}
-    
+
     @if(Session::has('success'))
     <script>
        toastr.success("{{session('success')}}")
@@ -94,5 +94,12 @@
         toastr.warning("{{session('warning')}}")
     </script>
     @endif
+    <style>
+        #dropdown1{
+            width: 200px !important;
+        }
+
+
+    </style>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="section section-data-tables">
@@ -47,14 +47,28 @@
                                                     @endif
                                                 </td>
                                                 <td>{{$advertisement->sort}}</td>
-                                                <td>
-                                                    <a href="{{ route('admin.advertisements.edit',$advertisement->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
-                                                    <form action="{{route('admin.advertisements.destroy', $advertisement->id)}}" method="POST" class="delete-record">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
-                                                    </form>
+{{--                                                <td>--}}
+{{--                                                    <a href="{{ route('admin.advertisements.edit',$advertisement->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
+{{--                                                    <form action="{{route('admin.advertisements.destroy', $advertisement->id)}}" method="POST" class="delete-record">--}}
+{{--                                                        @method('DELETE')--}}
+{{--                                                        @csrf--}}
+{{--                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
+{{--                                                    </form>--}}
+{{--                                                </td>--}}
+
+
+                                                <td style="text-align: center;" >
+                                                    <!-- Dropdown Trigger -->
+                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+                                                    <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+                                                        <li><a href="{{ route('admin.advertisements.edit',$advertisement->id) }}"><i class="Small material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                        <li> <a href="{{route('admin.advertisements.destroy', $advertisement->id)}}" type="submit" class="delete-record"><i class=" material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
+                                                    </ul>
                                                 </td>
+
+
+
+
                                             </tr>
                                             @endforeach
                                         @else
@@ -78,7 +92,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection
 @section('scripts')
@@ -97,7 +111,7 @@
 </script>
 <script>
     // function confirm_delete(){
-    $('.delete-record').submit(function(e) {
+    $('.delete-record').click(function(e) {
         e.preventDefault();
 
         swal({

@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="section section-data-tables">
@@ -47,14 +47,19 @@
                                                 @endif
                                                 <td>{{$product->quantity}}</td>
                                                 <td>{{$product->delivery_fees}}</td>
-                                                <td>
-                                                    <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>
-                                                    <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.edit' : 'products.edit',$product->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
-                                                    <form action="{{route(Auth::guard('admin')->check() ? 'admin.products.destroy' : 'products.destroy', $product->id)}}" method="POST" class="delete-record">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
-                                                    </form>
+{{--                                                <td>--}}
+{{--                                                    <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
+{{--                                                    <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.edit' : 'products.edit',$product->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
+{{--                                                    <form action="{{route(Auth::guard('admin')->check() ? 'admin.products.destroy' : 'products.destroy', $product->id)}}" method="POST" class="delete-record">--}}
+{{--                                                        @method('DELETE')--}}
+{{--                                                        @csrf--}}
+{{--                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
+{{--                                                    </form>--}}
+{{--                                                </td>--}}
+                                                <td style="text-align: center;" >
+                                                    <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.show' : 'products.show', $product->id)}}"><i class=" material-icons" style="font-size: 30px;">visibility</i></a> &nbsp;&nbsp;
+                                                    <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.edit' : 'products.edit',$product->id) }}"><i class=" material-icons" style="font-size: 30px;">edit</i></a> &nbsp;&nbsp;
+                                                    <a href="{{route(Auth::guard('admin')->check() ? 'admin.products.destroy' : 'products.destroy', $product->id)}}" class="delete-record"><i class=" material-icons" style="font-size: 30px;">delete_forever</i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -82,7 +87,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection
 @section('scripts')

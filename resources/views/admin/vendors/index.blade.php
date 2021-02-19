@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('styles')
-    
+
 @endsection
 @section('content')
 <!-- Modal Structure -->
@@ -92,18 +92,33 @@
                                                     @endforeach
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
-                                                <td> 
-                                                    <span>
-                                                        <a href="{{route('admin.vendors.show', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>
-                                                        <a href="{{route('admin.vendors.edit', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
-                                                        <form action="{{route('admin.vendors.destroy', $vendor->id)}}" method="POST" class="delete-record">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
-                                                        </form>
-                                                        <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" class="waves-effect waves-light red accent-2 btn btn-small">{{__('site.reset_password')}}</a>
-                                                    </span>
+{{--                                                <td>--}}
+{{--                                                    <span>--}}
+{{--                                                        <a href="{{route('admin.vendors.show', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
+{{--                                                        <a href="{{route('admin.vendors.edit', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
+{{--                                                        <form action="{{route('admin.vendors.destroy', $vendor->id)}}" method="POST" class="delete-record">--}}
+{{--                                                            @method('DELETE')--}}
+{{--                                                            @csrf--}}
+{{--                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
+{{--                                                        </form>--}}
+{{--                                                        <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" class="waves-effect waves-light red accent-2 btn btn-small"><i class=" material-icons" style="font-size: 30px;">delete_forever</i></a>--}}
+{{--                                                    </span>--}}
+{{--                                                </td>--}}
+
+                                                <td style="text-align: center;" >
+                                                    <!-- Dropdown Trigger -->
+                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+                                                    <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+                                                        <li><a href="{{route('admin.vendors.show', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">visibility</i> View </a></li>
+                                                        <li><a href="{{route('admin.vendors.edit', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                        <li> <a href="{{route('admin.vendors.destroy', $vendor->id)}}" type="submit" class="delete-record"><i class=" material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
+                                                        <li> <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})">Reset Password</a></li>
+                                                    </ul>
                                                 </td>
+
+
+
+
                                             </tr>
                                             @endforeach
                                         @else
@@ -123,14 +138,18 @@
                                         </tr>
                                     </tfoot>
                                 </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 <script src="{{asset('app-assets/js/scripts/advance-ui-modals.js')}}"></script>
@@ -150,18 +169,18 @@
                 url:  action,
                 type: "POST",
                 data: $('#reset_password_form').serialize(),
-                success: function(response) 
+                success: function(response)
                 {
                     $('#reset_password_form')[0].reset();
                     $('#reset_password').modal('close');
-                }, 
+                },
                 error: function(data)
                 {
                     $('.error').text(data.responseJSON.errors.password[0]);
                 }
             });
             return false;
-        }); 
+        });
     });
 </script>
 

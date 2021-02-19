@@ -41,15 +41,28 @@
                                                 <td>{{$category->name_ar}}</td>
                                                 <td>{{$category->parent != null ? $category->parent->getLocaleName() : null}}</td>
                                                 <td>{{$category->type}}</td>
-                                                <td>
-                                                    <a href="{{route('admin.categories.show', $category->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>
-                                                    <a href="{{ route('admin.categories.edit',$category->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>
-                                                    <form action="{{route('admin.categories.destroy', $category->id)}}" method="POST" class="delete-record">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
-                                                    </form>
+{{--                                                <td>--}}
+{{--                                                    <a href="{{route('admin.categories.show', $category->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
+{{--                                                    <a href="{{ route('admin.categories.edit',$category->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
+{{--                                                    <form action="{{route('admin.categories.destroy', $category->id)}}" method="POST" class="delete-record">--}}
+{{--                                                        @method('DELETE')--}}
+{{--                                                        @csrf--}}
+{{--                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
+{{--                                                    </form>--}}
+{{--                                                </td>--}}
+
+
+                                                <td style="text-align: center;" >
+                                                    <!-- Dropdown Trigger -->
+                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+                                                    <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
+                                                        <li><a href="{{ route('admin.categories.show', $category->id) }}"><i class="Medium material-icons" style="font-size: 30px;">visibility</i> View</a></li>
+                                                        <li> <a href="{{ route('admin.categories.edit',$category->id) }}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                        <li> <a href="{{route('admin.categories.destroy', $category->id)}}" class="delete-record "><i class="Medium material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
+                                                    </ul>
                                                 </td>
+
+
                                             </tr>
                                             @endforeach
                                         @else
@@ -74,7 +87,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection
 @section('scripts')
