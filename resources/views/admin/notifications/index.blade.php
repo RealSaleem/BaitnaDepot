@@ -56,26 +56,22 @@
                                                 @endif
 
                                             </td>
-{{--                                            <td>--}}
-{{--                                             <a href="{{ route('admin.notification.edit',$Noti->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>--}}
-{{--                                            <form action="{{ route('admin.notification.destroy',$Noti->id) }}" method="POST" class="delete-record">--}}
-{{--                                               @method('DELETE')--}}
-{{--                                               @csrf--}}
-{{--                                               <button class="waves-effect waves-light red accent-2 btn "> <i class="Medium material-icons" style="font-size: 30px;">delete_forever</i></button>--}}
-{{--                                            </form>--}}
-{{--                                            </td>--}}
-                                            <td style="text-align: center;" >
+                                            <td style="text-align: center;">
                                                 <!-- Dropdown Trigger -->
-                                                <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
-                                                <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
-
-                                                    <li> <a href="{{ route('admin.notification.edit',$Noti->id) }}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
-                                                    <li class="divider" tabindex="-1"></li>
-                                                    <li> <a href="{{ route('admin.notification.destroy',$Noti->id) }}" class="delete-record "><i class="Medium material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
-
-                                                </ul>
+                                                <a class="dropdown-trigger" href="#" data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
 
                                             </td>
+                                            <ul id="dropdown1" class="dropdown-content">
+                                                <form action="{{ route('admin.notification.destroy',$Noti->id) }}" method="POST" id="delete-row-{{$Noti->id}}" class="hide">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button class="waves-effect waves-light red accent-2 btn btn-small mb-2 hide">{{__('site.delete')}}</button>
+                                                </form>
+                                                <li class="divider" tabindex="-1"></li>
+                                                <li><a href="{{ route('admin.notification.edit',$Noti->id) }}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
+                                                <li class="divider" tabindex="-1"></li>
+                                                <li><a href="javascript:;" data-value="{{$Noti->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a></li>
+                                            </ul>
 
                                         </tr>
                                     @endforeach
@@ -124,9 +120,10 @@
 </script>
 <script>
     // function confirm_delete(){
-    $('.delete-record').submit(function(e) {
+    $('.delete-record').click(function(e) {
         e.preventDefault();
-
+        var rowId = $(this).attr('data-value');
+        console.log(rowId);
         swal({
             // title: "{!! trans('toaster.confirm_delete') !!}",
             text: "{!! trans('toaster.confirm_delete') !!}",
@@ -135,34 +132,35 @@
             dangerMode: true,
             buttons: {
                 cancel: {
-                text: "{!! trans('site.cancel') !!}",
-                value: false,
-                visible: true,
-                className: ""
-              },
-              confirm: {
-                text: "{!! trans('site.ok') !!}",
-                value: true,
-                visible: true,
-                className: ""
-              }
+                    text: "{!! trans('site.cancel') !!}",
+                    value: false,
+                    visible: true,
+                    className: ""
+                },
+                confirm: {
+                    text: "{!! trans('site.ok') !!}",
+                    value: true,
+                    visible: true,
+                    className: ""
+                }
             },
             closeOnClickOutside: false
         })
-        .then((isConfirm) => {
-            console.log(isConfirm);
-          if (isConfirm) {
-            this.submit();
-            return true;
-            // swal("Poof! Your imaginary file has been deleted!", {
-            //   icon: "success",
-            // });
-          } else {
-            return false;
-            // swal("Your imaginary file is safe!");
-          }
-        });
-    // }
+            .then((isConfirm) => {
+                console.log(isConfirm);
+                if (isConfirm) {
+                    // this.submit();
+                    $('#delete-row-' + rowId).submit();
+                    return true;
+                    // swal("Poof! Your imaginary file has been deleted!", {
+                    //   icon: "success",
+                    // });
+                } else {
+                    return false;
+                    // swal("Your imaginary file is safe!");
+                }
+            });
+        // }
     });
 </script>
 @endsection

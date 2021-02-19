@@ -92,32 +92,31 @@
                                                     @endforeach
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
-{{--                                                <td>--}}
-{{--                                                    <span>--}}
-{{--                                                        <a href="{{route('admin.vendors.show', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
-{{--                                                        <a href="{{route('admin.vendors.edit', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
-{{--                                                        <form action="{{route('admin.vendors.destroy', $vendor->id)}}" method="POST" class="delete-record">--}}
-{{--                                                            @method('DELETE')--}}
-{{--                                                            @csrf--}}
-{{--                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
-{{--                                                        </form>--}}
-{{--                                                        <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" class="waves-effect waves-light red accent-2 btn btn-small"><i class=" material-icons" style="font-size: 30px;">delete_forever</i></a>--}}
-{{--                                                    </span>--}}
-{{--                                                </td>--}}
+                                              
 
-                                                <td style="text-align: center;" >
+                                                <td style="text-align: center;">
                                                     <!-- Dropdown Trigger -->
-                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
-                                                    <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
-                                                        <li><a href="{{route('admin.vendors.show', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">visibility</i> View </a></li>
-                                                        <li class="divider" tabindex="-1"></li>
-                                                        <li><a href="{{route('admin.vendors.edit', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
-                                                        <li class="divider" tabindex="-1"></li>
-                                                        <li> <a href="{{route('admin.vendors.destroy', $vendor->id)}}" type="submit" class="delete-record"><i class=" material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
-                                                        <li class="divider" tabindex="-1"></li>
-                                                        <li style="text-align: center; font-weight: bold; " > <a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})">Reset Password</a></li>
-                                                    </ul>
+                                                    <a class="dropdown-trigger" href="#" data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+
                                                 </td>
+                                                <ul id="dropdown1" class="dropdown-content">
+                                                    <form action="{{route('admin.vendors.destroy', $vendor->id)}}" method="POST" id="delete-row-{{$vendor->id}}" class="hide">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2 hide">{{__('site.delete')}}</button>
+                                                    </form>
+                                                    <li><a href="{{route('admin.vendors.show', $vendor->id)}}"><i class="Small material-icons" style="font-size: 30px;">visibility</i> View </a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li><a href="{{route('admin.vendors.edit', $vendor->id)}}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li><a href="javascript:;" data-value="{{$vendor->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a></li>
+                                                    <li style="text-align: center;" ><a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})" >Reset Password</a> </li>
+                                                </ul>
+
+
+
+
+
 
 
 
@@ -201,7 +200,8 @@
     // function confirm_delete(){
     $('.delete-record').click(function(e) {
         e.preventDefault();
-
+        var rowId = $(this).attr('data-value');
+        console.log(rowId);
         swal({
             // title: "{!! trans('toaster.confirm_delete') !!}",
             text: "{!! trans('toaster.confirm_delete') !!}",
@@ -210,34 +210,35 @@
             dangerMode: true,
             buttons: {
                 cancel: {
-                text: "{!! trans('site.cancel') !!}",
-                value: false,
-                visible: true,
-                className: ""
-              },
-              confirm: {
-                text: "{!! trans('site.ok') !!}",
-                value: true,
-                visible: true,
-                className: ""
-              }
+                    text: "{!! trans('site.cancel') !!}",
+                    value: false,
+                    visible: true,
+                    className: ""
+                },
+                confirm: {
+                    text: "{!! trans('site.ok') !!}",
+                    value: true,
+                    visible: true,
+                    className: ""
+                }
             },
             closeOnClickOutside: false
         })
-        .then((isConfirm) => {
-            console.log(isConfirm);
-          if (isConfirm) {
-            this.is_click();
-            return true;
-            // swal("Poof! Your imaginary file has been deleted!", {
-            //   icon: "success",
-            // });
-          } else {
-            return false;
-            // swal("Your imaginary file is safe!");
-          }
-        });
-    // }
+            .then((isConfirm) => {
+                console.log(isConfirm);
+                if (isConfirm) {
+                    // this.submit();
+                    $('#delete-row-' + rowId).submit();
+                    return true;
+                    // swal("Poof! Your imaginary file has been deleted!", {
+                    //   icon: "success",
+                    // });
+                } else {
+                    return false;
+                    // swal("Your imaginary file is safe!");
+                }
+            });
+        // }
     });
 </script>
 @endsection

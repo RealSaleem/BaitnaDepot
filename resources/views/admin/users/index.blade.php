@@ -130,33 +130,30 @@
                                                 <td>{{$user->email}}</td>
                                                 <td>{{Helper::getFormatedDate($user->created_at)}}</td>
                                                 <td>{{$user->last_login != null ? Helper::getFormatedDateTime($user->last_login) : null}}</td>
-{{--                                                <td>--}}
-{{--                                                    <span>--}}
-{{--                                                        <a href="{{route('admin.users.show', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.view')}}</a>--}}
-{{--                                                        <a href="{{route('admin.users.edit', $user->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
-{{--                                                        <form action="{{route('admin.users.destroy', $user->id)}}" method="POST" class="delete-record">--}}
-{{--                                                            @method('DELETE')--}}
-{{--                                                            @csrf--}}
-{{--                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
-{{--                                                        </form>--}}
-{{--                                                        <a href="javascript:;" onclick="return reset_password({{$user->id}})" class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.reset_password')}}</a>--}}
-{{--                                                    </span>--}}
-{{--                                                </td>--}}
 
-                                                <td style="text-align: center;" >
-                                                    <!-- Dropdown Trigger -->
-                                                    <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
 
-                                                </td>
-                                                <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
-                                                    <li><a href="{{route('admin.users.show', $user->id)}}"><i class="Medium material-icons" style="font-size: 30px;">visibility</i> View</a></li>
-                                                    <li class="divider" tabindex="-1"></li>
-                                                    <li> <a href="{{route('admin.users.edit', $user->id)}}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
-                                                    <li class="divider" tabindex="-1"></li>
-                                                    <li> <a href="{{route('admin.users.destroy', $user->id)}}" class="delete-record "><i class="Medium material-icons" style="font-size: 30px;">delete_forever</i> Delete</a></li>
-                                                    <li class="divider" tabindex="-1"></li>
-                                                    <li> <a href="javascript:;" onclick="return reset_password({{$user->id}})">{{__('site.reset_password')}}</a></li>
-                                                </ul>
+
+
+                                                    <td style="text-align: center;">
+                                                        <!-- Dropdown Trigger -->
+                                                        <a class="dropdown-trigger" href="#" data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+
+                                                    </td>
+                                                    <ul id="dropdown1" class="dropdown-content">
+                                                        <form action="{{route('admin.users.destroy', $user->id)}}" method="POST" id="delete-row-{{$user->id}}" class="hide">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2 hide" >{{__('site.delete')}}</button>
+                                                        </form>
+                                                        <li><a href="{{route('admin.users.show', $user->id)}}"><i class="Small material-icons" style="font-size: 30px;">visibility</i> View </a></li>
+                                                        <li class="divider" tabindex="-1"></li>
+                                                        <li><a href="{{route('admin.users.edit', $user->id)}}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
+                                                        <li class="divider" tabindex="-1"></li>
+                                                        <li><a href="javascript:;" data-value="{{$user->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a></li>
+                                                    </ul>
+
+
+
 
                                             </tr>
                                             @endforeach
@@ -258,38 +255,47 @@
     });
 </script>
 <script>
-    $('.delete-record').submit(function(e) {
+    $('.delete-record').click(function(e) {
         e.preventDefault();
+        var rowId = $(this).attr('data-value');
+        console.log(rowId);
         swal({
+            // title: "{!! trans('toaster.confirm_delete') !!}",
             text: "{!! trans('toaster.confirm_delete') !!}",
             icon: "warning",
             buttons: true,
             dangerMode: true,
             buttons: {
                 cancel: {
-                text: "{!! trans('site.cancel') !!}",
-                value: false,
-                visible: true,
-                className: ""
-              },
-              confirm: {
-                text: "{!! trans('site.ok') !!}",
-                value: true,
-                visible: true,
-                className: ""
-              }
+                    text: "{!! trans('site.cancel') !!}",
+                    value: false,
+                    visible: true,
+                    className: ""
+                },
+                confirm: {
+                    text: "{!! trans('site.ok') !!}",
+                    value: true,
+                    visible: true,
+                    className: ""
+                }
             },
             closeOnClickOutside: false
         })
-        .then((isConfirm) => {
-            console.log(isConfirm);
-          if (isConfirm) {
-            this.submit();
-            return true;
-          } else {
-            return false;
-          }
-        });
+            .then((isConfirm) => {
+                console.log(isConfirm);
+                if (isConfirm) {
+                    // this.submit();
+                    $('#delete-row-' + rowId).submit();
+                    return true;
+                    // swal("Poof! Your imaginary file has been deleted!", {
+                    //   icon: "success",
+                    // });
+                } else {
+                    return false;
+                    // swal("Your imaginary file is safe!");
+                }
+            });
+        // }
     });
 </script>
 @endsection

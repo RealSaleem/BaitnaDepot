@@ -67,6 +67,7 @@
                                                             <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
                                                         </form>
                                                         <li><a href="{{ route('admin.advertisements.edit',$advertisement->id) }}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
+                                                        <li class="divider" tabindex="-1"></li>
                                                         <li>
                                                             <a href="javascript:;" data-value="{{$advertisement->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a>
                                                         </li>
