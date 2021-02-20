@@ -45,7 +45,7 @@ class LoginController extends Controller
 
             return redirect()
 	            ->intended(route('admin.dashboard'))
-	            ->with(compact('category'));
+	            ->with('success','Successfully login as Admin');
 	    }
 
 	    //Authentication failed...

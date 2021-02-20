@@ -93,7 +93,7 @@
 {{--                                        </tr>--}}
 {{--                                    </tfoot>--}}
 {{--                                </table>--}}
-                                <table id="page-length-option" class="display">
+                                <table id="page-length-option" class=" cell-border">
                                     <thead>
                                     <tr>
                                         <th>{{__('site.id')}}</th>

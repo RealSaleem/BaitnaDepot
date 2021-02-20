@@ -5,7 +5,7 @@
     <div class="col s12">
         <div class="container">
             @section('heading')
-                {{ __('Welcome to User Vendor Deshboard') }}
+                {{ __('Welcome to Deshboard') }}
             @endsection
             <div class="section">
                 <div class="card">

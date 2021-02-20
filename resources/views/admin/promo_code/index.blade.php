@@ -10,12 +10,14 @@
     @endsection
     <div class="section section-data-tables">
         <div class="row">
-            <div class="col s12">
-                <!-- New kanban board add button -->
-                <a href="{{ route('admin.promo_code.create') }}" class="btn waves-effect waves-light green right">
+
+
+            <div class="col s2 right">
+                <a href="{{ route('admin.promo_code.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
                     {{__('vendor.generate_promo')}}
                 </a>
             </div>
+
         </div>
         <div class="row">
             <div class="col s12 m12 l12">

@@ -6,12 +6,14 @@
     @endsection
     <div class="section section-data-tables">
         <div class="row">
-            <div class="col s12">
-                <!-- New kanban board add button -->
-                <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.create' : 'products.create') }}" class="btn waves-effect waves-light green right">
-                    {{__('site.add_new')}}
-                </a>
+
+
+            <div class="col s2 right">
+            <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.create' : 'products.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
+                {{__('site.add_new')}}
+            </a>
             </div>
+
         </div>
         <div class="row">
             <div class="col s12 m12 l12">

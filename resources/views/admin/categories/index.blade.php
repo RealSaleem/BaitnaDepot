@@ -6,9 +6,9 @@
     @endsection
     <div class="section section-data-tables">
         <div class="row">
-            <div class="col s12">
+            <div class="col s2 right">
                 <!-- New kanban board add button -->
-                <a href="{{ route('admin.categories.create') }}" class="btn waves-effect waves-light green right">
+                <a href="{{ route('admin.categories.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
                     {{__('site.add_new')}}
                 </a>
             </div>

@@ -1,11 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    @section('heading')
+        {{ __('auth.change_password') }}
+    @endsection
     <div class="row">
         <div class="col s12 m12 l12">
             <div id="Form-advance" class="card card card-default scrollspy">
                 <div class="card-content">
-                    <h4 class="card-title">{{ __('auth.change_password') }}</h4>
                     <form method="post" action="{{ route($route) }}">
                         @csrf
                         <div class="row">

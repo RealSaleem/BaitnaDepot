@@ -13,9 +13,8 @@
     @endsection
     <div class="section section-data-tables">
         <div class="row">
-            <div class="col s12">
-                <!-- New kanban board add button -->
-                <a href="{{ route('admin.notification.create') }}" class="btn waves-effect waves-light green right">
+                      <div class="col s2 right">
+                <a href="{{ route('admin.notification.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
                     {{__('notification.create')}}
                 </a>
             </div>
