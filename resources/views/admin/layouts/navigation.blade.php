@@ -37,7 +37,7 @@
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.vendor_requests')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('vendor.vendor_requests') }}</span></a>
         </li>
-        
+
         <li class="{{ str_contains(Request::url(), 'edit_page') ? 'active' : null }} bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">pages</i><span class="menu-title">{{ __('contact.main') }}</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">

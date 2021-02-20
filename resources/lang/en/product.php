@@ -15,4 +15,5 @@ return [
     'length_arabic_translations'	=> 'Length arabic translations',
     'color'                         => 'Color',
     'select_colors'                 => 'Select colors',
+    'promote'                       => 'Promote Me',
 ];

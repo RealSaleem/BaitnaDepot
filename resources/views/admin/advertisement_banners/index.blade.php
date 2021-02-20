@@ -20,20 +20,23 @@
 
                         <div class="row">
                             <div class="col s12">
+
+
+
                                 <table id="page-length-option" class="display">
                                     <thead>
-                                        <tr>
-                                            <th>{{__('site.id')}}</th>
-                                            <th>{{__('site.title_en')}}</th>
-                                            <th>{{__('site.title_ar')}}</th>
-                                            <th>{{__('site.image')}}</th>
-                                            <th>{{__('site.sort_order')}}</th>
-                                            <th>{{__('site.actions')}}</th>
-                                        </tr>
+                                    <tr>
+                                        <th>{{__('site.id')}}</th>
+                                        <th>{{__('site.title_en')}}</th>
+                                        <th>{{__('site.title_ar')}}</th>
+                                        <th>{{__('site.image')}}</th>
+                                        <th>{{__('site.sort_order')}}</th>
+                                        <th>{{__('site.actions')}}</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        @if(sizeof($advertisements) > 0)
-                                            @foreach($advertisements as $advertisement)
+                                    @if(sizeof($advertisements) > 0)
+                                        @foreach($advertisements as $advertisement)
                                             <tr>
                                                 <td>{{$advertisement->id}}</td>
                                                 <td>{{$advertisement->title_en}}</td>
@@ -46,14 +49,6 @@
                                                     @endif
                                                 </td>
                                                 <td>{{$advertisement->sort}}</td>
-{{--                                                <td>--}}
-{{--                                                    <a href="{{ route('admin.advertisements.edit',$advertisement->id) }}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.edit')}}</a>--}}
-{{--                                                    <form action="{{route('admin.advertisements.destroy', $advertisement->id)}}" method="POST" class="delete-record">--}}
-{{--                                                        @method('DELETE')--}}
-{{--                                                        @csrf--}}
-{{--                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>--}}
-{{--                                                    </form>--}}
-{{--                                                </td>--}}
 
 
                                                 <td style="text-align: center;">
@@ -77,22 +72,26 @@
 
 
                                             </tr>
-                                            @endforeach
-                                        @else
+                                        @endforeach
+                                    @else
                                         <td colspan="4">{{ __('site.no_record_found') }}</td>
-                                        @endif
+                                    @endif
                                     </tbody>
                                     <tfoot>
-                                        <tr>
-                                            <th>{{__('site.id')}}</th>
-                                            <th>{{__('site.title_en')}}</th>
-                                            <th>{{__('site.title_ar')}}</th>
-                                            <th>{{__('site.image')}}</th>
-                                            <th>{{__('site.sort_order')}}</th>
-                                            <th>{{__('site.actions')}}</th>
-                                        </tr>
+                                    <tr>
+                                        <th>{{__('site.id')}}</th>
+                                        <th>{{__('site.title_en')}}</th>
+                                        <th>{{__('site.title_ar')}}</th>
+                                        <th>{{__('site.image')}}</th>
+                                        <th>{{__('site.sort_order')}}</th>
+                                        <th>{{__('site.actions')}}</th>
+                                    </tr>
                                     </tfoot>
                                 </table>
+
+
+
+
                             </div>
                         </div>
                     </div>

@@ -24,58 +24,53 @@
 
                         <div class="card-content">
                             <div class="row">
-                            <div class="row">
-                            <div class="col  mb-2" style="float:right;">
-                                <a href="{{ route('admin.ContactUsDetails_edit',$ContactUsDetails->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
-                                </a>
-                            </div>
-                            </div>
-                                <div class="col s12">
-                                    <table class="striped">
-                                        <tbody>
-
-
-
-                                        <tr>
-                                            <th>ID</th>
-                                            <td class="users-view-username"> {{$ContactUsDetails->id}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Email</th>
-                                            <td class="users-view-name">{{$ContactUsDetails->email}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Mobile </th>
-                                            <td class="users-view-email">{{$ContactUsDetails->mobile}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Address</th>
-                                            <td>{{$ContactUsDetails->address}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Facebook</th>
-                                            <td>{{ucwords($ContactUsDetails->facebook)}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Instagram</th>
-                                            <td>{{ucwords($ContactUsDetails->instagram)}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Twitter</th>
-                                            <td>{{ucwords($ContactUsDetails->twitter)}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Snapchat</th>
-                                            <td>{{ucwords($ContactUsDetails->snapchat)}}</td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
+                                    <div class="row">
+                                        <div class="col  mb-2" style="float:right;">
+                                            <a href="{{ route('admin.ContactUsDetails_edit',$ContactUsDetails->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col s12">
+                                        <table class="striped">
+                                            <tbody>
+                                            <tr>
+                                                <th>ID</th>
+                                                <td class="users-view-username"> {{$ContactUsDetails->id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <td class="users-view-name">{{$ContactUsDetails->email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Mobile </th>
+                                                <td class="users-view-email">{{$ContactUsDetails->mobile}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Address</th>
+                                                <td>{{$ContactUsDetails->address}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Facebook</th>
+                                                <td>{{ucwords($ContactUsDetails->facebook)}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Instagram</th>
+                                                <td>{{ucwords($ContactUsDetails->instagram)}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Twitter</th>
+                                                <td>{{ucwords($ContactUsDetails->twitter)}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Snapchat</th>
+                                                <td>{{ucwords($ContactUsDetails->snapchat)}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                             </div>
                             <!-- </div> -->
                         </div>
+
                     </div>
                     <!-- users view card details ends -->
                 </div>
