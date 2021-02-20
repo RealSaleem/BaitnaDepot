@@ -10,6 +10,7 @@ class VendorController extends Controller
 {
     public function getEcommerceVendors()
     {
-        Vendor::where('services')
+       $vendors = Vendor::where('services', 'LIKE', '%1%')->get();
+       return $vendors;
     }
 }
