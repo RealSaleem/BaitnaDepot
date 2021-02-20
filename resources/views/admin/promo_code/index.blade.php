@@ -58,14 +58,6 @@
                                             </select>
                                         </td>
 
-{{--                                        <td>--}}
-{{--                                        <a href="{{ route('admin.promo_code.edit',$PC->id) }}" class="waves-effect waves-light btn btn-small mb-2"><i class="Medium material-icons" style="font-size: 30px;">edit</i></a>--}}
-{{--                                        <form action="{{ route('admin.promo_code.destroy',$PC->id) }}" method="POST" class="delete-record">--}}
-{{--                                        @method('DELETE')--}}
-{{--                                        @csrf--}}
-{{--                                        <button class="waves-effect waves-light red accent-2 btn "> <i class="Medium material-icons" style="font-size: 30px;">delete_forever</i></button>--}}
-{{--                                        </form>--}}
-{{--                                        </td>--}}
 
         <td style="text-align: center;">
             <!-- Dropdown Trigger -->

@@ -19,7 +19,7 @@
                        <div class="row">
                            <div class="col s7 m7">
                                <i class="material-icons background-round mt-5">pages</i>
-                               <p>Category</p>
+                               <p>Categories</p>
                            </div>
                            <div class="col s5 m5 right-align">
 

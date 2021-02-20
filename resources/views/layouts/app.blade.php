@@ -65,7 +65,7 @@ $locale = app()->getLocale();
     <!-- BEGIN: SideNav-->
     @include(Auth::guard('admin')->check() ? 'admin.layouts.navigation' : 'layouts.navigation')
     <!-- END: SideNav-->
-    
+
     <!-- BEGIN: Page Main-->
     <div id="main">
         @include('layouts.heading')
@@ -98,6 +98,7 @@ $locale = app()->getLocale();
     <style>
         #dropdown1 {
             width: 180px !important;
+            color: dimgray !important;
         }
 
         #dropdown1 li a {
@@ -112,6 +113,19 @@ $locale = app()->getLocale();
         .dropdown-trigger i {
             color: dimgray !important;
         }
+
+
+       .sidenav-main i{
+           font-size: 25px !important;
+           color: lightgrey !important;
+       }
+        .sidenav-main a{
+            color: lightgrey !important;
+        }
+        .sidenav-main a:hover{
+            color: dodgerblue !important;
+        }
+
     </style>
 </body>
 

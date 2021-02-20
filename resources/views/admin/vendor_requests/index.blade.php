@@ -53,13 +53,22 @@
                                                     @endif
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
-                                                <td>
-                                                    <a href="{{route('admin.vendor_requests.id', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('site.detail')}}</a>
-                                                    @if($vendor->status == 0)
-                                                        <a href="{{route('admin.approve_vendor', $vendor->id)}}" class="waves-effect waves-light btn btn-small mb-2">{{__('vendor.approve')}}</a>
-                                                        <a href="{{route('admin.declined_vendor_request',$vendor->id)}}" class="waves-effect waves-light red accent-2 btn btn-small mb-2 declined-request">{{__('vendor.decline')}}</a>
-                                                    @endif
+                                               
+                                                <td style="text-align: center;">
+                                                    <!-- Dropdown Trigger -->
+                                                    <a class="dropdown-trigger" href="#" data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
+
                                                 </td>
+                                                <ul id="dropdown1" class="dropdown-content">
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li><a href="{{route('admin.vendor_requests.id', $vendor->id)}}"><i class="Small material-icons">edit</i>{{__('site.detail')}}</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li><a href="{{route('admin.approve_vendor', $vendor->id)}}"><i class="Small material-icons">edit</i> {{__('vendor.approve')}}</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li><a href="{{route('admin.declined_vendor_request',$vendor->id)}}"><i class="Small material-icons">edit</i> {{__('vendor.decline')}}</a></li>
+                                                    <li class="divider" tabindex="-1"></li>
+                                                </ul>
+
                                             </tr>
                                             @endforeach
                                         @else
