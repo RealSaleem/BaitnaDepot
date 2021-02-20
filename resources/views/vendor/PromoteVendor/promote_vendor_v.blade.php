@@ -63,7 +63,7 @@
 
 
 
-                                    <button class="btn waves-effect waves-light green right mb-2 mr-4" type="submit" name="submit">Promote Me</button>
+                                    <button class="btn cyan waves-effect waves-light right mb-2 mr-4" type="submit" name="submit">Promote Me</button>
 
                                 </form>
                             </div>
