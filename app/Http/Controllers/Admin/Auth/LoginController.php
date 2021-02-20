@@ -12,7 +12,7 @@ class LoginController extends Controller
 
     /**
      * Show the login form.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function showLoginForm()
@@ -30,28 +30,41 @@ class LoginController extends Controller
 
     /**
      * Login the admin.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function login(Request $request)
 	{
 	    $this->validator($request);
-	    
+
 	    if(Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
 	        //Authentication passed...
-	        return redirect()
+
+
+
+            return redirect()
 	            ->intended(route('admin.dashboard'))
-	            ->with('status','You are Logged in as Admin!');
+	            ->with(compact('category'));
 	    }
 
 	    //Authentication failed...
 	    return $this->loginFailed();
 	}
 
+	public function showDashboard()
+    {
+
+    }
+
+
+
+
+
+
     /**
      * Logout the admin.
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function logout()
@@ -64,9 +77,9 @@ class LoginController extends Controller
 
     /**
      * Validate the form data.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
-     * @return 
+     * @return
      */
     private function validator(Request $request)
 	{
@@ -87,7 +100,7 @@ class LoginController extends Controller
 
     /**
      * Redirect back after a failed login.
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     private function loginFailed()
