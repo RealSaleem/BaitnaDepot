@@ -12,7 +12,7 @@
 <div class="row" id="dashboard_card">
    <div class="card ">
 
-           <div class="col s8 m6 l6">
+           <div class="col s12 m6 l6">
                <a href="{{route('admin.categories.index')}}">
                <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text animate fadeLeft">
                    <div class="padding-4">
@@ -37,7 +37,7 @@
    </div>
     <div class="card ">
 
-        <div class="col s8 m6 l6 ">
+        <div class="col s12 m6 l6 ">
             <a href="{{route('admin.products.index')}}">
             <div class="card gradient-45deg-green-teal gradient-shadow min-height-100 white-text animate fadeRight">
                 <div class="padding-4">
