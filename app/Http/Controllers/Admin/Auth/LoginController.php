@@ -57,11 +57,6 @@ class LoginController extends Controller
 
     }
 
-
-
-
-
-
     /**
      * Logout the admin.
      *
@@ -105,6 +100,6 @@ class LoginController extends Controller
      */
     private function loginFailed()
     {
-	   return redirect()->back()->withInput()->withError(\Lang('toaster.login_failed!'));
+	   return redirect()->back()->withInput()->withError(trans('toaster.login_failed!'));
 	}
 }
