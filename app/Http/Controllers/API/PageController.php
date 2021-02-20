@@ -14,7 +14,7 @@ use App\Models\Advertisement;
 
 class PageController extends ApiBaseController
 {
-    public  function GetContactUsDetails()
+    public  function getContactUsDetails()
     {
         $contactUs = ContactUs::first();
 
@@ -30,7 +30,7 @@ class PageController extends ApiBaseController
         return $this->SuccessResponse(trans('response.details_loaded_successfully'), $data);
     }
 
-    public function contact_us_message(Request $Req)
+    public function contactUsMessage(Request $Req)
     {
         $rules = [
             'name'      => 'required',

@@ -84,7 +84,7 @@ class AuthController extends ApiBaseController
         return $this->SuccessResponse('Account has been created successfully', $data);
     }
 
-    public function JoinVendorRequest(Request $request)
+    public function joinVendorRequest(Request $request)
     {
         $rules = [
             'name'              => 'required',

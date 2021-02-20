@@ -32,8 +32,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
                                 </td>
                                 <td style="width:25%;">
                                     <select name="status[]">
-                                        <option value="{{CLOSE}}" {{$working_time->status == 0 ? 'selected' : ''}}>{{ __('working_hours.closed') }}</option>
-                                        <option value="{{OPEN}}" {{$working_time->status == 1 ? 'selected' : ''}}>{{ __('working_hours.open') }}</option>
+                                        <option value="AppConstant::CLOSE" {{$working_time->status == 0 ? 'selected' : ''}}>{{ __('working_hours.closed') }}</option>
+                                        <option value="AppConstant::OPEN" {{$working_time->status == 1 ? 'selected' : ''}}>{{ __('working_hours.open') }}</option>
                                     </select>
                                 </td>
                                 <td style="width:25%;">
