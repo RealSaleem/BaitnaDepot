@@ -3,17 +3,19 @@
 <style>
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
 
-    border-bottom:none !important;   
+    border-bottom:none !important;
 }
 </style>
 @endsection
 @section('content')
 <div class="container">
+    @section('heading')
+        {{ __('working_hours.main') }}
+    @endsection
     <div class="row">
         <div class="col s12 m12 l12">
             <div id="centered-table" class="card card card-default scrollspy">
                 <div class="card-content">
-                    <h4 class="card-title">{{ __('working_hours.main') }}</h4>
                     <form method="POST" action="{{route('update_contractor_working_hours')}}">
                         @csrf
                         <input type="hidden" name="vendor_id" value="{{$vendor_id}}">
@@ -62,7 +64,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
                                 <input type="time" name="end_time[]">
                                 <label for="end_time">{{ __('working_hours.end_time') }}</label>
                             </div>
-                        </div> 
+                        </div>
                         @endforeach --}}
                         <div class="row">
                             <div class="input-field col s12">
@@ -76,6 +78,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
         </div>
     </div>
 </div>
-@endsection    
+@endsection
 @section('scripts')
 @endsection

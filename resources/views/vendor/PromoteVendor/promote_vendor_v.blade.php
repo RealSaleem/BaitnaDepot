@@ -1,11 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
-
-
-
-
     <div class="container">
+        @section('heading')
+            {{ __('product.promote') }}
+        @endsection
         <div class="row">
             <div class="col s12 m12 l12">
 
@@ -16,11 +14,7 @@
                                 {{Session::get('Success')}}
                             </div>
                         @endif
-                        <div class="row">
-                            <div class="col s12">
-                                <h4 class="card-title">{{ __('product.Promote') }}</h4>
-                            </div>
-                        </div>
+
                         <div class=" row pt-4">
                             <div class="col s12">
                                 <form action="{{url('/promotevendor')}}" method="post" >

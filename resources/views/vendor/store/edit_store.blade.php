@@ -4,11 +4,12 @@
 @endsection
 @section('content')
 <div class="container">
+    @section('heading')
+        {{ __('site.edit_store') }}
+    @endsection
     <div class="row">
         <div class="col s12 m12 l12">
             <div id="Form-advance" class="card card card-default scrollspy">
-                <div class="card-content">
-                    <h4 class="card-title">{{ __('site.edit_store') }}</h4>
                     <form method="POST" action="{{route('edit_store')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" id="hidden_image" name="hidden_image" value="{{$user->vendor->logo}}">
