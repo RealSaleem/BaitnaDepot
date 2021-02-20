@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 @php
-    $locale = app()->getLocale();
+$locale = app()->getLocale();
 @endphp
 <html class="loading" lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-textdirection="{{ $locale == 'en' ? 'ltr' : 'rtl' }}">
 <!-- BEGIN: Head-->
@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="{{ asset('app-assets/images/favicon/apple-touch-icon-152x152.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/favicon/Ofavicon-32x32.png') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-@if($locale == 'en')
+    @if($locale == 'en')
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/vendors.min.css') }}">
     <!-- data tables starts -->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css') }}">
@@ -36,7 +36,7 @@
     @yield('styles')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/custom/custom.css') }}">
-@else
+    @else
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/vendors-rtl.min.css') }}">
     <!-- data tables starts -->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css') }}">
@@ -52,7 +52,7 @@
     @yield('styles')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css-rtl/custom/custom.css') }}">
-@endif
+    @endif
 </head>
 <!-- END: Head-->
 
@@ -65,13 +65,7 @@
     <!-- BEGIN: SideNav-->
     @include(Auth::guard('admin')->check() ? 'admin.layouts.navigation' : 'layouts.navigation')
     <!-- END: SideNav-->
-
-
-
-
-
-
-
+    
     <!-- BEGIN: Page Main-->
     <div id="main">
         @include('layouts.heading')
@@ -88,8 +82,7 @@
 
     @if(Session::has('success'))
     <script>
-       toastr.success("{{session('success')}}")
-
+        toastr.success("{{session('success')}}")
     </script>
     @endif
     @if(Session::has('error'))
@@ -103,21 +96,23 @@
     </script>
     @endif
     <style>
-        #dropdown1{
+        #dropdown1 {
             width: 180px !important;
         }
-        #dropdown1  li a{
-           color: dimgray !important;
+
+        #dropdown1 li a {
+            color: dimgray !important;
         }
-        #dropdown1 i{
+
+        #dropdown1 i {
             font-size: 20px !important;
             color: dimgray !important;
         }
-        .dropdown-trigger i{
+
+        .dropdown-trigger i {
             color: dimgray !important;
         }
-
-
     </style>
 </body>
+
 </html>
