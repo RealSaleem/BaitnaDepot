@@ -18,17 +18,18 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 
-Route::post('join_vendor_request', 'API\AuthController@JoinVendorRequest');
-Route::get('contact_us_details','API\PageController@GetContactUsDetails');
+Route::post('join_vendor_request', 'API\AuthController@joinVendorRequest');
+Route::get('contact_us_details','API\PageController@getContactUsDetails');
 // Route::get('contact_us_details','API\PageController@GetContactUsDetails');
 //------------------>ContactUs Messages------------------->
-Route::post('contact_us_message','API\PageController@contact_us_message');
+Route::post('contact_us_message','API\PageController@contactUsMessage');
 //------------------>Privacy Policy----------------------->
 Route::get('get_page/{type}','API\PageController@getPageByType');
 //------------------>Advertisment----------------------->
 Route::get('get_advertisement','API\PageController@getAdvertisementBanner');
-
 Route::apiResource('address', 'API\AddressController');
+
+Route::get('get_ecommerce_vendors', 'API\VendorController@getEcommerceVendors');
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');
