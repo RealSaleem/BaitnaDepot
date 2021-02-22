@@ -43,9 +43,8 @@ class LoginController extends Controller
 
 
 
-            return redirect()
-	            ->intended(route('admin.dashboard'))
-	            ->with('success','Successfully login as Admin');
+            return redirect()->intended(route('admin.dashboard'));
+	            // ->with('success','Successfully login as Admin');
 	    }
 
 	    //Authentication failed...

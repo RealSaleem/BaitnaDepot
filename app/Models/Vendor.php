@@ -10,8 +10,9 @@ class Vendor extends Model
 	use SoftDeletes;
 
     // public $translatable = ['name'];
-	protected $fillable  	= ['name_en', 'name_ar', 'services', 'logo', 'ecommerce_store_details', 'contractor_details', 'heavy_truck_details'];
-    protected $hidden 	 	= ['user_id', 'created_at', 'modified_at', 'deleted_at'];
+	protected $fillable = ['name_en', 'name_ar', 'services', 'logo', 'ecommerce_store_details', 'contractor_details', 'heavy_truck_details'];
+    protected $hidden 	= ['user_id', 'created_at', 'modified_at', 'deleted_at'];
+	protected $casts 	= ['services'];
     
 
     public function user()
@@ -27,4 +28,5 @@ class Vendor extends Model
 		}
 		return $this->name_en;
 	}
+	
 }
