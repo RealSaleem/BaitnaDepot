@@ -16,7 +16,6 @@
                     <span>
                        <div class="card-title" style="float: right;">
 
-
                        </div>
                     </span>
                 </h5>
