@@ -114,9 +114,6 @@ $locale = app()->getLocale();
             color: dimgray !important;
         }
 
-       .sidenav-main i{
-           color: lightgrey !important;
-       }
 
 
     </style>

@@ -6,10 +6,11 @@
     @endsection
     <div class="section section-data-tables">
         <div class="row">
-
-            <div class="col s2 right">
+            <div class="col s12">
                 <!-- New kanban board add button -->
-                <a href="{{ route('admin.advertisements.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>{{__('site.add_new')}}</a>
+                <a href="{{ route('admin.advertisements.create') }}" class="btn waves-effect waves-light green right">
+                    {{__('site.add_new')}}
+                </a>
             </div>
         </div>
         <div class="row">
@@ -17,26 +18,22 @@
                 <div class="card">
                     <div class="card-content">
 
-
                         <div class="row">
                             <div class="col s12">
-
-
-
                                 <table id="page-length-option" class="display">
                                     <thead>
-                                    <tr>
-                                        <th>{{__('site.id')}}</th>
-                                        <th>{{__('site.title_en')}}</th>
-                                        <th>{{__('site.title_ar')}}</th>
-                                        <th>{{__('site.image')}}</th>
-                                        <th>{{__('site.sort_order')}}</th>
-                                        <th>{{__('site.actions')}}</th>
-                                    </tr>
+                                        <tr>
+                                            <th>{{__('site.id')}}</th>
+                                            <th>{{__('site.title_en')}}</th>
+                                            <th>{{__('site.title_ar')}}</th>
+                                            <th>{{__('site.image')}}</th>
+                                            <th>{{__('site.sort_order')}}</th>
+                                            <th>{{__('site.actions')}}</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    @if(sizeof($advertisements) > 0)
-                                        @foreach($advertisements as $advertisement)
+                                        @if(sizeof($advertisements) > 0)
+                                            @foreach($advertisements as $advertisement)
                                             <tr>
                                                 <td>{{$advertisement->id}}</td>
                                                 <td>{{$advertisement->title_en}}</td>
@@ -50,45 +47,45 @@
                                                 </td>
                                                 <td>{{$advertisement->sort}}</td>
 
-
                                                 <td style="text-align: center;">
                                                     <!-- Dropdown Trigger -->
                                                     <a class="dropdown-trigger" href="#" data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>
-                                                    <ul id="dropdown1" class="dropdown-content">
-                                                        <form action="{{route('admin.advertisements.destroy', $advertisement->id)}}" method="POST" id="delete-row-{{$advertisement->id}}" class="hide">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="waves-effect waves-light red accent-2 btn btn-small mb-2">{{__('site.delete')}}</button>
-                                                        </form>
-                                                        <li><a href="{{ route('admin.advertisements.edit',$advertisement->id) }}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
-                                                        <li class="divider" tabindex="-1"></li>
-                                                        <li>
-                                                            <a href="javascript:;" data-value="{{$advertisement->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a>
-                                                        </li>
-                                                    </ul>
+
                                                 </td>
+                                                <ul id="dropdown1" class="dropdown-content">
+                                                    <li><a href="{{ route('admin.advertisements.edit',$advertisement->id) }}"><i class="Small material-icons">edit</i> {{__('site.edit')}}</a></li>
+                                                    <form action="{{route('admin.advertisements.destroy', $advertisement->id)}}" method="POST" id="delete-row-{{$advertisement->id}}" class="hide">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button class="waves-effect waves-light red accent-2 btn btn-small mb-2 hide">{{__('site.delete')}}</button>
+                                                    </form>
+
+                                                    <li class="divider" tabindex="-1"></li>
+                                                    <li>
+                                                        <a href="javascript:;" data-value="{{$advertisement->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a>
+                                                    </li>
+                                                </ul>
 
 
 
 
                                             </tr>
-                                        @endforeach
-                                    @else
+                                            @endforeach
+                                        @else
                                         <td colspan="4">{{ __('site.no_record_found') }}</td>
-                                    @endif
+                                        @endif
                                     </tbody>
                                     <tfoot>
-                                    <tr>
-                                        <th>{{__('site.id')}}</th>
-                                        <th>{{__('site.title_en')}}</th>
-                                        <th>{{__('site.title_ar')}}</th>
-                                        <th>{{__('site.image')}}</th>
-                                        <th>{{__('site.sort_order')}}</th>
-                                        <th>{{__('site.actions')}}</th>
-                                    </tr>
+                                        <tr>
+                                            <th>{{__('site.id')}}</th>
+                                            <th>{{__('site.title_en')}}</th>
+                                            <th>{{__('site.title_ar')}}</th>
+                                            <th>{{__('site.image')}}</th>
+                                            <th>{{__('site.sort_order')}}</th>
+                                            <th>{{__('site.actions')}}</th>
+                                        </tr>
                                     </tfoot>
                                 </table>
-
 
 
 
