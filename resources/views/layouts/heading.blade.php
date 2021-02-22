@@ -1,4 +1,4 @@
-<div id="breadcrumbs-wrapper"  data-image="../../../app-assets/images/gallery/breadcrumb-bg.jpg">
+<div id="breadcrumbs-wrapper"  data-image="{{asset('app-assets/images/gallery/breadcrumb-bg.jpg')}}">
     <!-- Search for small screen-->
     <div class="container">
         <div class="row">
