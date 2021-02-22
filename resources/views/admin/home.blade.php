@@ -24,7 +24,7 @@
                            <div class="col s5 m5 right-align">
 
                                <h2 class="mb-0 white-text"> {{count($category)}}  </h2>
-                               <p class="no-margin">Total</p>
+                               <p class="no-margin">Total Categories</p>
 
 
                            </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col s5 m5 right-align">
                             <h2 class="mb-0 white-text">{{count($products)}}</h2>
-                            <p class="no-margin">Total </p>
+                            <p class="no-margin">Total Products</p>
 
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="col s5 m5 right-align">
                             <h2 class="mb-0 white-text">{{count($vendor)}}</h2>
-                            <p class="no-margin">Total </p>
+                            <p class="no-margin">Total Vendors</p>
 
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         </div>
                         <div class="col s5 m5 right-align">
                             <h2 class="mb-0 white-text">{{count($vendor_req)}}</h2>
-                            <p class="no-margin">Un-Approve</p>
+                            <p class="no-margin">Un-Approve Requests</p>
                         </div>
 
                     </div>

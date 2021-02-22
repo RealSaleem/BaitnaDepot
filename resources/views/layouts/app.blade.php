@@ -116,15 +116,9 @@ $locale = app()->getLocale();
 
 
        .sidenav-main i{
-           font-size: 25px !important;
            color: lightgrey !important;
        }
-        .sidenav-main a{
-            color: lightgrey !important;
-        }
-        .sidenav-main a:hover{
-            color: dodgerblue !important;
-        }
+
 
     </style>
 </body>

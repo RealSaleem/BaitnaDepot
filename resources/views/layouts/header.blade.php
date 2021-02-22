@@ -1,8 +1,8 @@
-<header class="page-topbar" id="header">
-    <div class="navbar navbar-fixed">
+<header class="page-topbar" id="header" >
+    <div class="navbar navbar-fixed" >
         <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-light">
             <div class="nav-wrapper">
-                
+
                 <ul class="navbar-list right">
                     <!-- <li class="dropdown-language"><a class="waves-effect waves-block waves-light translation-button" href="#" data-target="translation-dropdown"><span class="flag-icon flag-icon-gb"></span></a></li> -->
                     <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge">1</small></i></a></li>
@@ -31,13 +31,14 @@
                     @endif
                     <li><a class="grey-text text-darken-1" href="{{route(Auth::guard('admin')->check() ? 'admin.change_password' : 'change_password')}}"><i class="material-icons">lock_outline</i> {{__('site.change_password')}}</a></li>
                     <li>
-                        <a class="grey-text text-darken-1" 
+                        <a class="grey-text text-darken-1"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();
                         ">
                             <i class="material-icons">keyboard_tab</i> {{ __('auth.logout') }}
                         </a>
                     </li>
                 </ul>
+
             </div>
         </nav>
         <form id="logout-form" action="{{ route(Auth::guard('admin')->check() ? 'admin.logout' : 'logout') }}" method="POST" class="d-none">

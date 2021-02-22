@@ -53,7 +53,7 @@
                                                     @endif
                                                 </td>
                                                 <td>{{Helper::getFormatedDate($vendor->created_at)}}</td>
-                                               
+
                                                 <td style="text-align: center;">
                                                     <!-- Dropdown Trigger -->
                                                     <a class="dropdown-trigger" href="#" data-target='dropdown1'><i class="Small material-icons" style="font-size: 30px;">list</i></a>

@@ -15,9 +15,8 @@
                 <h5 class="breadcrumbs-title mt-0 mb-0">
                     <span>
                        <div class="card-title" style="float: right;">
-                       @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
 
-                       @endif
+
                        </div>
                     </span>
                 </h5>
