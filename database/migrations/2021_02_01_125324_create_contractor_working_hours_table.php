@@ -20,8 +20,8 @@ class CreateContractorWorkingHoursTable extends Migration
             $table->bigInteger('day_id')->unsigned();
             $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
             $table->boolean('status')->default('0')->comment('0=close 1=open');
-            $table->time('start_time',0);
-            $table->time('end_time',0);
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->timestamps();
         });
     }
