@@ -4,13 +4,10 @@
     <list default="true" id="662ee827-4f76-417b-8a06-137871b5fd0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/advertisement_banners/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advertisement_banners/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/notifications/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notifications/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/promo_code/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promo_code/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/vendors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/vendors/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Advertisements/AdvertisementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Advertisements/AdvertisementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/VendorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VendorsController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +193,10 @@
       <workItem from="1613633456561" duration="1926000" />
       <workItem from="1613636878790" duration="12000" />
       <workItem from="1613638934557" duration="19147000" />
-      <workItem from="1613719695947" duration="12107000" />
+      <workItem from="1613719695947" duration="19847000" />
+      <workItem from="1613803667984" duration="24280000" />
+      <workItem from="1613978066258" duration="8857000" />
+      <workItem from="1614004460503" duration="4340000" />
     </task>
     <servers />
   </component>
