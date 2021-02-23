@@ -152,6 +152,10 @@ class AddressController extends ApiBaseController
      */
     public function destroy($id)
     {
-        //
+        $getaddress = Address::where('user_id',$id )->first();
+        $result     = $getaddress->delete();
+        if ($result) {
+            return $this->SuccessResponse(trans('Address Successfully Deleted'), $result);
+        }
     }
 }
