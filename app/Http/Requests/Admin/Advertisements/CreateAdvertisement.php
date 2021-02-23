@@ -25,7 +25,8 @@ class CreateAdvertisement extends FormRequest
     public function rules()
     {
         return [
-            'title_en'   => ['required']
+            'title_en'   => ['required','unique:advertisements'],
+            'title_ar'   => ['required','unique:advertisements'],
         ];
     }
 

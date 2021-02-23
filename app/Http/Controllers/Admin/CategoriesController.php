@@ -44,7 +44,12 @@ class CategoriesController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $request->handle();
-        return redirect()->route('admin.categories.index');
+
+
+            return redirect()->route('admin.categories.index');
+
+
+
     }
 
     /**

@@ -30,7 +30,7 @@ class CreateUserRequest extends FormRequest
         return [
             'name'      =>  ['required'],
             'password'  =>  ['required','confirmed'],
-            'mobile'    =>  ['required', 'numeric', 'min:8', 'max:8'],
+            'mobile'    =>  ['required', 'numeric','min:8'],
             'username'  =>  ['required', 'string',
                                 Rule::unique('users', 'username')->where(function ($query) use ($params) {
                                     return $query->where('type', AppConstant::APP_USER);

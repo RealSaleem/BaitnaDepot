@@ -116,4 +116,5 @@
         $('#hidden_image').val(null);
     });
 </script>
+
 @endsection

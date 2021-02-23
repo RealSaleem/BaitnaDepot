@@ -4343,7 +4343,7 @@ li.home:before
 }
 
 /*----------------------------------------
-  Grid 
+  Grid
 ------------------------------------------*/
 .section
 {
@@ -9516,13 +9516,24 @@ nav.display-none.search-sm .nav-wrapper form .input-field i
 {
     margin-right: 1.15rem;
 
+
     color: #fff;
     border-radius: 0 25px 25px 0;
 }
+.sidenav-active-rounded .sidenav li a:active
+{
+    margin-right: 1.15rem;
+    color: #fff;
+    border-radius: 0 25px 25px 0;
+
+}
+
+
 
 .sidenav-active-rounded .sidenav li > a.active > i
 {
     color: #fff;
+
 }
 
 .sidenav-active-rounded .sidenav li:not(.open) > a.active
@@ -9533,13 +9544,18 @@ nav.display-none.search-sm .nav-wrapper form .input-field i
 .sidenav-active-rounded .sidenav li:not(.open) > a.active > i
 {
     color: #fff;
+
 }
 
 .sidenav-active-rounded .sidenav li > a:hover,
 .sidenav-active-rounded .sidenav li > li:not(.active) > a:hover
 {
     border-radius: 0 25px 25px 0;
+
 }
+
+
+
 
 .sidenav-active-rounded .sidenav li > a,
 .sidenav-active-rounded .sidenav li a.collapsible-header
@@ -9554,6 +9570,7 @@ nav.display-none.search-sm .nav-wrapper form .input-field i
 .sidenav-active-rounded .sidenav .collapsible-header:after
 {
     right: 4px;
+
 }
 
 .sidenav-active-rounded.nav-collapsed li > a,

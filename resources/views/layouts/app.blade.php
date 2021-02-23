@@ -113,6 +113,13 @@ $locale = app()->getLocale();
         .dropdown-trigger i {
             color: dimgray !important;
         }
+        .sidenav li:hover{
+            background-color: dodgerblue !important;
+        }
+
+
+
+
 
 
 

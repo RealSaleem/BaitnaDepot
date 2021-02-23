@@ -21,7 +21,7 @@
                     <div class="card-content">
                         <div class="row">
                             <div class="col s12">
-                                <table id="page-length-option" class="display">
+                                    <table id="page-length-option" class="display">
                                     <thead>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
@@ -157,4 +157,5 @@
         // }
     });
 </script>
+
 @endsection
