@@ -102,8 +102,10 @@ class VendorsController extends Controller
         // $user->delete();
         $vendor = Vendor::where('user_id', $id)->first();
         \App\Helpers\Helper::deleteAttachment($vendor->logo);
-        $vendor->delete();
+         $result =  $vendor->delete();
+    if($result){
 
-        return redirect()->route('admin.vendors.index')->withSuccess(trans('toaster.deleted_successfully'));
+        return redirect()->route('admin.vendors.index')->with('error',\Lang::get('toaster.deleted_successfully'));
+    }
     }
 }

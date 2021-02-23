@@ -92,6 +92,6 @@ class AdvertisementController extends Controller
         \App\Helpers\Helper::deleteAttachment($advertisement->image);
         $advertisement->delete();
 
-        return redirect()->back()->withSuccess(trans('toaster.deleted_successfully'));
+        return redirect()->back()->with('error',\Lang::get('toaster.deleted_successfully'));
     }
 }

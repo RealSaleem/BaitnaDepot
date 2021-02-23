@@ -43,7 +43,7 @@ class CategoriesController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $request->handle(); 
+        $request->handle();
         return redirect()->route('admin.categories.index');
     }
 
@@ -89,7 +89,7 @@ class CategoriesController extends Controller
     {
         $request['id'] = $id;
         $category    = $request->handle();
-        
+
         return redirect()->route('admin.categories.index')->withSuccess('Record has been updated successfully');
     }
 
@@ -104,7 +104,7 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         \App\Helpers\Helper::deleteAttachment($category->image);
         $category->delete();
-        
-        return redirect()->route('admin.categories.index');
+
+        return redirect()->route('admin.categories.index')->with('error',\Lang::get('toaster.deleted_successfully'));
     }
 }

@@ -52,7 +52,7 @@ Class Helper {
 	{
 		$attachment_path = public_path().'/storage/'.$attachment;
         $attachment_path = str_replace('/', "\\", $attachment_path);
-        // dd($attachment_path);
+//         dd($attachment_path);
         // dd(File::exists($attachment_path));
         if(File::exists($attachment_path)) {
         	File::delete($attachment_path);
@@ -68,7 +68,7 @@ Class Helper {
 		if($image == null){
 			return null;
 		}
-		
+
 		$image_path = Config('app.image_base_url').$image;
 		return $image_path;
 	}

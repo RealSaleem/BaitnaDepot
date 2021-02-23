@@ -23,13 +23,14 @@ class PagesController extends Controller
         $page->type = $type;
         $page->save();
 
-        return view('admin.pages.form', ['page' => $page, 'page_type' => $type]);
+        return view('admin.pages.form', ['page' => $page, 'page_type' => $type])
+            ->with('success', \Lang::get('toaster.created_successfully'));
     }
 
     public function savePage(UpdatePageRequest $request)
     {
         $page = $request->handle();
-        return redirect()->route('admin.edit_page',$page->type);
+        return redirect()->route('admin.edit_page',$page->type)->with('success', \Lang::get('toaster.updated_successfully'));;
     }
 
     public function getWebSocial()
