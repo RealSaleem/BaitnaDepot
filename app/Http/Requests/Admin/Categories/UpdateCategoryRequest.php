@@ -25,10 +25,15 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules()
     {
+        $params = $this->all();
         return [
-            'name_en'   => ['required'],
-            'type'      => ['required'],
-            'image'     => ['nullable','image','mimes:jpeg,jpg,png']
+            // 'name_en'   => ['required', 'unique:categories,name_en'.$params['id']],
+            'name_en'   =>  ['required',
+                                Rule::unique('categories', 'name_en')->ignore($params['id'])
+                            ], 
+            'name_ar'   =>  Rule::unique('categories', 'name_ar')->ignore($params['id']), 
+            'type'      =>  ['required'],
+            'image'     =>  ['nullable','image','mimes:jpeg,jpg,png']
         ];
     }
 

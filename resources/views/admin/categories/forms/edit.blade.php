@@ -12,6 +12,7 @@
                         @csrf
                         {{ method_field('PUT') }}
                         <input type="hidden" name="hidden_image" id="hidden_image" value="{{ $category->image }}" />
+                        <input type="hidden" name="id" value="{{ $category->id }}" />
                         @include('admin.categories.forms.form')
                     </form>
                 </div>

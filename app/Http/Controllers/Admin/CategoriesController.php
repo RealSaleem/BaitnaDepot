@@ -92,9 +92,7 @@ class CategoriesController extends Controller
      */
     public function update(UpdateCategoryRequest $request, $id)
     {
-        $request['id'] = $id;
         $category    = $request->handle();
-
         return redirect()->route('admin.categories.index')->withSuccess('Record has been updated successfully');
     }
 
