@@ -6,10 +6,7 @@ use App\Http\Controllers\API\ApiBaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Address;
-use App\Models\ContactUs;
 use Illuminate\Support\Facades\Validator;
-
-use App\Http\Requests\API\UserAddress\AddAddress;
 
 class AddressController extends ApiBaseController
 {
