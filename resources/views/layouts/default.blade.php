@@ -14,7 +14,7 @@
     <meta name="author" content="ThemeSelect">
     <title>{{ config('app.name', 'Baitna Depot') }}</title>
     <link rel="apple-touch-icon" href="{{ asset('app-assets/images/favicon/apple-touch-icon-152x152.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/favicon/favicon-32x32.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/logo/title.png') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- BEGIN: VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/vendors.min.css') }}">
@@ -33,7 +33,7 @@
 <!-- END: Head-->
 
 <body class="vertical-layout page-header-light vertical-menu-collapsible vertical-dark-menu preload-transitions 1-column login-bg   blank-page blank-page" data-open="click" data-menu="vertical-dark-menu" data-col="1-column">
-    
+
     @yield('content')
 
     <script src="{{ asset('app-assets/js/vendors.min.js') }}"></script>
