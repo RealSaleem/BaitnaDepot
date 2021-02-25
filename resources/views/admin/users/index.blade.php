@@ -90,7 +90,7 @@
 
 
             <div class="col s2 right">
-                <a href="{{route('admin.users.create')}}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
+                <a href="{{route('admin.users.create')}}" class="btn btn-primary"><i class="material-icons left">add</i>
                     {{__('site.add_new')}}
                 </a>
             </div>

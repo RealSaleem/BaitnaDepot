@@ -9,7 +9,7 @@
 
 
             <div class="col s2 right">
-            <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.create' : 'products.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
+            <a href="{{ route(Auth::guard('admin')->check() ? 'admin.products.create' : 'products.create') }}" class="btn btn-primary"><i class="material-icons left">add</i>
                 {{__('site.add_new')}}
             </a>
             </div>

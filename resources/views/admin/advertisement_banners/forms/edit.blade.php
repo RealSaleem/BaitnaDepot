@@ -13,6 +13,7 @@
                         {{ method_field('PUT') }}
                         <input type="hidden" name="id" value="{{$advertisement->id}}">
                         <input type="hidden" name="hidden_image" id="hidden_image" value="{{ $advertisement->image }}" />
+                        <input type="hidden" name="id" id="id" value="{{ $advertisement->id }}" />
                         @include('admin.advertisement_banners.forms.form')
                     </form>
                 </div>

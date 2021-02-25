@@ -90,8 +90,10 @@ class AdvertisementController extends Controller
     {
         $advertisement = Advertisement::find($id);
         \App\Helpers\Helper::deleteAttachment($advertisement->image);
-        $advertisement->delete();
+        $result =  $advertisement->delete();
 
-        return redirect()->back()->with('error',\Lang::get('toaster.deleted_successfully'));
+        if($result){
+            return redirect()->back()->with('error',\Lang::get('toaster.deleted_successfully'));
+        }
     }
 }

@@ -13,7 +13,7 @@
 
 
             <div class="col s2 right">
-                <a href="{{ route('admin.promo_code.create') }}" class="btn btn-block indigo waves-effect waves-light right"><i class="material-icons right">add</i>
+                <a href="{{ route('admin.promo_code.create') }}" class="btn btn-primary"><i class="material-icons left">add</i>
                     {{__('vendor.generate_promo')}}
                 </a>
             </div>

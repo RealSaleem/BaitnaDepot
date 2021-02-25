@@ -1,12 +1,12 @@
-<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded">
+<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded admin">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="{{ route('admin.dashboard') }}">
-                <img class="hide-on-med-and-down " src="{{ asset('app-assets/images/logo/materialize-logo.png') }}" alt="materialize logo" />
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="{{ asset('app-assets/images/logo/materialize-logo-color.png') }}" alt="materialize logo" />
-                <span class="logo-text hide-on-med-and-down">{{ __('site.admin') }}</span>
+            <a class="brand-logo center" href="{{ route('admin.dashboard') }}"  style="padding-top: 12px !important; padding-right: 16px !important;">
+                <img class="hide-on-med-and-down pb-2 mt-1" src="{{ asset('app-assets/images/logo/baitna.png') }}"   alt="materialize logo" />
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="{{ asset('app-assets/images/logo/baitna2.png') }}"    alt="materialize logo" />
             </a>
             <a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a>
+
         </h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="accordion">

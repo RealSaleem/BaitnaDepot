@@ -4,6 +4,7 @@
 .login-bg
 {
     background-image: url('../../images/gallery/flat-bg.jpg');
+
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -14,9 +15,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
-
-    height: 100vh;
-
+    height: 52vh;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -30,4 +29,19 @@
 #login-page .card-panel.border-radius-6.login-card
 {
     margin-left: 0 !important;
+}
+
+
+
+
+/*#loginsubmit {*/
+/*    background: #8e24aa;*/
+/*    background: -webkit-linear-gradient(*/
+/*        45deg, #8e24aa, #ff6e40);*/
+
+/*}*/
+#loginsubmit {
+
+    background: #eebf11 !important;
+
 }
