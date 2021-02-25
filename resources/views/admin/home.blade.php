@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @section('heading')
-        {{ __('Welcome to Admin Dashboard') }}
+        <b>{{ __('Admin Dashboard') }}</b>
     @endsection
     <div class="row justify-content-center">
         <div class="col-md-8">

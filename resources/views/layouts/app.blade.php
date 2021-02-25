@@ -17,7 +17,7 @@ $locale = app()->getLocale();
     <meta name="author" content="ThemeSelect">
     <title>{{ config('app.name', 'Baitna Depot') }}</title>
     <link rel="apple-touch-icon" href="{{ asset('app-assets/images/favicon/apple-touch-icon-152x152.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/favicon/Ofavicon-32x32.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/logo/title.png') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @if($locale == 'en')
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/vendors.min.css') }}">
@@ -50,6 +50,7 @@ $locale = app()->getLocale();
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/data-tables.css')}}">
 
     @yield('styles')
+    @include('layouts.style')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css-rtl/custom/custom.css') }}">
     @endif
@@ -68,6 +69,7 @@ $locale = app()->getLocale();
 
     <!-- BEGIN: Page Main-->
     <div id="main">
+
         @include('layouts.heading')
         @include('layouts.flash-message')
         @include('layouts.toast')
@@ -80,50 +82,12 @@ $locale = app()->getLocale();
     @include('layouts.scripts')
     {{-- @include('layouts.sweetalert') --}}
 
-    @if(Session::has('success'))
-    <script>
-        toastr.success("{{session('success')}}")
-    </script>
-    @endif
-    @if(Session::has('error'))
-    <script>
-        toastr.error("{{session('error')}}")
-    </script>
-    @endif
-    @if(Session::has('warning'))
-    <script>
-        toastr.warning("{{session('warning')}}")
-    </script>
-    @endif
-    <style>
-        #dropdown1 {
-            width: 180px !important;
-            color: dimgray !important;
-        }
 
-        #dropdown1 li a {
-            color: dimgray !important;
-        }
+<!-- Toaster Alert Start------>
+@include('layouts.toaster')
 
-        #dropdown1 i {
-            font-size: 20px !important;
-            color: dimgray !important;
-        }
-
-        .dropdown-trigger i {
-            color: dimgray !important;
-        }
-        .sidenav li:hover{
-            background-color: dodgerblue !important;
-        }
-
-
-
-
-
-
-
-    </style>
+<!-- Custome Style CSS  Start------>
+@include('layouts.style')
 </body>
 
 </html>
