@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vendor\Vendor;
 
+use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\User;
 use App\Models\Vendor;
@@ -44,30 +45,15 @@ class UpdateVendorRequest extends FormRequest
     public function handle()
     {
         $params = $this->all();
-
-//if($params['available']==true)
-//{
-//    $Available = "Available";
-//}
-
-
-
-
-
-
-        $user_id = Auth::user()->id;
-        $user = User::find($user_id);
-
+        $user_id        = Auth::user()->id;
+        $user           = User::find($user_id);
         $user->name     = $params['name_en'];
         $user->mobile   = $params['mobile'];
         $user->save();
 
-
-
-
         $vendor                 = Vendor::where('user_id', $user_id)->first();
         $vendor->name_en        = $params['name_en'];
-        $vendor->avaibility     = isset($params['available']) ? YES : NO;
+        $vendor->avaibility     = isset($params['available']) ? AppConstant::YES : AppConstant::NO;
         $vendor->name_ar        = $params['name_ar'] != null ? $params['name_ar'] : $params['name_en'];
 
         if($this->hasFile('logo') && isset($params['logo']))
