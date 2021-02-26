@@ -22,6 +22,8 @@ class AlterationInUsersTable extends Migration
             $table->date('date_of_birth')->nullable();
             $table->dateTime('last_login')->nullable();
             $table->softDeletes();
+            $table->integer('vendor_id')->unsigned()->nullable();
+            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
         });
     }
 

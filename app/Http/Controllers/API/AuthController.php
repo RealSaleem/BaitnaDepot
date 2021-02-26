@@ -97,7 +97,7 @@ class AuthController extends ApiBaseController
         }
 
         $input = $request->all();
-        $input['status'] = AppConstant::UNAPPROVE;
+        $input['status'] = AppConstant::UNAPPROVED;
         if(VendorRequest::create($input)){
             return $this->SuccessResponse('Your request has been submitted successfully.', null);
         } else {
