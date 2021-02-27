@@ -45,13 +45,14 @@ class UpdateVendorRequest extends FormRequest
     public function handle()
     {
         $params = $this->all();
+
         $user_id        = Auth::user()->id;
-        $user           = User::find($user_id);
+        $user           = User::with('vendor')->find($user_id);
         $user->name     = $params['name_en'];
         $user->mobile   = $params['mobile'];
         $user->save();
 
-        $vendor                 = Vendor::where('user_id', $user_id)->first();
+        $vendor                 = $user->vendor;
         $vendor->name_en        = $params['name_en'];
         $vendor->avaibility     = isset($params['available']) ? AppConstant::YES : AppConstant::NO;
         $vendor->name_ar        = $params['name_ar'] != null ? $params['name_ar'] : $params['name_en'];
@@ -64,7 +65,6 @@ class UpdateVendorRequest extends FormRequest
             \App\Helpers\Helper::deleteAttachment($vendor->logo);
             $vendor->logo   = null;
         }
-
         $vendor->save();
 
         return $user;

@@ -1,16 +1,28 @@
 @extends('layouts.app')
 @section('styles')
 <style>
-input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    input:not([type]),
+    input[type=text]:not(.browser-default),
+    input[type=password]:not(.browser-default),
+    input[type=email]:not(.browser-default),
+    input[type=url]:not(.browser-default),
+    input[type=time]:not(.browser-default),
+    input[type=date]:not(.browser-default),
+    input[type=datetime]:not(.browser-default),
+    input[type=datetime-local]:not(.browser-default),
+    input[type=tel]:not(.browser-default),
+    input[type=number]:not(.browser-default),
+    input[type=search]:not(.browser-default),
+    textarea.materialize-textarea {
 
-    border-bottom:none !important;
-}
+        border-bottom: none !important;
+    }
 </style>
 @endsection
 @section('content')
 <div class="container">
     @section('heading')
-        {{ __('working_hours.main') }}
+    {{ __('working_hours.main') }}
     @endsection
     <div class="row">
         <div class="col s12 m12 l12">
@@ -20,11 +32,13 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
                         @csrf
                         <input type="hidden" name="vendor_id" value="{{$vendor_id}}">
                         <table class="bordered responsive-table centered">
-                            <th>Day</th>
-                            <th>Status</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                        @foreach($working_times as $working_time)
+                            <thead>
+                                <th>{{__('working_hours.day')}}</th>
+                                <th>{{__('working_hours.status')}}</th>
+                                <th>{{__('working_hours.start_time')}}</th>
+                                <th>{{__('working_hours.end_time')}}</th>
+                            </thead>
+                            @foreach($working_times as $working_time)
                             <input type="hidden" name="hour_row_ids[]" value="{{$working_time->id}}">
                             <tr>
                                 <td style="width:25%;">
@@ -32,8 +46,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
                                 </td>
                                 <td style="width:25%;">
                                     <select name="status[]">
-                                        <option value="AppConstant::CLOSE" {{$working_time->status == 0 ? 'selected' : ''}}>{{ __('working_hours.closed') }}</option>
-                                        <option value="AppConstant::OPEN" {{$working_time->status == 1 ? 'selected' : ''}}>{{ __('working_hours.open') }}</option>
+                                        <option value="{{AppConstant::CLOSE}}" {{$working_time->status == 0 ? 'selected' : ''}}>{{ __('working_hours.closed') }}</option>
+                                        <option value="{{AppConstant::OPEN}}" {{$working_time->status == 1 ? 'selected' : ''}}>{{ __('working_hours.open') }}</option>
                                     </select>
                                 </td>
                                 <td style="width:25%;">
@@ -43,29 +57,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
                                     <input type="time" name="end_times[]" value="{{$working_time->end_time}}">
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </table>
-                        {{--  @foreach($working_times as $working_time)
-                        <div class="row">
-                            <div class="input-field col m3 s3">
-                                <input type="text" name="{{$working_time->day->name_en}}" value="{{ $working_time->day->getLocaleName() }}" readonly>
-                            </div>
-                            <div class="input-field col m3 s3">
-                                <select name="status[]">
-                                    <option value="0">{{ __('working_hours.closed') }}</option>
-                                    <option value="1">{{ __('working_hours.open') }}</option>
-                                </select>
-                            </div>
-                            <div class="input-field col m3 s3">
-                                <input type="time" name="start_time[]">
-                                <label for="start_time" class="active">{{ __('working_hours.start_time') }}</label>
-                            </div>
-                            <div class="input-field col m3 s3">
-                                <input type="time" name="end_time[]">
-                                <label for="end_time">{{ __('working_hours.end_time') }}</label>
-                            </div>
-                        </div>
-                        @endforeach --}}
                         <div class="row">
                             <div class="input-field col s12">
                                 <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('site.save') }}

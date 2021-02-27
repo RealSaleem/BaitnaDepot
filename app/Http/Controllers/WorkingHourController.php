@@ -12,7 +12,7 @@ class WorkingHourController extends Controller
 {
     public function index()
     {
-    	$vendor_id = Auth::user()->vendor->id;
+    	$vendor_id = Auth::user()->vendor_id;
     	$working_times = ContractorWorkingHour::with('day')->where('vendor_id', $vendor_id)->get();
     	
     	if($working_times->isEmpty()){
@@ -31,7 +31,6 @@ class WorkingHourController extends Controller
     public function update(SaveContractorWorkingHours $request)
     {
     	$request->handle();
-
     	return redirect()->route('contractor_working_hours')->withSuccess(trans('toaster.updated_successfully'));
     }
 }

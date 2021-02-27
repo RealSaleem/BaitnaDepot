@@ -45,15 +45,16 @@ class UpdateVendorRequest extends FormRequest
 
         $params         = $this->all();
 
-        $user = User::find($params['user_id']);
+        $user = User::with('vendor')->find($params['user_id']);
         $user->name     = $params['name_en'];
         $user->email    = $params['email'];
         $user->mobile   = $params['mobile'];
         $user->save();
 
-        $vendor = Vendor::where('user_id', $user->id)->first();
+        // $vendor = Vendor::where('user_id', $user->id)->first();
+        $vendor = $user->vendor;
         $vendor->name_en        = $params['name_en'];
-        $vendor->name_ar        = $params['name_ar'];
+        $vendor->name_ar        = $params['name_ar'] ?? $params['name_en'];
         $vendor->services       = json_encode($params['services']);
         if($this->hasFile('logo'))
         {

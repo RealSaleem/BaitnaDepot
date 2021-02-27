@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\WorkingHours;
 
+use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Day;
 use App\Models\ContractorWorkingHour;
@@ -40,9 +41,9 @@ class InitContractorWorkingHours extends FormRequest
             $working_hours = new ContractorWorkingHour();
             $working_hours->vendor_id   = $vendor_id;
             $working_hours->day_id      = $day->id;
-            $working_hours->status      = CLOSE;
-            $working_hours->start_time  = null;//\Carbon\Carbon::now();
-            $working_hours->end_time    = null;//\Carbon\Carbon::now();
+            $working_hours->status      = AppConstant::CLOSE;
+            $working_hours->start_time  = null;
+            $working_hours->end_time    = null;
             $working_hours->save();
         }
 
