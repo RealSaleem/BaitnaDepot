@@ -7,4 +7,5 @@ return [
     'message_sent'                  =>  'Message has been sent to the baitna depot team',
     'validation_errors'             =>  'Validation errors',
     'page_not_found'                =>  'Page not found',
+    'vendors_loaded_successfull'    =>  'Vendors loaded successfully',
 ];

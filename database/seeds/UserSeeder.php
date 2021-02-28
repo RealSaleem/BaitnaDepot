@@ -1,6 +1,8 @@
 <?php
 
+use App\Helpers\AppConstant;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -11,16 +13,18 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' 		            => 'Irfan',
-            'username'              => 'irfan',
-            'email'                 => 'hirfan875@gmail.com',
-            'password'              => '$2y$10$kzxnfvQcq.9IMs9XWPcP7ufdXMQ.4Z04gx.mbYm36evisYLBdcuzW', //123456789
-            'type'                  => 1,
-            'status' 	            => 0,
-            'is_approved'           => 1,
-            'created_at'            => \Carbon\Carbon::now(),
-            'updated_at'            => \Carbon\Carbon::now()
-        ]);
+        // DB::table('users')->insert([
+        //     'name' 		            => 'Irfan',
+        //     'username'              => 'irfan',
+        //     'email'                 => 'hirfan875@gmail.com',
+        //     'password'              => bcrypt('admin'),
+        //     'type'                  => AppConstant::VENDOR_USER,
+        //     'status' 	            => 0,
+        //     'is_approved'           => 1,
+        //     'vendor_id'             => 1,
+        //     'created_at'            => \Carbon\Carbon::now(),
+        //     'updated_at'            => \Carbon\Carbon::now()
+        // ]);
+        factory(User::class, 25)->create();
     }
 }

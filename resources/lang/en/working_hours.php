@@ -14,4 +14,6 @@ return [
     'closed'                        =>  'Closed',
     'start_time'                    =>  'Start Time',
     'end_time'                      =>  'End Time',
+    'day'                           =>  'Day',
+    'status'                        =>  'Status',
 ];

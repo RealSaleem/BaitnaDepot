@@ -12,7 +12,7 @@ class DaySeeder extends Seeder
      */
     public function run()
     {
-    	Day::truncate();
+    	// Day::truncate();
         
         $weekDays = [
         	['name_en' => 'Sunday', 'name_ar'	=> 'الأحد'],
@@ -31,7 +31,6 @@ class DaySeeder extends Seeder
         	$day->name_ar 		= $value['name_ar'];
         	$day->created_at 	= \Carbon\Carbon::now();
         	$day->updated_at 	= \Carbon\Carbon::now();
-
         	$day->save();
         }
     }

@@ -12,10 +12,10 @@ $factory->define(\App\Models\Product::class, function (Faker $faker) {
         'name_ar'		    => $faker_ar->name,//Str::random(10),
         'description_en' 	=> $faker->sentence,
         'description_ar'	=> $faker_ar->sentence,
-        'vendor_id'			=> function () {
-                                        return factory(App\Models\Vendor::class)->create()->id;
-                                }, 
+        'vendor_id'         => 1,
         'price'				=> 100,
+        'quantity'			=> 50,
+        'delivery_fees'		=> 5,
         'created_at'	    => \Carbon\Carbon::now(),
         'updated_at'	    => \Carbon\Carbon::now()
     ];

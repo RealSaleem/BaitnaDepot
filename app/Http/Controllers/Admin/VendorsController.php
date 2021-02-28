@@ -74,7 +74,7 @@ class VendorsController extends Controller
         $vendor = $request->handle();
         $category_request = new GetAllCategoryRequest;
         $categories = $category_request->handle();
-        return view('admin.vendors.forms.edit', compact('vendor','categories'));
+        return view('admin.vendors.forms.edit', compact('vendor', 'categories'));
     }
 
     /**
@@ -98,14 +98,13 @@ class VendorsController extends Controller
      */
     public function destroy($id)
     {
-        // $user   = User::find($id);
-        // $user->delete();
-        $vendor = Vendor::where('user_id', $id)->first();
+        $user   = User::find($id);
+        $vendor = Vendor::find($user->vendor_id);
         \App\Helpers\Helper::deleteAttachment($vendor->logo);
-         $result =  $vendor->delete();
-    if($result){
-
-        return redirect()->route('admin.vendors.index')->with('error',\Lang::get('toaster.deleted_successfully'));
-    }
+        $result =  $vendor->delete();
+        $user->delete();
+        if ($result) {
+            return redirect()->route('admin.vendors.index')->with('error', \Lang::get('toaster.deleted_successfully'));
+        }
     }
 }

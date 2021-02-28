@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
         DB::table('admins')->insert([
             'name' 			=> 'Admin',
             'email' 		=> 'admin@admin.com',
-            'password'		=> '$2y$10$kzxnfvQcq.9IMs9XWPcP7ufdXMQ.4Z04gx.mbYm36evisYLBdcuzW', //123456789
+            'password'		=> bcrypt('admin'),
             'created_at'	=> \Carbon\Carbon::now(),
             'updated_at'	=> \Carbon\Carbon::now()
         ]);

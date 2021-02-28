@@ -45,21 +45,20 @@ class CreateVendorRequest extends FormRequest
     public function handle(){
 
         $params         = $this->all();
-        // $services       = json_encode($params['services']);
+
         $user = new User;
         $user->name     = $params['name_en'];
         $user->email    = $params['email'];
         $user->mobile   = $params['mobile'];
         $user->password = bcrypt($params['password']);
         $user->type     = AppConstant::VENDOR_USER;
-        $user->status   = ACTIVE;
+        $user->status   = AppConstant::ACTIVE;
         $user->save();
 
         $vendor = new Vendor;
         $vendor->name_en    = $params['name_en'];
-        $vendor->name_ar    = $params['name_ar'];
+        $vendor->name_ar    = $params['name_ar'] ?? $params['name_en'];
         $vendor->services   = json_encode($params['services']);
-        $vendor->user()->associate($user);
 
         if($this->hasFile('logo'))
         {
@@ -67,8 +66,10 @@ class CreateVendorRequest extends FormRequest
             // $logo_path      = env('IMAGE_BASE_URL').$logo_path;
             $vendor->logo   = $logo_path;
         }
-
         $vendor->save();
+
+        $user->vendor()->associate($vendor);
+        $user->save();
 
         return $user;
     }
