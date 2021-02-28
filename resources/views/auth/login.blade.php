@@ -51,9 +51,10 @@
                                     @endif
                                 </div>
                                 <div class="input-field col s6 m6 l6">
-                                    @if (Route::has('password.request'))
-                                        <p class="margin right-align medium-small"><a href="{{ route($forgotPasswordRoute) }}">{{ __('Forgot Your Password?') }}</a></p>
-                                    @endif
+{{--                                    @if (Route::has('password.request'))--}}
+{{--                                        <p class="margin right-align medium-small"><a href="{{ route($forgotPasswordRoute) }}">{{ __('Forgot Your Password?') }}</a></p>--}}
+{{--                                    @endif--}}
+                                            <p class="margin right-align medium-small"><a href="{{ route($forgotPasswordRoute) }}">{{ __('Forgot Your Password?') }}</a></p>
                                 </div>
                             </div>
                         </form>

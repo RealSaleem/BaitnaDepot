@@ -1,14 +1,16 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                    <div class="container">
+                        <div class="row justify-content-center ">
+                            <div class="col s12  justify-content-center vertical-align-center mr-4">
+                                <div class="card container" style="width: 98% !important;margin-left: 1% !important;">
+                                    <div class="card-body pl-4 pt-4 pb-4 pr-4 ">
+                                        <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+
+
+                                    <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -49,9 +51,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mb-0 mt-3">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary right">
                                     {{ __('Reset Password') }}
                                 </button>
                             </div>
@@ -61,5 +63,17 @@
             </div>
         </div>
     </div>
-</div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
