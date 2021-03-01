@@ -37,8 +37,8 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::get('contractor_working_hours','WorkingHourController@index')->name('contractor_working_hours');
 	Route::post('update_contractor_working_hours','WorkingHourController@update')->name('update_contractor_working_hours');
 
-	Route::get('promotevendor_V', 'VendorController@promotevendor_V')->name('promotevendor_V');
-	Route::post('promotevendor','VendorController@promotevendor')->name('promotevendor');
+	Route::get('promote_me_show', 'VendorController@promote_me_show')->name('promote_me_show');
+	Route::post('prommote_me','VendorController@prommote_me')->name('prommote_me');
 	Route::post('check','VendorController@Check');
 
 });

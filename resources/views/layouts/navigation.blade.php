@@ -8,8 +8,18 @@
                 <img class="show-on-medium-and-down hide-on-med-and-up" src="{{ asset('app-assets/images/logo/baitna2.png') }}"    alt="materialize logo" />
                 @endif
                 @if(!Auth::guard('admin')->check())
-                     <img class="vendor-img hide-on-med-and-down" src="{{ '/storage/'.\Illuminate\Support\Facades\Auth::user()->vendor->logo}}"  alt="materialize logo" />
-                        <img class="show-on-medium-and-down hide-on-med-and-up" src="{{ '/storage/'.\Illuminate\Support\Facades\Auth::user()->vendor->logo}}"    alt="materialize logo" />
+                    @if(\Illuminate\Support\Facades\Auth::user()->vendor->logo !== null)
+                            <img class="vendor-img hide-on-med-and-down" src="{{ '/storage/'.\Illuminate\Support\Facades\Auth::user()->vendor->logo}}"  alt="materialize logo" />
+                            <img class="show-on-medium-and-down hide-on-med-and-up" src="{{ '/storage/'.\Illuminate\Support\Facades\Auth::user()->vendor->logo}}"    alt="materialize logo" />
+                        @else
+                       <div id="alternate-logo">
+                           <img class="hide-on-med-and-down pb-2 mt-1" src="{{ asset('app-assets/images/logo/baitna.png') }}"   alt="materialize logo" />
+                       </div>
+                           <img class="show-on-medium-and-down hide-on-med-and-up" src="{{ asset('app-assets/images/logo/baitna.png') }}"   alt="materialize logo" />
+
+                    @endif
+
+
                 @endif
 
             </a>
@@ -23,7 +33,7 @@
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('social_links')}}"><i class="material-icons">group_work</i><span class="menu-title">{{ __('setting.social_media') }}</span></a>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('promotevendor_V')}}"><i class="material-icons">Promote</i><span class="menu-title">{{ __('Promote Me') }}</span></a>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('promote_me_show')}}"><i class="material-icons">Promote</i><span class="menu-title">{{ __('Promote Me') }}</span></a>
         </li>
     </ul>
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>

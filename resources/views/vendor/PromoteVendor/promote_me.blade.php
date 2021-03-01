@@ -17,7 +17,7 @@
 
                         <div class=" row pt-4">
                             <div class="col s12">
-                                <form action="{{url('/promotevendor')}}" method="post" >
+                                <form action="{{url('/prommote_me')}}" method="post" >
                                     @csrf
                                     @method('POST')
                                     <div class="row">
@@ -47,6 +47,8 @@
                                                 </small>
                                             @endif
                                         </div>
+
+
 
                                         <div class="input-field col m4 s4 h-100">
                                             <input id="To" type="date" name="DateTo" value="" >

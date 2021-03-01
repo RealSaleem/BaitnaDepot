@@ -25,12 +25,9 @@
     .sidenav li:active{
         background-color: #FFBF00 !important;
     }
-    .navbar .navbar-light{
-        background-color: #e4e4e4 !important;
-    }
 
     .admin .logo-wrapper .hide-on-med-and-down{
-        height: auto !important; ;
+        height: auto !important;
         width: 70px !important;
     }
     .admin .logo-wrapper .show-on-medium-and-down{
@@ -55,11 +52,7 @@
     .nav-collapsed.sidenav-main {
         width: 79px !important;
     }
-    .LogAs{
-        position: relative ;
-        top: 0px;
-        bottom:5px ;
-    }
+
 .vandor .vendor-img{
     height: 46px !important ;
     width:  auto !important;
@@ -70,7 +63,14 @@
     margin-left: 32px !important;
 }
 
+  #alternate-logo .hide-on-med-and-down  {
+        height: 41px !important;
+        padding-top: 5px !important;
+    }
+.dataTables_scrollBody{
+    height: 552px !important;
 
+}
 
 
 

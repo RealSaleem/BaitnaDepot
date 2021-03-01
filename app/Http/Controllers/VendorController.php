@@ -63,12 +63,12 @@ class VendorController extends Controller
         return redirect()->route('social_links')->withSuccess(trans('toaster.updated_successfully'));
     }
 
-    public function promotevendor_V()
+    public function promote_me_show()
     {
-        return view('vendor.PromoteVendor.promote_vendor_v');
+        return view('vendor.PromoteVendor.promote_me');
     }
 
-    public function promotevendor(Request $PromoteReq)
+    public function prommote_me(Request $PromoteReq)
     {
         $PromoteReq->validate([
                    'PromoteOn'  => 'required',
@@ -76,7 +76,7 @@ class VendorController extends Controller
                    'DateTo'     => 'required',
         ]);
 
-    
+
         $Promote = new promote_vendor();
         $Promote->vendor_id     =  Auth::user()->id;
         $Promote->Promote_On    =  $PromoteReq->PromoteOn;
@@ -87,7 +87,7 @@ class VendorController extends Controller
         if($result)
         {
             Session()->flash('Success','Promote Request has been submited, You will be informed when Super Admin Approve Your request');
-            return redirect()->route('promotevendor_V');
+            return redirect()->route('promote_me_show');
         }
     }
 

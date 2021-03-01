@@ -97,21 +97,22 @@
 
 
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="row">
-                            <div class="col s6">
-                                <div class="card-title">
-                                    {{__('user.main')}}
+        <div id="table-main">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s6">
+                                    <div class="card-title">
+                                        {{__('user.main')}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12">
-                                <table id="users-table" class="display">
-                                    <thead>
+                            <div class="row">
+                                <div class="col s12">
+                                    <table id="users-table" class="display">
+                                        <thead>
                                         <tr>
                                             <th>{{__('site.id')}}</th>
                                             <th>{{__('user.username')}}</th>
@@ -122,18 +123,18 @@
                                             <th>{{__('user.last_signin')}}</th>
                                             <th>{{__('site.actions')}}</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
+                                        </thead>
+                                        <tbody>
                                         @if(sizeof($users) > 0)
                                             @foreach($users as $user)
-                                            <tr>
-                                                <td>{{$user->id}}</td>
-                                                <td>{{$user->username}}</td>
-                                                <td>{{$user->name}}</td>
-                                                <td>{{$user->mobile}}</td>
-                                                <td>{{$user->email}}</td>
-                                                <td>{{Helper::getFormatedDate($user->created_at)}}</td>
-                                                <td>{{$user->last_login != null ? Helper::getFormatedDateTime($user->last_login) : null}}</td>
+                                                <tr>
+                                                    <td>{{$user->id}}</td>
+                                                    <td>{{$user->username}}</td>
+                                                    <td>{{$user->name}}</td>
+                                                    <td>{{$user->mobile}}</td>
+                                                    <td>{{$user->email}}</td>
+                                                    <td>{{Helper::getFormatedDate($user->created_at)}}</td>
+                                                    <td>{{$user->last_login != null ? Helper::getFormatedDateTime($user->last_login) : null}}</td>
 
 
 
@@ -159,13 +160,13 @@
 
 
 
-                                            </tr>
+                                                </tr>
                                             @endforeach
                                         @else
                                             <td colspan="8">{{__('user.not_found')}}</td>
                                         @endif
-                                    </tbody>
-                                    <tfoot>
+                                        </tbody>
+                                        <tfoot>
                                         <th>{{__('site.id')}}</th>
                                         <th>{{__('user.username')}}</th>
                                         <th>{{__('user.full_name')}}</th>
@@ -174,8 +175,9 @@
                                         <th>{{__('user.date_of_joining')}}</th>
                                         <th>{{__('user.last_signin')}}</th>
                                         <th>{{__('site.actions')}}</th>
-                                    </tfoot>
-                                </table>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
