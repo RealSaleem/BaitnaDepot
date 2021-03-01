@@ -29,7 +29,8 @@ Route::get('get_page/{type}','API\PageController@getPageByType');
 Route::get('get_advertisement','API\PageController@getAdvertisementBanner');
 Route::apiResource('address', 'API\AddressController');
 
-Route::get('get_ecommerce_vendors', 'API\VendorController@getEcommerceVendors');
+Route::get('categories/{type}', 'API\VendorController@getCategories');
+Route::get('ecommerce_vendors', 'API\VendorController@getEcommerceVendors');
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');
