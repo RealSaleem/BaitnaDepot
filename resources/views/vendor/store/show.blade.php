@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/page-users.css')}}">
 @endsection
 @section('content')
 <div class="row">
     <div class="col s12">
         <div class="container">
-        @section('heading')
+            @section('heading')
             {{ __('Store') }}
-        @endsection
+            @endsection
             <!-- users view start -->
             <div class="section users-view">
                 <!-- users view card details start -->
@@ -17,13 +17,13 @@
                         <div class="row">
                             <div class="col s6">
                                 <table class="striped">
-                         <tbody>
+                                    <tbody>
                                         {{-- @foreach(Config::get('app.locales') as $key => $value)
                                         <tr>
                                             <td>{{__('site.name_'.$key)}}:</td>
-                                            <td class="users-view-username">
-                                                {{$user->vendor->getTranslation('name',$key)}}
-                                            </td>
+                                        <td class="users-view-username">
+                                            {{$user->vendor->getTranslation('name',$key)}}
+                                        </td>
                                         </tr>
                                         @endforeach --}}
                                         <tr>
@@ -45,13 +45,13 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Avaibility:</td>
+                                            <td>{{__('vendor.availability')}}:</td>
                                             <td class="users-view-username">
-                                                @if($user->vendor->avaibility ==0)
-                                                    {{\App\Helpers\AppConstant::NOT_AVAILABLE}}
+                                                @if($user->vendor->is_available == \App\Models\Vendor::NO)
+                                                    {{\App\Models\Vendor::NOT_AVAILABLE}}
                                                 @endif
-                                                @if($user->vendor->avaibility ==1)
-                                                    {{\App\Helpers\AppConstant::AVAILABLE}}
+                                                @if($user->vendor->is_available == \App\Models\Vendor::YES)
+                                                    {{\App\Models\Vendor::AVAILABLE}}
                                                 @endif
                                             </td>
                                         </tr>
@@ -63,7 +63,7 @@
                                             <td>{{__('vendor.type')}}:</td>
                                             <td>
                                                 @foreach(json_decode($user->vendor->services) as $service)
-                                                    <p>{{Helper::getServiceName($service)}}</p>
+                                                <p>{{Helper::getServiceName($service)}}</p>
                                                 @endforeach
                                             </td>
                                         </tr>

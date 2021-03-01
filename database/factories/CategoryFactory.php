@@ -10,7 +10,7 @@ $factory->define(\App\Models\Category::class, function (Faker $faker) {
     return [
         'name_en' 		=> $faker->name,//Str::random(10),
         'name_ar'		=> $faker_ar->name,//Str::random(10),
-        'image'			=> 'http://127.0.0.1:8000/storage/images/category/f1vebwbTTYSUHgRUuROq4DTFzqeyjKyP4JBntXmA.jpeg',
+        'image'			=> null,
         'type'			=> 2,
         'delivery_fees'	=> 10,
         'sort'			=> 0,

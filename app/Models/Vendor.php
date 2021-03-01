@@ -4,29 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Lang;
 
 class Vendor extends Model
 {
 	use SoftDeletes;
 
-    // public $translatable = ['name'];
+	// public $translatable = ['name'];
 	protected $fillable = ['name_en', 'name_ar', 'services', 'logo', 'ecommerce_store_details', 'contractor_details', 'heavy_truck_details'];
-    protected $hidden 	= ['user_id', 'created_at', 'modified_at', 'deleted_at'];
+	protected $hidden 	= ['user_id', 'created_at', 'modified_at', 'deleted_at'];
 	protected $casts 	= ['services'];
-    
 
-    public function user()
-    {
-    	return $this->hasOne(User::class);
-    }
+	const YES 				= 1;
+	const NO 				= 0;
+	const NOT_AVAILABLE     = 'Not-Available';
+	const AVAILABLE         = 'Available';
 
-    public function getLocaleName()
+	public function user()
 	{
-		$lang = \Lang::getLocale();
-		if($lang == 'ar'){
+		return $this->hasOne(User::class);
+	}
+
+	public function getLocaleName()
+	{
+		$lang = Lang::getLocale();
+		if ($lang == 'ar') {
 			return $this->name_ar;
 		}
 		return $this->name_en;
 	}
-	
 }

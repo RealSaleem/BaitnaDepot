@@ -6,7 +6,7 @@ use App\Helpers\AppConstant;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\User;
 use App\Models\Vendor;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateVendorRequest extends FormRequest
 {
@@ -54,7 +54,7 @@ class UpdateVendorRequest extends FormRequest
 
         $vendor                 = $user->vendor;
         $vendor->name_en        = $params['name_en'];
-        $vendor->avaibility     = isset($params['available']) ? AppConstant::YES : AppConstant::NO;
+        $vendor->is_available   = isset($params['available']) ? Vendor::YES : Vendor::NO;
         $vendor->name_ar        = $params['name_ar'] != null ? $params['name_ar'] : $params['name_en'];
 
         if($this->hasFile('logo') && isset($params['logo']))

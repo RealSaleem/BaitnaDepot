@@ -36,4 +36,6 @@ return [
     'PromoteReq'               => 'Promote Requests',
     'Promo_code'               => 'Promo Code',
     'generate_promo'           => 'Generate Promo Code',
+    '24_hours_availability'    => '24x7 Availability',
+    'availability'             => 'Availability',
 ];
