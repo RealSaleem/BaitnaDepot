@@ -21,7 +21,7 @@ class AppConstant
     const NO                    = 0;
     const NOT_AVAILABLE         = 'Not-Available';
     const AVAILABLE             = 'Available';
-    const VENDORSERVICE         = 1;
+    const ECOMMERCESERVICE      = 1;
     const CONTRACTORSERVICE     = 2;
     const TRUCKSERVICE          = 3;
 }

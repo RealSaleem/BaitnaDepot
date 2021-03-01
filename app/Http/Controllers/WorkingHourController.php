@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ContractorWorkingHour;
 use App\Http\Requests\WorkingHours\SaveContractorWorkingHours;
 use App\Http\Requests\WorkingHours\InitContractorWorkingHours;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class WorkingHourController extends Controller
 {
