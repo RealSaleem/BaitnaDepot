@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::get('contractor_working_hours','WorkingHourController@index')->name('contractor_working_hours');
 	Route::post('update_contractor_working_hours','WorkingHourController@update')->name('update_contractor_working_hours');
 
-	Route::get('promote_me_show', 'VendorController@promote_me_show')->name('promote_me_show');
+	Route::get('promote', 'VendorController@promote_me_show')->name('promote');
 	Route::post('prommote_me','VendorController@prommote_me')->name('prommote_me');
 	Route::post('check','VendorController@Check');
 
@@ -56,8 +56,9 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 	    Route::post('/logout','LoginController@logout')->name('logout');
 
 	    //Forgot Password Routes
+        Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 	    Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm')->name('password.request');
-	    Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+
 
 	    //Reset Password Routes
 	    /*Route::get('/password/reset/{token}','ResetPasswordController@showResetForm')->name('password.reset');

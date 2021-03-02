@@ -4,11 +4,10 @@
     <list default="true" id="662ee827-4f76-417b-8a06-137871b5fd0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VendorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VendorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/heading.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/heading.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/style.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/style.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote_vendor_v.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote_me.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote_me.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +205,8 @@
       <workItem from="1614250597286" duration="11278000" />
       <workItem from="1614510236596" duration="4200000" />
       <workItem from="1614535131521" duration="4418000" />
-      <workItem from="1614581742602" duration="1030000" />
+      <workItem from="1614581742602" duration="8474000" />
+      <workItem from="1614673087153" duration="1109000" />
     </task>
     <task id="LOCAL-00001" summary="update address bud resolved">
       <created>1614089028588</created>

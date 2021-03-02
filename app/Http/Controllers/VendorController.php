@@ -65,7 +65,7 @@ class VendorController extends Controller
 
     public function promote_me_show()
     {
-        return view('vendor.PromoteVendor.promote_me');
+        return view('vendor.PromoteVendor.promote');
     }
 
     public function prommote_me(Request $PromoteReq)
@@ -85,9 +85,8 @@ class VendorController extends Controller
         $result =  $Promote->save();
 
         if($result)
-        {
-            Session()->flash('Success','Promote Request has been submited, You will be informed when Super Admin Approve Your request');
-            return redirect()->route('promote_me_show');
+        {            return redirect()->route('promote')
+            ->withSuccess('Promote Request has been submited, You will be informed when Super Admin Approve Your request');
         }
     }
 
