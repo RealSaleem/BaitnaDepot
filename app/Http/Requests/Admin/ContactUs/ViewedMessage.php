@@ -32,7 +32,7 @@ class ViewedMessage extends FormRequest
 
     public function handle($id){
         $contactus = ContactUsMsg::find($id);
-        $contactus->status = AppConstant::VIEWED;
+        $contactus->status = 1;
         $contactus->save();
 
         return $contactus;

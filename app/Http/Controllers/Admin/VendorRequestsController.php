@@ -49,12 +49,48 @@ class VendorRequestsController extends Controller
 
         return redirect()->route('admin.vendor_requests')->withSuccess(trans('toaster.vendor_declined'));
     }
-
+//---------------------------------------Promote Vendor Admin Action Area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     public function PromoteVendor()
     {
-         $Promote = promote_vendor::with('User')->where('Promote_Status','Not Approve')->get();
+//         $Promote = promote_vendor::with('User')->where('Promote_Status',0)->get();
+        $Promote = promote_vendor::all();
+        return view('admin.Promote_Vendor.promote')->with(compact('Promote'));
+    }
+    //----------  Edit Promote Vendor Request---------
+    public function EditPromoteVendor($id)
+    {
+        $Promote = promote_vendor::find($id);
+        return view('admin.Promote_Vendor.form.edit')->with(compact('Promote'));
+    }
 
-  
-        return view('admin.Promote_Vendor.promote_vendor_A')->with(compact('Promote'));
+    //----------  Update Promote Vendor Request---------
+    public function UpdatePromoteVendor(Request $promoteReq)
+    {
+                    $Promote = promote_vendor::find($promoteReq->Promote_id);
+                    $Promote->Promote_On    =   $promoteReq->PromoteOn;
+                    $Promote->Date_From      =   $promoteReq->DateFrom;
+                    $Promote->Date_To        =   $promoteReq->DateTo;
+        $result =   $Promote->save();
+        if($result){
+            return redirect()->route('admin.Promote')->with('success','Vendor Promote Request Updated Successfully');
+        }
+    }
+    //----------  Approve Promote Vendor Request---------
+    public function ApprovePromoteRequest($id)
+    {                $Promote = promote_vendor::find($id);
+                    $Promote->Promote_Status    = 1;
+        $result =   $Promote->save();
+        if($result){
+            return redirect()->route('admin.Promote')->with('success','Vendor Promote Request Approved');
+        }
+    }
+    //----------  Decline Promote Vendor Request---------
+    public function DeclinePromoteRequest($id)
+    {               $Promote = promote_vendor::find($id);
+                    $Promote->Promote_Status    = 2;
+        $result =   $Promote->save();
+        if($result){
+            return redirect()->route('admin.Promote')->with('error','Vendor Promote Request Decline');
+        }
     }
 }

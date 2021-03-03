@@ -48,10 +48,10 @@
                                             <td>Avaibility:</td>
                                             <td class="users-view-username">
                                                 @if($user->vendor->avaibility ==0)
-                                                    {{\App\Helpers\AppConstant::NOT_AVAILABLE}}
+                                                    {{App\Models\Vendor::AVAILABLE}}
                                                 @endif
                                                 @if($user->vendor->avaibility ==1)
-                                                    {{\App\Helpers\AppConstant::AVAILABLE}}
+                                                    {{App\Models\Vendor::NOT_AVAILABLE}}
                                                 @endif
                                             </td>
                                         </tr>

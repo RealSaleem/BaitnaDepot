@@ -33,7 +33,7 @@ return [
     'logo'                     => 'Logo',
     'store_logo'               => 'Store Logo',
     'type'                     => 'Type',
-    'PromoteReq'               => 'Promote Requests',
+    'PromoteReq'               => 'Promote Vendor',
     'Promo_code'               => 'Promo Code',
     'generate_promo'           => 'Generate Promo Code',
 ];

@@ -47,6 +47,37 @@ Class Helper {
 		return $serviceName;
 	}
 
+
+    public static function getPromoteStatus($status){
+       if($status== 0){
+           return "Requested";
+       }
+        if($status== 1){
+            return "Approved";
+        }
+        if($status== 2){
+            return "Declined";
+        }
+        if($status== 3){
+            return "Expired";
+        }
+    }
+
+
+
+
+    public static function getPromoType($type){
+        if($type== 0){
+            return "Percentage";
+        }
+        if($type== 1){
+            return "Price";
+        }
+    }
+
+
+
+
 	/* delete/remove image or attachment from directory */
 	public static function deleteAttachment($attachment)
 	{

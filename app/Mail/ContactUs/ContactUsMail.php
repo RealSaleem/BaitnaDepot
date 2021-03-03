@@ -33,7 +33,7 @@ class ContactUsMail extends Mailable
             'body'      => $this->data['body']
         ];
 
-        return $this->subject('Reply From: Baitna Depot Team ')
+        return $this->subject('Baitna Depot Team ')
             ->view('admin.contactus-msg.email.email')
             ->with(['data' => $data]);
     }

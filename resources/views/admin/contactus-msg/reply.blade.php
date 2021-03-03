@@ -15,9 +15,9 @@
                         <form method="post" action="{{route('admin.reply_contact_us_messages')}}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
-                            <input id="name" type="hidden" name="id" value="{{ old('title', isset($user) ? $user->id : null) }}">
+                            <input id="name" type="hidden" name="id" value="{{ old('title', isset($User) ? $User->id : null) }}">
                             <div class="input-field col m6 s6 h-10">
-                                <input id="name" type="text" name="name" value="{{ old('title', isset($user) ? $user->name : null) }}">
+                                <input id="name" type="text" name="name" value="{{ old('title', isset($User) ? $User->name : null) }}">
                                 <label for="name">{{__('contact.name')}}</label>
                                 @if($errors->has('name'))
                                     <small class="errorTxt">
@@ -25,8 +25,9 @@
                                     </small>
                                 @endif
                             </div>
+
                             <div class="input-field col m6 s6 h-10">
-                                <input id="email" type="text" name="email" value="{{ old('title', isset($user) ? $user->email : null) }}">
+                                <input id="email" type="text" name="email" value="{{ old('title', isset($User) ? $User->email : null) }}">
                                 <label for="email">TO</label>
                                 @if($errors->has('email'))
                                     <small class="errorTxt">

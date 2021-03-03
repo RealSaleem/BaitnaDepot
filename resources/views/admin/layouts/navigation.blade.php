@@ -50,7 +50,7 @@
         </li>
 
 
-        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.PromoteVendorAdmin')}}"><i class="Large material-icons ">show_chart</i><span class="menu-title">{{ __('vendor.PromoteReq') }}</span></a>
+        <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.Promote')}}"><i class="Large material-icons ">show_chart</i><span class="menu-title">{{ __('vendor.PromoteReq') }}</span></a>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan" href="{{route('admin.promo_code.index')}}"><i class="material-icons">publish</i><span class="menu-title">{{ __('vendor.Promo_code') }}</span></a>
         </li>
