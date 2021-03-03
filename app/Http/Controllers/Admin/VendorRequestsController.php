@@ -9,7 +9,7 @@ use App\Http\Requests\Admin\VendorRequest\Get;
 use App\Http\Requests\Admin\VendorRequest\ApprovedVendor;
 use App\Http\Requests\Admin\VendorRequest\DeclinedVendor;
 use App\Http\Requests\Admin\Categories\GetAllCategoryRequest;
-use App\Models\promote_vendor;
+use App\Models\PromoteVendor;
 use App\Models\Vendor;
 
 class VendorRequestsController extends Controller
@@ -52,21 +52,21 @@ class VendorRequestsController extends Controller
 //---------------------------------------Promote Vendor Admin Action Area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     public function PromoteVendor()
     {
-//         $Promote = promote_vendor::with('User')->where('Promote_Status',0)->get();
-        $Promote = promote_vendor::all();
+//         $Promote = PromoteVendor::with('User')->where('Promote_Status',0)->get();
+        $Promote = PromoteVendor::all();
         return view('admin.Promote_Vendor.promote')->with(compact('Promote'));
     }
     //----------  Edit Promote Vendor Request---------
     public function EditPromoteVendor($id)
     {
-        $Promote = promote_vendor::find($id);
+        $Promote = PromoteVendor::find($id);
         return view('admin.Promote_Vendor.form.edit')->with(compact('Promote'));
     }
 
     //----------  Update Promote Vendor Request---------
     public function UpdatePromoteVendor(Request $promoteReq)
     {
-                    $Promote = promote_vendor::find($promoteReq->Promote_id);
+                    $Promote = PromoteVendor::find($promoteReq->Promote_id);
                     $Promote->Promote_On    =   $promoteReq->PromoteOn;
                     $Promote->Date_From      =   $promoteReq->DateFrom;
                     $Promote->Date_To        =   $promoteReq->DateTo;
@@ -77,7 +77,7 @@ class VendorRequestsController extends Controller
     }
     //----------  Approve Promote Vendor Request---------
     public function ApprovePromoteRequest($id)
-    {                $Promote = promote_vendor::find($id);
+    {                $Promote = PromoteVendor::find($id);
                     $Promote->Promote_Status    = 1;
         $result =   $Promote->save();
         if($result){
@@ -86,7 +86,7 @@ class VendorRequestsController extends Controller
     }
     //----------  Decline Promote Vendor Request---------
     public function DeclinePromoteRequest($id)
-    {               $Promote = promote_vendor::find($id);
+    {               $Promote = PromoteVendor::find($id);
                     $Promote->Promote_Status    = 2;
         $result =   $Promote->save();
         if($result){

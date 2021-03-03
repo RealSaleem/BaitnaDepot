@@ -7,7 +7,7 @@ use App\Http\Requests\Vendor\Vendor\GetVendorRequest;
 use App\Http\Requests\Vendor\Vendor\UpdateVendorRequest;
 use App\Models\WebSocialLink;
 use App\Http\Requests\Admin\UpdateSocialLinksRequest;
-use App\Models\promote_vendor;
+use App\Models\PromoteVendor;
 use Illuminate\Support\Facades\Auth;
 
 class VendorController extends Controller
@@ -65,45 +65,41 @@ class VendorController extends Controller
 
     public function promote_me_show()
     {
-        $check = promote_vendor::where('Vendor_id',Auth::user()->id)->first();
+        $check = PromoteVendor::where('Vendor_id', Auth::user()->id)->first();
         return view('vendor.PromoteVendor.promote')->with(compact('check'));
     }
 
     public function promote_me(Request $PromoteReq)
     {
-        $check = promote_vendor::where('Vendor_id',Auth::user()->id)->where('Promote_Status',2)->first();
-      if($check==false){
-          if($check->Prmote_Status == 3){
-              $PromoteReq->validate([
-                  'PromoteOn'  => 'required',
-                  'DateFrom'   => 'required',
-                  'DateTo'     => 'required',
-              ]);
+        $check = PromoteVendor::where('Vendor_id', Auth::user()->id)->where('Promote_Status', 2)->first();
+        if ($check == false) {
+            if ($check->Promote_Status == 3) {
+                $PromoteReq->validate([
+                    'PromoteOn'  => 'required',
+                    'DateFrom'   => 'required',
+                    'DateTo'     => 'required',
+                ]);
 
-              $Promote = new promote_vendor();
-              $Promote->vendor_id     =  Auth::user()->id;
-              $Promote->Promote_On    =  $PromoteReq->PromoteOn;
-              $Promote->Date_From     =  $PromoteReq->DateFrom;
-              $Promote->Date_To       =  $PromoteReq->DateTo;
-              $result =  $Promote->save();
+                $Promote = new PromoteVendor();
+                $Promote->vendor_id     =  Auth::user()->id;
+                $Promote->Promote_On    =  $PromoteReq->PromoteOn;
+                $Promote->Date_From     =  $PromoteReq->DateFrom;
+                $Promote->Date_To       =  $PromoteReq->DateTo;
+                $result =  $Promote->save();
 
-              if($result)
-              {            return redirect()->route('promote')
-                  ->with('success','Promote Request has been submitted, You will be informed when Super Admin Approve Your request');
-              }
-          }else{
-              return redirect()->route('promote')
-                  ->with('error','You are already requested.. ');
-          }
-      }else{
-          return redirect()->route('promote')
-              ->with('error','your previous request was decline by admin. ');
-      }
-
-
+                if ($result) {
+                    return redirect()->route('promote')->with('success', 'Promote Request has been submitted, You will be informed when Super Admin Approve Your request');
+                }
+            } else {
+                return redirect()->route('promote')->with('error', 'You are already requested.. ');
+            }
+        } else {
+            return redirect()->route('promote')->with('error', 'your previous request was decline by admin. ');
+        }
     }
 
-    public function Image(request $ImgReq){
+    public function Image(request $ImgReq)
+    {
         return $ImgReq;
     }
 
