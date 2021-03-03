@@ -6,7 +6,6 @@
                 <h5 class="breadcrumbs-title mt-0 mb-0">
                     <span>
                        <div class="card-title">
-                           <a href="{{redirect()->back()}}"><i class="material-icons left">arrow_back</i></a>
                           @yield('heading')
                        </div>
                     </span>

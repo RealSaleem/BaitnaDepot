@@ -4,8 +4,8 @@
 
 
 
-                                                
- <br>                                           
+
+ <br>
 <label>
 <input type="checkbox" id="AutoCheck" />
 <span>Automatic Promo Code</span>
@@ -60,9 +60,9 @@
 
        <option value="{{ old('body', isset($promo_code) ? $promo_code->type : null) }}"  >{{ old('body', isset($promo_code) ? $promo_code->type : null) }} </option>
 
-        
-           <option value="1" >Percentage  </option>
-           <option value="2">Price  </option>
+
+           <option value="0" >Percentage  </option>
+           <option value="1">Price  </option>
        </select>
        <label for="promo_code_name">Promo Type :</label>
         @if($errors->has('promo_type'))
@@ -74,7 +74,7 @@
 
      <div class="input-field col m4 s4 h-10">
         <input id="promo_value" type="number" name="promo_value" placeholder="" value="">
-       
+
         @if($errors->has('valid_from'))
             <small class="errorTxt">
                 <div class="error mt-1">{{ $errors->first('valid_from') }}</div>
@@ -114,30 +114,30 @@
 $('#promo_value').hide();
 $('#promo_type').on('change',function(){
    let promo_type = $(this).val();
-        if(promo_type == 1)
+        if(promo_type == 0)
         {
             $('#promo_value').show();
             $('#promo_value').attr("placeholder", "Percentage");
             $('#promo_value').val(+"%");
-          
+
         }
-        if(promo_type==2)
+        if(promo_type==1)
         {
             $('#promo_value').show();
             $('#promo_value').attr("placeholder", "Price");
-            
+
         }
-         if(promo_type==0)
+         if(promo_type==2)
         {
             $('#promo_value').hide();
             $('#promo_value').attr("placeholder", "");
-            
+
         }
 
 });
 
   $(document).ready(function(){
-  
+
     $('#AutoCheck').change(function(){
         var dt = new Date();
         var CodeString ="BD-";
@@ -145,11 +145,11 @@ $('#promo_type').on('change',function(){
         var PromoCode = CodeString + code;
     if(this.checked)
     {
-       
+
         $('#code_label').hide();
         $('#code_name').css('text-align','center');
         $('#code_name').css('font-size','25px');
-        $('#code_name').val(PromoCode);  
+        $('#code_name').val(PromoCode);
     }
     else
     {
@@ -158,12 +158,12 @@ $('#promo_type').on('change',function(){
         $('#code_name').val("");
     }
 
-  
 
-    
 
-    
- 
+
+
+
+
 });
 
 

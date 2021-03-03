@@ -8,8 +8,7 @@ class AppConstant
 {
     const APP_USER              = 2;
     const VENDOR_USER           = 1;
-    const NEWED                 = 'new';
-    const VIEWED                = 'viewed';
+
     const APPROVED              = 1;
     const UNAPPROVED            = 0;
     const DECLINED              = 2;
@@ -22,6 +21,8 @@ class AppConstant
     // const NOT_AVAILABLE         = 'Not-Available';
     // const AVAILABLE             = 'Available';
     const ECOMMERCESERVICE      = 1;
+    const VENDORSERVICE         = 1;
     const CONTRACTORSERVICE     = 2;
     const TRUCKSERVICE          = 3;
+
 }

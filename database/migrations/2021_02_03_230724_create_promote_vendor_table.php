@@ -17,9 +17,9 @@ class CreatePromoteVendorTable extends Migration
             $table->id();
             $table->integer('Vendor_id')->unsigned();
             $table->string('Promote_On');
-            $table->string('Date_From');
-            $table->string('Date_To');
-            $table->string('Promote_Status')->default('Not Approve');;
+            $table->date('Date_From');
+            $table->date('Date_To');
+            $table->tinyInteger('Promote_Status')->default(0)->comment('0=requested, 1=approved, 2=declined, 3=expired');
             $table->foreign('Vendor_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

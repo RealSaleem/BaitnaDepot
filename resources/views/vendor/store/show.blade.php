@@ -47,11 +47,19 @@
                                         <tr>
                                             <td>{{__('vendor.availability')}}:</td>
                                             <td class="users-view-username">
+<<<<<<< HEAD
                                                 @if($user->vendor->is_available == \App\Models\Vendor::NO)
                                                     {{\App\Models\Vendor::NOT_AVAILABLE}}
                                                 @endif
                                                 @if($user->vendor->is_available == \App\Models\Vendor::YES)
                                                     {{\App\Models\Vendor::AVAILABLE}}
+=======
+                                                @if($user->vendor->avaibility ==0)
+                                                    {{App\Models\Vendor::AVAILABLE}}
+                                                @endif
+                                                @if($user->vendor->avaibility ==1)
+                                                    {{App\Models\Vendor::NOT_AVAILABLE}}
+>>>>>>> 48e5f304b12b7b01e6644dbc7408597fb52fd1ab
                                                 @endif
                                             </td>
                                         </tr>

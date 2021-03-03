@@ -23,6 +23,7 @@
                                             <th>Promote On </th>
                                             <th>From</th>
                                             <th>To</th>
+                                             <th>Status</th>
                                             <th style="text-align: center;"> Action</th>
                                         </tr>
                                     </thead>
@@ -36,6 +37,7 @@
                                             <td>{{$P->Promote_On}}</td>
                                             <td>{{$P->Date_From}}</td>
                                             <td>{{$P->Date_To}}</td>
+                                            <td>{{App\Helpers\Helper::getPromoteStatus($P->Promote_Status)}} </td>
 
                                             <td style="text-align: center;" >
                                                 <!-- Dropdown Trigger -->
@@ -43,8 +45,9 @@
 
                                             </td>
                                             <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
-                                                <li><a href="#"><i class="Medium material-icons" style="font-size: 30px;">visibility</i> View</a></li>
-                                                <li> <a href="#"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                <li><a href="{{url('admin/Promote_edit/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
+                                                <li><a href="{{url('admin/approve_promote/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">done_all</i> Approve</a></li>
+                                                <li> <a href="{{url('admin/decline_promote/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">cancel</i> Decline</a></li>
                                             </ul>
 
 
@@ -62,6 +65,7 @@
                                             <th>Promote On </th>
                                             <th>From</th>
                                             <th>To</th>
+                                            <th>Status</th>
                                             <th style="text-align: center;"> Action</th>
                                         </tr>
                                         </tr>

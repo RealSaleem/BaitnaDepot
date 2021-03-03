@@ -38,7 +38,14 @@
                                         </tr>
                                         <tr>
                                             <td>{{__('contact.status')}}:</td>
-                                            <td>{{ucwords($contact->status)}}</td>
+                                            <td>
+                                            @if(ucwords($contact->status) == 0)
+                                            {{App\Models\ContactUsMsg::NEWED}}
+                                            @endif
+                                            @if(ucwords($contact->status) == 1)
+                                                {{App\Models\ContactUsMsg::VIEWED}}
+                                            @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>{{__('contact.submission_date')}}:</td>
@@ -50,10 +57,10 @@
                                 <tr>
 
 
-                                    @if($contact->status != 'viewed')
+                                    @if($contact->status != 1)
                                         <a href="{{route('admin.viewed_contact_message', $contact->id)}}" class="waves-effect waves-light btn btn-small mr-2 mb-2">{{'Viewed'}}<i class="material-icons">visibility</i></a>
                                     @endif
-                                    <a href="{{route('admin.replyform_contact_us_messages', $contact->id)}}" class="waves-effect waves-light btn btn-small mr-2 mb-2">{{'reply'}}  <i class="material-icons">reply</i></a>
+                                    <a href="{{url('admin/replyform/'.$contact->id)}}" class="waves-effect waves-light btn btn-small mr-2 mb-2">{{'reply'}}  <i class="material-icons">reply</i></a>
 
 
                                 </tr>

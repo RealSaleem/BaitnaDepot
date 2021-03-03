@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Mail;
-use App\Models\ContactUs;
+use App\Models\ContactUsMsg;
 use App\Mail\ContactUs\ContactUsMail;
 use App\Http\Requests\Admin\ContactUs\GetAll;
 use App\Http\Requests\Admin\ContactUs\Get;
@@ -33,21 +33,21 @@ class ContactUsController extends Controller
 
     public function replyform($id)
     {
-        $User = ContactUs::find($id);
+        $User = ContactUsMsg::find($id);
 
-        return view('admin.contactus-msg.reply', ['user' => $User]);
+        return view('admin.contactus-msg.reply')->with(compact('User'));
     }
 
     public function reply(Request $ReplyReq)
     {
+        $email = $ReplyReq->email;
         $data = [
             'email'     => $ReplyReq->email,
             'body'      => $ReplyReq->message
         ];
-        $email = $ReplyReq->email;
         $SendMail =  Mail::to($email)->send(new ContactUsMail($data));
-
-        return redirect()->back()->withSuccess('Reply has been send to the user');
-
+        if($SendMail){
+            return redirect()->setTargetUrl('admin/contact_us_messages')->with('success','Reply has been send to the user');
+        }
     }
 }

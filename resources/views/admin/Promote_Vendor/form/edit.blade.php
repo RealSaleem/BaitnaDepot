@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         @section('heading')
-            {{ __('product.promote') }}
+            {{ __('Edit Promote Request') }}
         @endsection
         <div class="row">
             <div class="col s12 m12 l12">
@@ -17,20 +17,16 @@
 
                         <div class=" row pt-4">
                             <div class="col s12">
-                                @if(isset($check) ? $check->Promote_Status == 1 : true )
-                                    <div class="Alert alert-danger center mb-4 card pb-2 pt-2" style="color: forestgreen;font-size: 24px; ">
-                                        <p> Promotion period will expire on {{$check->Date_To}} </p>
-                                    </div>
-                                @endif
-                                @if(isset($check) ? $check->Promote_Status !== 0 : true )
-                                <form action="{{url('/promote_me')}}" method="post" >
+                                <form action="{{Route('admin.UpdatePromote')}}" method="post" >
                                     @csrf
                                     @method('POST')
                                     <div class="row">
+                                        <input type="hidden"  value="{{$Promote->id}}" name="Promote_id">
 
                                         <div class="row input-field col s4 m8 l4 h-100">
                                             <select name="PromoteOn" data-placeholder="{{__('product.select_colors')}}" class="
                                             form-control" id="multiple-select2-icons"  >
+                                                <option  value="{{$Promote->Promote_On}}" selected >Top-{{$Promote->Promote_On}}</option>
                                                 <option  value=""  >Promoted To </option>
                                                 <option  value="1"  >Top-1</option>
                                                 <option  value="2"  >Top-2</option>
@@ -44,7 +40,7 @@
                                         </div>
 
                                         <div class="input-field col m4 s4 h-100">
-                                            <input id="From" type="date" name="DateFrom" value="{{date('Y-m-d')}}" >
+                                            <input id="From" type="date" name="DateFrom" value="{{$Promote->Date_From}}" >
                                             <label for="From">From :</label>
 
                                             @if($errors->has('DateFrom'))
@@ -57,7 +53,7 @@
 
 
                                         <div class="input-field col m4 s4 h-100">
-                                            <input id="To" type="date" name="DateTo" value="" >
+                                            <input id="To" type="date" name="DateTo" value="{{$Promote->Date_To}}" >
                                             <label for="To">To :</label>
 
                                             @if($errors->has('DateTo'))
@@ -71,14 +67,9 @@
 
 
 
-                                    <button class="btn cyan waves-effect waves-light right mb-2 mr-4" type="submit" name="submit">Promote Me</button>
+                                    <button class="btn cyan waves-effect waves-light right mb-2 mr-4" type="submit" name="submit">Update</button>
 
                                 </form>
-                                @else
-                                    <div class="Alert alert-danger center mb-4 card pb-2 pt-2" style="color: forestgreen;font-size: 24px; ">
-                                       <p> You Are Already Applied for promote, You will be informed if ADMIN approve your request</p>
-                                    </div>
-                                @endif
                             </div>
 
                         </div>

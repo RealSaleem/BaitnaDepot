@@ -62,7 +62,14 @@
                                                 <td>{{$contactus->name}}</td>
                                                 <td>{{$contactus->email}}</td>
                                                 <td>{{$contactus->mobile}}</td>
-                                                <td>{{ucwords($contactus->status)}}</td>
+                                                <td>
+                                                    @if(ucwords($contactus->status) == 0)
+                                                        {{App\Models\ContactUsMsg::NEWED}}
+                                                    @endif
+                                                    @if(ucwords($contactus->status) == 1)
+                                                        {{App\Models\ContactUsMsg::VIEWED}}
+                                                    @endif
+                                                </td>
                                                 <td>{{Helper::getFormatedDateTime($contactus->created_at)}}</td>
                                                 <td>
                                                     <a href="{{route('admin.contact_us_messages.show', $contactus->id)}}" class="waves-effect waves-light btn btn-small">{{__('site.view')}}</a>

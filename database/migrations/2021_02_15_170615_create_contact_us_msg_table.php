@@ -19,7 +19,7 @@ class CreateContactUsMsgTable extends Migration
             $table->string('email', 255)->nullable();
             $table->string('mobile', 50)->nullable();
             $table->text('message')->nullable();
-            $table->string('status', 50)->nullable()->comment('new,viewed');
+            $table->tinyInteger('status')->default(0)->comment('0=new,1=viewed');
             $table->timestamps();
         });
     }

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::post('update_contractor_working_hours','WorkingHourController@update')->name('update_contractor_working_hours');
 
 	Route::get('promote', 'VendorController@promote_me_show')->name('promote');
-	Route::post('prommote_me','VendorController@prommote_me')->name('prommote_me');
+	Route::post('promote_me','VendorController@promote_me')->name('promote_me');
 	Route::post('check','VendorController@Check');
 
 });
@@ -77,7 +77,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::get('contact_us_messages', 'ContactUsController@index')->name('contact_us_messages');
 		Route::get('contact_us_messages/{id}', 'ContactUsController@get')->name('contact_us_messages.show');
 		Route::get('viewed_contact_message/{id}', 'ContactUsController@viwedMessage')->name('viewed_contact_message');
-		Route::get('/replyform/{id}',       'ContactUsController@replyform')->name('replyform_contact_us_messages');
+		Route::get('replyform/{id}',       'ContactUsController@replyform')->name('replyform_contact_us_messages');
         Route::POST('reply',                 'ContactUsController@reply')->name('reply_contact_us_messages');
 		Route::resource('heavy_trucks', 'TrucksController')->name('*', 'heavy_trucks');
 		Route::get('vendor_requests', 'VendorRequestsController@index')->name('vendor_requests');
@@ -92,8 +92,13 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 		Route::post('change_password', 'Auth\ChangePasswordController@changePassword')->name('change_password');//Change password of any user
 		Route::resource('products','Products\ProductController')->name('*','products');
 		Route::resource('advertisements','Advertisements\AdvertisementController')->name('*','advertisements');
-
-		Route::get('PromoteVendorAdmin','VendorRequestsController@PromoteVendor')->name('PromoteVendorAdmin');
+//------------------------------ Promote Vendor Admin Action Routes >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		Route::get('Promote',             'VendorRequestsController@PromoteVendor')->name('Promote');
+        Route::get('Promote_edit/{id}',   'VendorRequestsController@EditPromoteVendor')->name('EditPromote');
+        Route::post('Promote_Update','VendorRequestsController@UpdatePromoteVendor')->name('UpdatePromote');
+        Route::get('approve_promote/{id}',   'VendorRequestsController@ApprovePromoteRequest')->name('approve_promote');
+        Route::get('decline_promote/{id}',   'VendorRequestsController@DeclinePromoteRequest')->name('decline_promote');
+//------------------------------ Promote Vendor Admin Action Routes <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		Route::resource('promo_code','Promo_Code\PromoCodeController')->name('*','promo_code');
 		Route::resource('notification','Notifications\NotificationController')->name('*','notification');
 

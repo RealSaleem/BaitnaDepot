@@ -16,9 +16,9 @@ class CreatePromoCodeTable extends Migration
         Schema::create('promo_codes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('valid_from');
-            $table->string('valid_til');
-            $table->string('type');
+            $table->date('valid_from');
+            $table->date('valid_til');
+            $table->tinyInteger('type')->default(NULL)->comment('0=percentage, 1=Price');;
             $table->integer('num_of_user');
             $table->integer('value')->nullable();
             $table->timestamps();

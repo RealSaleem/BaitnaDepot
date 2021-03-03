@@ -3,11 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="662ee827-4f76-417b-8a06-137871b5fd0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/AppConstant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/AppConstant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactUsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactUsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/VendorRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VendorRequestsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VendorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VendorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/ContactUs/ViewedMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/ContactUs/ViewedMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/PromoCode/CreatePromoCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/PromoCode/CreatePromoCode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ContactUs/ContactUsMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ContactUs/ContactUsMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ContactUsMsg.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContactUsMsg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Vendor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/promote_vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/promote_vendor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_03_230724_create_promote_vendor_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_230724_create_promote_vendor_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_04_221729_create_promo_code_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_04_221729_create_promo_code_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_15_170615_create_contact_us_msg_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_15_170615_create_contact_us_msg_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/vendor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Promote_Vendor/promote_vendor_A.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Promote_Vendor/promote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/contactus-msg/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contactus-msg/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/contactus-msg/reply.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contactus-msg/reply.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/contactus-msg/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contactus-msg/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/promo_code/forms/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promo_code/forms/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/promo_code/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/promo_code/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/heading.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/heading.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote_me.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/PromoteVendor/promote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/store/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/store/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +226,8 @@
       <workItem from="1614510236596" duration="4200000" />
       <workItem from="1614535131521" duration="4418000" />
       <workItem from="1614581742602" duration="8474000" />
-      <workItem from="1614673087153" duration="1109000" />
+      <workItem from="1614673087153" duration="18919000" />
+      <workItem from="1614757250145" duration="3548000" />
     </task>
     <task id="LOCAL-00001" summary="update address bud resolved">
       <created>1614089028588</created>

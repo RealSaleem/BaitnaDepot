@@ -46,7 +46,7 @@
                                                 <td>{{$PC->name}}</td>
                                                 <td>{{$PC->valid_from}}</td>
                                                 <td>{{$PC->valid_til}}</td>
-                                                <td>{{$PC->type}}</td>
+                                                <td>{{\App\Helpers\Helper::getPromoType($PC->type)}}</td>
                                                 <td>{{$PC->value}}</td>
                                                 <td>{{$PC->num_of_user}}</td>
                                         <td>
