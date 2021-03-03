@@ -19,8 +19,8 @@ class AppConstant
     const ACTIVE                = 1;
     const YES                   = 1;
     const NO                    = 0;
-    const NOT_AVAILABLE         = 'Not-Available';
-    const AVAILABLE             = 'Available';
+    // const NOT_AVAILABLE         = 'Not-Available';
+    // const AVAILABLE             = 'Available';
     const ECOMMERCESERVICE      = 1;
     const CONTRACTORSERVICE     = 2;
     const TRUCKSERVICE          = 3;

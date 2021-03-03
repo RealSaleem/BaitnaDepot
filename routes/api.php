@@ -30,7 +30,9 @@ Route::get('get_advertisement','API\PageController@getAdvertisementBanner');
 Route::apiResource('address', 'API\AddressController');
 
 Route::get('categories/{type}', 'API\VendorController@getCategories');
-Route::get('ecommerce_vendors', 'API\VendorController@getEcommerceVendors');
+Route::get('ecommerce_vendors', 'API\VendorController@ecommerceVendors');
+Route::get('product_list/{id}', 'API\VendorController@ecommerceVendorProducts');
+Route::get('product_details/{id}', 'API\VendorController@getProductDetails');
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('login', 'API\AuthController@login');

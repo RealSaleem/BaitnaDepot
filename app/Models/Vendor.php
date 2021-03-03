@@ -12,7 +12,7 @@ class Vendor extends Model
 
 	// public $translatable = ['name'];
 	protected $fillable = ['name_en', 'name_ar', 'services', 'logo', 'ecommerce_store_details', 'contractor_details', 'heavy_truck_details'];
-	protected $hidden 	= ['user_id', 'created_at', 'modified_at', 'deleted_at'];
+	protected $hidden 	= ['user_id', 'created_at', 'updated_at', 'deleted_at'];
 	protected $casts 	= ['services'];
 
 	const YES 				= 1;

@@ -9,8 +9,8 @@ class Product extends Model
 {
 	use SoftDeletes;
 
-    protected $fillable  	= ['name_en', 'name_ar', 'description_en', 'description_ar', 'price'];
-    protected $hidden 	 	= ['created_at', 'updated_at'];
+    protected $fillable  	= ['name_en', 'name_ar', 'description_en', 'description_ar', 'price', 'quantity', 'delivery_fees'];
+    protected $hidden 	 	= ['created_at', 'updated_at', 'deleted_at'];
 
     public function images()
     {
