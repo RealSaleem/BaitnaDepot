@@ -53,7 +53,7 @@ class VendorRequestsController extends Controller
     public function PromoteVendor()
     {
 //         $Promote = PromoteVendor::with('User')->where('Promote_Status',0)->get();
-        $Promote = PromoteVendor::all();
+        $Promote = PromoteVendor::with('vendor')->get();
         return view('admin.Promote_Vendor.promote')->with(compact('Promote'));
     }
     //----------  Edit Promote Vendor Request---------

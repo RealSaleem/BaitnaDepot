@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     @section('heading')
-        Vendor Romote Request
+        {{__('promote.promote-requests')}}
     @endsection
     <div class="section section-data-tables">
 
@@ -18,13 +18,13 @@
                                 <table id="page-length-option" class="display">
                                     <thead>
                                          <tr>
-                                            <th>ID</th>
-                                            <th>Vendor Name</th>
-                                            <th>Promote On </th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                             <th>Status</th>
-                                            <th style="text-align: center;"> Action</th>
+                                            <th>{{__('promote.id')}}</th>
+                                            <th>{{__('promote.name')}}</th>
+                                            <th>{{__('promote.promote-on')}}</th>
+                                            <th>{{__('promote.from')}}</th>
+                                            <th>{{__('promote.to')}}</th>
+                                             <th>{{__('promote.status')}}</th>
+                                            <th style="text-align: center;"> {{__('promote.action')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -33,7 +33,7 @@
 
                                         <tr>
                                             <td>{{$P->id}}</td>
-                                            <td>{{$P->User->name}}</td>
+                                            <td>{{$P->vendor->name_en}}</td>
                                             <td>{{$P->Promote_On}}</td>
                                             <td>{{$P->Date_From}}</td>
                                             <td>{{$P->Date_To}}</td>
@@ -45,9 +45,9 @@
 
                                             </td>
                                             <ul id='dropdown1' class='dropdown-content' style="width: 200px;">
-                                                <li><a href="{{url('admin/Promote_edit/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> Edit</a></li>
-                                                <li><a href="{{url('admin/approve_promote/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">done_all</i> Approve</a></li>
-                                                <li> <a href="{{url('admin/decline_promote/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">cancel</i> Decline</a></li>
+                                                <li><a href="{{url('admin/Promote_edit/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">edit</i> {{__('promote.edit')}}</a></li>
+                                                <li><a href="{{url('admin/approve_promote/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">done_all</i> {{__('promote.approve')}}</a></li>
+                                                <li> <a href="{{url('admin/decline_promote/'.$P->id)}}"><i class="Medium material-icons" style="font-size: 30px;">cancel</i> {{__('promote.decline')}}</a></li>
                                             </ul>
 
 
@@ -59,15 +59,15 @@
 
                                     </tbody>
                                     <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Vendor Name</th>
-                                            <th>Promote On </th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                            <th>Status</th>
-                                            <th style="text-align: center;"> Action</th>
-                                        </tr>
+                                    <tr>
+                                        <th>{{__('promote.id')}}</th>
+                                        <th>{{__('promote.name')}}</th>
+                                        <th>{{__('promote.promote-on')}}</th>
+                                        <th>{{__('promote.from')}}</th>
+                                        <th>{{__('promote.to')}}</th>
+                                        <th>{{__('promote.status')}}</th>
+                                        <th style="text-align: center;"> {{__('promote.action')}}</th>
+                                    </tr>
                                         </tr>
                                     </tfoot>
                                 </table>

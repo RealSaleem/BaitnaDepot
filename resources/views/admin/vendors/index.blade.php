@@ -69,6 +69,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         @if(sizeof($vendors) > 0)
                                         @foreach($vendors as $vendor)
                                         <tr>
@@ -102,13 +103,15 @@
                                                 <li class="divider" tabindex="-1"></li>
                                                 <li><a href="javascript:;" data-value="{{$vendor->id}}" type="submit" class="delete-record"><i class=" material-icons">delete_forever</i> {{__('site.delete')}}</a></li>
                                                 <li class="divider" tabindex="-1"></li>
-                                                <li style="text-align: center;"><a href="javascript:;" onclick="return reset_password({{$vendor->user->id}})">Reset Password</a> </li>
+                                                <li style="text-align: center;"><a href="javascript:;" onclick="return reset_password(<?php echo e($vendor->user != null ? $vendor->user->id : null); ?>)">Reset Password</a> </li>
                                             </ul>
                                         </tr>
                                         @endforeach
                                         @else
                                         <td colspan="4">{{__('vendor.no_vendor_found')}}</td>
                                         @endif
+
+
                                     </tbody>
                                     <tfoot>
                                         <tr>

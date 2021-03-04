@@ -14,11 +14,11 @@ class Vendor extends Model
 	protected $fillable = ['name_en', 'name_ar', 'services', 'logo', 'ecommerce_store_details', 'contractor_details', 'heavy_truck_details'];
 	protected $hidden 	= ['user_id', 'created_at', 'updated_at', 'deleted_at'];
 	protected $casts 	= ['services'];
-	
+
 	const ECOMMERCESERVICE      = 1;
     const CONTRACTORSERVICE     = 2;
     const TRUCKSERVICE          = 3;
-	
+
 	const YES 				= 1;
 	const NO 				= 0;
 	const NOT_AVAILABLE     = 'Not-Available';
@@ -26,7 +26,7 @@ class Vendor extends Model
 
 	public function user()
 	{
-		return $this->hasOne(User::class);
+		return $this->hasOne(User::class, 'vendor_id');
 	}
 
 	public function getLocaleName()

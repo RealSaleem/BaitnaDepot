@@ -71,31 +71,40 @@ class VendorController extends Controller
 
     public function promote_me(Request $PromoteReq)
     {
-        $check = PromoteVendor::where('Vendor_id', Auth::user()->id)->where('Promote_Status', 2)->first();
-        if ($check == false) {
-            if ($check->Promote_Status == 3) {
-                $PromoteReq->validate([
-                    'PromoteOn'  => 'required',
-                    'DateFrom'   => 'required',
-                    'DateTo'     => 'required',
-                ]);
-
-                $Promote = new PromoteVendor();
-                $Promote->vendor_id     =  Auth::user()->id;
-                $Promote->Promote_On    =  $PromoteReq->PromoteOn;
-                $Promote->Date_From     =  $PromoteReq->DateFrom;
-                $Promote->Date_To       =  $PromoteReq->DateTo;
-                $result =  $Promote->save();
-
-                if ($result) {
-                    return redirect()->route('promote')->with('success', 'Promote Request has been submitted, You will be informed when Super Admin Approve Your request');
-                }
-            } else {
-                return redirect()->route('promote')->with('error', 'You are already requested.. ');
-            }
-        } else {
-            return redirect()->route('promote')->with('error', 'your previous request was decline by admin. ');
+        $check = PromoteVendor::where('Vendor_id', Auth::user()->id)->where('Promote_Status', 1)->first();
+        if ($check) {
+            return redirect()->route('promote')->with('error', 'you are aleady promoted.');
         }
+        $check = PromoteVendor::where('Vendor_id', Auth::user()->id)->where('Promote_Status', 2)->first();
+        if ($check) {
+                $this->promote_vendor($PromoteReq);
+            return redirect()->route('promote')->with('success', 'Promote Request has been submitted, You will be informed when Super Admin Approve Your request');
+        }
+        $check = PromoteVendor::where('Vendor_id', Auth::user()->id)->where('Promote_Status', 3)->first();
+        if ($check) {
+            $this->promote_vendor($PromoteReq);
+            return redirect()->route('promote')->with('success', 'Promote Request has been submitted, You will be informed when Super Admin Approve Your request');
+        }
+        $this->promote_vendor($PromoteReq);
+        return redirect()->route('promote')->with('success', 'Promote Request has been submitted, You will be informed when Super Admin Approve Your request');
+
+    }
+
+
+    public function promote_vendor($PromoteReq)
+    {
+        $PromoteReq->validate([
+            'PromoteOn'  => 'required',
+            'DateFrom'   => 'required',
+            'DateTo'     => 'required',
+        ]);
+        $Promote = new PromoteVendor();
+        $Promote->vendor_id     =  Auth::user()->id;
+        $Promote->Promote_On    =  $PromoteReq->PromoteOn;
+        $Promote->Date_From     =  $PromoteReq->DateFrom;
+        $Promote->Date_To       =  $PromoteReq->DateTo;
+        $result =  $Promote->save();
+        return $result;
     }
 
     public function Image(request $ImgReq)

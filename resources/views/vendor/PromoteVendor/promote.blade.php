@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     @section('heading')
-    {{ __('product.promote') }}
+        {{__('promote.submit')}}
     @endsection
     <div class="row">
         <div class="col s12 m12 l12">
@@ -14,8 +14,10 @@
                     </div>
                     @endif
                     <div class=" row pt-4">
+
                         <div class="col s12">
-                            @if(isset($check) ? $check->Promote_Status == 1 : true )
+
+                            @if(isset($check) ? $check->Promote_Status == 1 : NULL )
                             <div class="Alert alert-danger center mb-4 card pb-2 pt-2" style="color: forestgreen;font-size: 24px; ">
                                 <p> Promotion period will expire on {{$check->Date_To}} </p>
                             </div>
@@ -28,7 +30,7 @@
                                     <div class="row input-field col s4 m8 l4 h-100">
                                         <select name="PromoteOn" data-placeholder="{{__('product.select_colors')}}" class="
                                             form-control" id="multiple-select2-icons">
-                                            <option value="">Promoted To </option>
+                                            <option value="">{{__('promote.promote-to')}} </option>
                                             <option value="1">Top-1</option>
                                             <option value="2">Top-2</option>
                                             <option value="3">Top-3</option>
@@ -41,7 +43,7 @@
                                     </div>
                                     <div class="input-field col m4 s4 h-100">
                                         <input id="From" type="date" name="DateFrom" min="{{date('Y-m-d')}}">
-                                        <label for="From">From :</label>
+                                        <label for="From">{{__('promote.pro-from')}} :</label>
 
                                         @if($errors->has('DateFrom'))
                                         <small class="errorTxt">
@@ -51,7 +53,7 @@
                                     </div>
                                     <div class="input-field col m4 s4 h-100">
                                         <input id="To" type="date" name="DateTo" min="{{date('Y-m-d', strtotime('+1 day'))}}">
-                                        <label for="To">To :</label>
+                                        <label for="To">{{__('promote.pro-till')}} :</label>
                                         @if($errors->has('DateTo'))
                                         <small class="errorTxt">
                                             <div class="error mt-1">{{ $errors->first('DateTo') }}</div>
@@ -59,7 +61,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <button class="btn cyan waves-effect waves-light right mb-2 mr-4" type="submit" name="submit">Promote Me</button>
+                                <button class="btn cyan waves-effect waves-light right mb-2 mr-4" type="submit" name="submit">{{__('promote.submit')}}</button>
                             </form>
                             @else
                             <div class="Alert alert-danger center mb-4 card pb-2 pt-2" style="color: forestgreen;font-size: 24px; ">
@@ -67,6 +69,8 @@
                             </div>
                             @endif
                         </div>
+
+
                     </div>
                 </div>
             </div>
