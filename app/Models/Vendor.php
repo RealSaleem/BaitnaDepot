@@ -15,6 +15,10 @@ class Vendor extends Model
 	protected $hidden 	= ['user_id', 'created_at', 'updated_at', 'deleted_at'];
 	protected $casts 	= ['services'];
 	
+	const ECOMMERCESERVICE      = 1;
+    const CONTRACTORSERVICE     = 2;
+    const TRUCKSERVICE          = 3;
+	
 	const YES 				= 1;
 	const NO 				= 0;
 	const NOT_AVAILABLE     = 'Not-Available';
@@ -32,6 +36,10 @@ class Vendor extends Model
 			return $this->name_ar;
 		}
 		return $this->name_en;
+	}
+
+	public function promote(){
+		return $this->hasOne(PromoteVendor::class)->where('Promote_Status', 1);
 	}
 
 }

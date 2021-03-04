@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class PromoteVendor extends Model
 {
-    const REQUESTED              = 'Requested';
-    const APPROVED               = 'Approved';
-    const DECLINED               = 'Declined';
-    const EXPIRED                = 'Expired';
+    const REQUESTED     = 'Requested';
+    const APPROVED      = 'Approved';
+    const DECLINED      = 'Declined';
+    const EXPIRED       = 'Expired';
 
-    protected $table = "promote_vendors";
+    protected $table    = "promote_vendors";
     protected $fillable = ['vendor_id', 'PromoteOn', 'DateFrom', 'DateTo'];
+    protected $hidden   = ['created_at', 'updated_at'];
 
-    public function User()
+    public function vendor()
     {
-        return $this->belongsTo(User::class, 'Vendor_id');
+        return $this->belongsTo(Vendor::class);
     }
 }
